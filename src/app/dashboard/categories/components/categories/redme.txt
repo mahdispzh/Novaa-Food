@@ -1,0 +1,632 @@
+features/
+└── categories/
+    ├── api/
+    │   └── category.api.ts
+    ├── hooks/
+    │   ├── use-categories.ts
+    │   ├── use-category.ts
+    │   ├── use-create-category.ts
+    │   ├── use-update-category.ts
+    │   └── use-delete-category.ts
+    ├── lib/
+    │   └── category-keys.ts
+    ├── schemas/
+    │   └── category.schema.ts
+    ├── types/
+    │   └── category.types.ts
+    └── components/
+        ├── category-form.tsx
+        ├── category-modal.tsx
+        ├── category-delete-modal.tsx
+        └── create-category-button.tsx
+
+
+
+        delete
+
+        "use client";
+
+        import { useState } from "react";
+        import { CategoryDeleteModal } from "./category-delete-modal";
+
+        export function TestDeleteButton() {
+          const [open, setOpen] = useState(false);
+
+          const categoryId = 676;
+
+          return (
+            <>
+              {/* فقط یک دکمه ساده */}
+              <button
+                onClick={() => setOpen(true)}
+                className="bg-red-500 text-white px-4 py-2 rounded-sm"
+              >
+                حذف دسته‌بندی
+              </button>
+
+              {/* modal */}
+              {open && (
+                <CategoryDeleteModal
+                  categoryId={categoryId}
+                  onClose={() => setOpen(false)}
+                />
+              )}
+            </>
+          );
+        }
+
+
+        {categories.map((cat) => (
+          <div key={cat.id} className="flex gap-2">
+
+            <span>{cat.name}</span>
+
+            <button
+              onClick={() => setDeleteId(cat.id)}
+              className="text-red-500"
+            >
+              حذف
+            </button>
+
+          </div>
+        ))}
+
+        {deleteId && (
+          <CategoryDeleteModal
+            categoryId={deleteId}
+            onClose={() => setDeleteId(null)}
+          />
+        )}
+
+
+
+        // create
+"use client";
+
+import { useState } from "react";
+import { CategoryModal } from "./category-modal";
+
+export function CreateButton() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="bg-green-500 text-white px-4 py-2 rounded-sm"
+      >
+        افزودن دسته‌بندی
+      </button>
+
+      {open && (
+        <CategoryModal
+          mode="create"
+          onClose={() => setOpen(false)}
+        />
+      )}
+    </>
+  );
+}
+
+
+/// update
+"use client";
+
+import { useState } from "react";
+import { CategoryModal } from "./category-modal";
+import { Category } from "../types/category.types";
+
+type Props = {
+  category: Category;
+};
+
+export function UpdateButton({ category }: Props) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="bg-blue-500 text-white px-3 py-1 rounded-sm"
+      >
+        ویرایش
+      </button>
+
+      {open && (
+        <CategoryModal
+          mode="update"
+          categoryId={category.id}
+          onClose={() => setOpen(false)}
+        />
+      )}
+    </>
+  );
+}
+
+
+
+   ///////delete
+
+"use client";
+
+import { useState } from "react";
+import { CategoryDeleteModal } from "./category-delete-modal";
+
+export function DeleteButton({ id }: { id: number }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="text-red-500"
+      >
+        حذف
+      </button>
+
+      {open && (
+        <CategoryDeleteModal
+          categoryId={id}
+          onClose={() => setOpen(false)}
+        />
+      )}
+    </>
+  );
+}
+
+
+
+
+
+
+
+سلام چت . یه پروژه میفرستم که تقریبا کامله. از دیدی یه سنیور نگاش کن . و بهم بگو چطور مواردشو هندل کنم .
+ /**
+ * category.api.ts
+ * ---------------------------------------------
+ * این فایل تنها مسئول ارتباط با backend است.
+ * هیچ state یا react-query داخلش نیست.
+ * فقط CRUD خام (Create, Read, Update, Delete)
+ */
+
+import { apiClient } from "@/src/shared/api/client";
+import { Category } from "../types/category.types";
+
+export type CreateCategoryDto = {
+  name: string;
+  slug: string;
+  image?: string;
+  parentId: number | null;
+};
+
+export type UpdateCategoryDto = CreateCategoryDto;
+
+export const categoryApi = {
+  /**
+   * گرفتن لیست دسته‌بندی‌ها (pagination-ready)
+   */
+  getAll: (page = 1, limit = 10) =>
+    apiClient.get<{ data: Category[]; meta: any }>(
+      `protected/categories?page=${page}&limit=${limit}`
+    ),
+
+  /**
+   * گرفتن یک category
+   */
+  getOne: (id: number) =>
+    apiClient.get<Category>(`protected/categories/${id}`),
+
+  /**
+   * ساخت category جدید
+   */
+  create: (data: CreateCategoryDto) =>
+    apiClient.post<Category>("protected/categories", data),
+
+  /**
+   * آپدیت category
+   */
+  update: (id: number, data: UpdateCategoryDto) =>
+    apiClient.put<Category>(`protected/categories/${id}`, data),
+
+  /**
+   * حذف category
+   */
+  remove: (id: number) =>
+    apiClient.delete<{ success: boolean }>(
+      `protected/categories/${id}`
+    ),
+};./**
+ * category-delete-modal.tsx
+ * ---------------------------------------------
+ * مسئول:
+ * - گرفتن id category
+ * - نمایش confirm UI
+ * - اجرای delete mutation
+ * - بستن modal بعد از success
+ *
+ * این فایل هیچ logic پیچیده‌ای ندارد
+ * فقط orchestration delete flow
+ */
+
+"use client";
+
+
+import {useDeleteCategory} from "@/src/app/categories/hook/use-delete-category";
+
+type Props = {
+  categoryId: number;
+  onClose: () => void;
+};
+
+export function CategoryDeleteModal({
+                                      categoryId,
+                                      onClose,
+                                    }: Props) {
+  const deleteMutation = useDeleteCategory();
+
+  const handleDelete = () => {
+    deleteMutation.mutate(categoryId, {
+      onSuccess: () => {
+        onClose();
+      },
+    });
+  };
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black/40">
+      <div className="bg-white w-[400px] p-5 rounded-sm">
+
+        <h2 className="text-lg font-bold">
+          حذف دسته‌بندی
+        </h2>
+
+        <p className="text-sm text-gray-500 mt-2">
+          آیا مطمئن هستید که می‌خواهید این دسته‌بندی را حذف کنید؟
+        </p>
+
+        <div className="flex gap-3 mt-5">
+          <button
+            onClick={onClose}
+            className="w-full border py-2 rounded-sm"
+          >
+            لغو
+          </button>
+
+          <button
+            disabled={deleteMutation.isPending}
+            onClick={handleDelete}
+            className="w-full bg-red-500 text-white py-2 rounded-sm"
+          >
+              {deleteMutation.isPending ? "در حال حذف..." : "حذف"}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+}./**
+ * category-form.tsx
+ * ---------------------------------------------
+ * یک فرم مشترک برای create + update
+ * با mode کنترل می‌شود
+ */
+
+"use client";
+
+import { useForm } from "react-hook-form";
+import { CategoryFormValues } from "../schemas/category.schema";
+
+type Props = {
+  mode: "create" | "update";
+  defaultValues?: Partial<CategoryFormValues>;
+  onSubmit: (data: CategoryFormValues) => void;
+};
+
+export function CategoryForm({
+                               mode,
+                               defaultValues,
+                               onSubmit,
+                             }: Props) {
+  const methods = useForm<CategoryFormValues>({
+    defaultValues,
+  });
+
+  const handleSubmit = methods.handleSubmit(onSubmit);
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* inputs here */}
+
+      <button type="submit">
+        {mode === "create" ? "ثبت" : "ویرایش"}
+      </button>
+    </form>
+  );
+}./**
+ * category-modal.tsx
+ * ---------------------------------------------
+ * این فایل orchestrator مودال است:
+ * - مدیریت create / update mode
+ * - اتصال فرم به API hooks
+ * - کنترل open/close
+ * - پاس دادن defaultValues برای update
+ *
+ * اینجا نباید business logic پیچیده نوشته شود
+ * فقط glue layer بین UI + hooks
+ */
+
+"use client";
+
+import { CategoryForm } from "./category-form";
+
+import { Category } from "../types/category.types";
+import {useCategory} from "@/src/app/categories/hook/use-category";
+import {useUpdateCategory} from "@/src/app/categories/hook/use-update-category";
+import {useCreateCategory} from "@/src/app/categories/hook/use-create-category";
+
+type Props = {
+  mode: "create" | "update";
+  categoryId?: number;
+  onClose: () => void;
+};
+
+export function CategoryModal({
+                                mode,
+                                categoryId,
+                                onClose,
+                              }: Props) {
+  const createMutation = useCreateCategory();
+  const updateMutation = useUpdateCategory();
+
+  // فقط در حالت update دیتا می‌گیریم
+  const { data: category } = useCategory(
+    mode === "update" ? categoryId : undefined
+  );
+
+  /**
+   * submit handler
+   */
+  const handleSubmit = (values: any) => {
+    if (mode === "create") {
+      createMutation.mutate(values, {
+        onSuccess: () => onClose(),
+      });
+      return;
+    }
+
+    if (mode === "update" && categoryId) {
+      updateMutation.mutate(
+        {
+          id: categoryId,
+          data: values,
+        },
+        {
+          onSuccess: () => onClose(),
+        }
+      );
+    }
+  };
+
+  /**
+   * default values برای فرم
+   */
+  const defaultValues =
+    mode === "update" && category
+      ? {
+        name: category.name,
+        image: category.image ?? "",
+        parentId: category.parent_id,
+        slug: category.slug,
+      }
+      : {
+        name: "",
+        image: "",
+        parentId: null,
+        slug: "",
+      };
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black/40">
+      <div className="bg-white w-[450px] rounded-sm p-4">
+        <CategoryForm
+          mode={mode}
+          defaultValues={defaultValues}
+          onSubmit={handleSubmit}
+        />
+
+        <button
+          onClick={onClose}
+          className="mt-3 text-red-500 w-full"
+        >
+          بستن
+        </button>
+      </div>
+    </div>
+  );
+}./**
+ * create-category-button.tsx
+ * ---------------------------------------------
+ * فقط مسئول باز کردن modal در حالت create است
+ * هیچ logic دیگری (api / form / query) اینجا نیست
+ */
+
+"use client";
+
+import { useState } from "react";
+import { CategoryModal } from "./category-modal";
+
+export function CreateCategoryButton() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="bg-red-500 text-white px-4 py-2 rounded-sm"
+      >
+        افزودن دسته‌بندی
+      </button>
+
+      {open && (
+        <CategoryModal
+          mode="create"
+          onClose={() => setOpen(false)}
+        />
+      )}
+    </>
+  );
+}./**
+ * use-categories.ts
+ * ---------------------------------------------
+ * گرفتن لیست دسته‌بندی‌ها + pagination
+ */
+
+import { useQuery } from "@tanstack/react-query";
+import { categoryApi } from "../api/category.api";
+import { categoryKeys } from "../lib/category-keys";
+
+export function useCategories(page: number, limit: number) {
+  return useQuery({
+    queryKey: categoryKeys.list(page, limit),
+    queryFn: () => categoryApi.getAll(page, limit),
+  });
+}./**
+ * use-category.ts
+ * ---------------------------------------------
+ * گرفتن یک category برای edit modal
+ */
+
+import { useQuery } from "@tanstack/react-query";
+import { categoryApi } from "../api/category.api";
+import { categoryKeys } from "../lib/category-keys";
+
+export function useCategory(id: number) {
+  return useQuery({
+    queryKey: categoryKeys.detail(id),
+    queryFn: () => categoryApi.getOne(id),
+    enabled: !!id,
+  });
+}./**
+ * use-create-category.ts
+ * ---------------------------------------------
+ * ایجاد category + invalidation cache
+ */
+
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { categoryApi } from "../api/category.api";
+import { categoryKeys } from "../lib/category-keys";
+
+export function useCreateCategory() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: categoryApi.create,
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: categoryKeys.all,
+      });
+    },
+  });
+}./**
+ * use-delete-category.ts
+ * ---------------------------------------------
+ * حذف category + optimistic refresh
+ */
+
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { categoryApi } from "../api/category.api";
+import { categoryKeys } from "../lib/category-keys";
+
+export function useDeleteCategory() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    // mutationFn: categoryApi.remove,
+    mutationFn: (id: number) => categoryApi.remove(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: categoryKeys.all,
+      });
+    },
+  });
+}./**
+ * use-update-category.ts
+ * ---------------------------------------------
+ * update category + refresh cache
+ */
+
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { categoryApi } from "../api/category.api";
+import { categoryKeys } from "../lib/category-keys";
+
+export function useUpdateCategory() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ id, data }: any) =>
+      categoryApi.update(id, data),
+
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: categoryKeys.all,
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: categoryKeys.detail(variables.id),
+      });
+    },
+  });
+}./**
+ * category-keys.ts
+ * ---------------------------------------------
+ * تمام queryKey ها اینجا centralized هستند
+ * تا cache و invalidate کردن استاندارد و بدون bug باشد
+ */
+
+export const categoryKeys = {
+  all: ["categories"] as const,
+
+  list: (page: number, limit: number) =>
+    [...categoryKeys.all, "list", page, limit] as const,
+
+  detail: (id: number) =>
+    [...categoryKeys.all, "detail", id] as const,
+};.export type Category = {
+  id: number;
+  name: string;
+  slug: string;
+  parent_id: number | null;
+};./**
+ * create-category-button.tsx
+ * ---------------------------------------------
+ * فقط مسئول باز کردن modal در حالت create است
+ * هیچ logic دیگری (api / form / query) اینجا نیست
+ */
+
+"use client";
+
+import { useState } from "react";
+import {CategoryModal} from "@/src/app/categories/components/category-modal";
+
+export default function CreateCategoryButton() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="bg-red-500 text-white px-4 py-2 rounded-sm"
+      >
+        افزودن دسته‌بندی
+      </button>
+
+      {open && (
+        <CategoryModal
+          mode="create"
+          onClose={() => setOpen(false)}
+        />
+      )}
+    </>
+  );
+}
