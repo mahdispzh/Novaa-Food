@@ -4,11 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { DropdownArrowIcon } from "../../constants/icons";
-import { BaleIcon } from "../../constants/icons/bale-icon";
-import { EitaIcon } from "../../constants/icons/eita-icon";
-import { InstagramIcon } from "../../constants/icons/instagram-icon";
-import { RubikaIcon } from "../../constants/icons/rubika-icon";
 import { TelegramIcon } from "../../constants/icons/telegram-icon";
 import { WhatsappIcon } from "../../constants/icons/whatsapp-icon";
 import { DefaultButton, Text } from "../../ui";
@@ -97,7 +92,6 @@ export default function Footer() {
                       isOpen ? "-rotate-180" : ""
                     }`}
                   >
-                    <DropdownArrowIcon size="sm" color="text-secondary" />
                   </div>
                 </button>
 
@@ -355,26 +349,22 @@ export default function Footer() {
             href="https://whatsapp.com"
             className="group relative cursor-pointer transition-opacity hover:opacity-70"
           >
-            <EitaIcon size="md" color="text-secondary" />
           </Link>
           <Link
             href="https://whatsapp.com"
             className="group relative cursor-pointer transition-opacity hover:opacity-70"
           >
-            <RubikaIcon size="md" color="text-secondary" />
           </Link>
           <Link
             href="https://whatsapp.com"
             className="group relative cursor-pointer transition-opacity hover:opacity-70"
           >
-            <BaleIcon size="md" color="text-secondary" />
           </Link>
 
           <Link
             href="https://instagram.com"
             className="group relative cursor-pointer transition-opacity hover:opacity-70"
           >
-            <InstagramIcon size="md" color="text-secondary" />
           </Link>
           <Link
             href="https://telegram.org"

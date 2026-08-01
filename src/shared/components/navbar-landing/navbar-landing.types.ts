@@ -1,12 +1,10 @@
 // navbar-landing.types.ts
-import { ReactNode } from "react";
 import { NotificationItem } from "../notifications-modal/notifications-modal.types";
 
 export interface NavLink {
   key: string;
   label: string;
   href: string;
-  icon: ReactNode;
 }
 
 

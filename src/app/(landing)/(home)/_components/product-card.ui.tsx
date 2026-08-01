@@ -1,6 +1,5 @@
 "use client";
 
-import { ImageOffIcon } from "@/src/shared/constants/icons/image-off-icon";
 import { Badge, Price, Text } from "@/src/shared/ui";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +38,6 @@ export function ProductCard({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gray-100 text-gray-400">
-            <ImageOffIcon size="2xl" color="text-accent" />
             <Text text="تصویر موجود نیست" size="sm" color="secondary" />
           </div>
         )}

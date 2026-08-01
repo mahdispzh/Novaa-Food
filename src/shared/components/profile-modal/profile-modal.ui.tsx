@@ -4,11 +4,8 @@
 import { Caption, Text } from "@/src/shared/ui";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { DropleftArrowIcon } from "../../constants/icons/dropleft-arrow-icon";
-import { LogoutIcon } from "../../constants/icons/logout-icon";
 import {
   ADMIN_MENU_ITEMS,
-  ICON_MAP,
   LOGOUT_ITEM,
   MENU_ITEMS,
   MODAL_STYLES,
@@ -85,7 +82,6 @@ export const ProfileModal = ({
               />
             </div>
             <div className="pt-2">
-              <DropleftArrowIcon size="sm" color="text-primary" />
             </div>
           </Link>
 
@@ -96,14 +92,12 @@ export const ProfileModal = ({
         {isAdmin && (
           <div className="grid grid-cols-3 gap-2 px-4 py-3">
             {(adminStats ?? []).map((stat) => {
-              const Icon = ICON_MAP[stat.iconKey];
 
               return (
                 <div
                   key={stat.id}
                   className="border-border flex flex-col items-center justify-center rounded-sm border border-accent p-1"
                 >
-                  <Icon size="md" color="text-primary/80" />
                   <Caption text={stat.label} size="xs" color="secondary" />
                   <div className="flex items-center justify-center gap-0.5">
                     {statsLoading ? (
@@ -125,7 +119,6 @@ export const ProfileModal = ({
         {/* ================= MENU ================= */}
         <div>
           {menuItems.map((item, index) => {
-            const IconComponent = ICON_MAP[item.iconKey];
 
             return (
               <div key={item.id}>
@@ -135,7 +128,6 @@ export const ProfileModal = ({
                   className={MODAL_STYLES.menuItem}
                 >
                   <div className={MODAL_STYLES.iconWrapper}>
-                    <IconComponent size="md" color="text-primary" />
                   </div>
                   <Text
                     text={item.label}
@@ -162,7 +154,6 @@ export const ProfileModal = ({
             className={`${MODAL_STYLES.menuItem} ${MODAL_STYLES.menuItemDanger}`}
           >
             <div className={MODAL_STYLES.iconWrapper}>
-              <LogoutIcon size="md" color="text-primary" />
             </div>
             <Text
               text={LOGOUT_ITEM.label}

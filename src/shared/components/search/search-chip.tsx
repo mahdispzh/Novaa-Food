@@ -1,8 +1,5 @@
 "use client";
 
-import { CloseIcon } from "@/src/shared/constants/icons/close-icon";
-import { RecycleBinIcon } from "@/src/shared/constants/icons/recycle-bin-icon";
-import { ReplyIcon } from "@/src/shared/constants/icons/reply-icon";
 import type { SearchChipProps } from "./search.types";
 
 export function SearchChip({
@@ -24,15 +21,6 @@ export function SearchChip({
   if (variant === "clear-all") {
     return (
       <button onClick={onClick} className={`${baseClass} cursor-pointer gap-2`}>
-        {iconPosition === "left" && (
-          <RecycleBinIcon size="xs" color="text-secondary" />
-        )}
-
-        <span>{label}</span>
-
-        {iconPosition === "right" && (
-          <RecycleBinIcon size="xs" color="text-secondary" />
-        )}
       </button>
     );
   }
@@ -57,7 +45,6 @@ export function SearchChip({
           className="flex h-full cursor-pointer items-center justify-center px-2 transition-all duration-200"
           aria-label="حذف"
         >
-          <CloseIcon size="xs" color="text-secondary" />
         </button>
         {/* خط جداکننده */}
         <div className="h-4 w-[1px] bg-gray-300" />
@@ -84,15 +71,6 @@ export function SearchChip({
       onClick={onClick}
       className={`${baseClass} h-4.5 cursor-pointer gap-3 rounded-full border border-primary/15 bg-white px-4 md:h-[2.5vw] lg:h-[1.7vw]`}
     >
-      {iconPosition === "left" && (
-        <ReplyIcon size="xs" color="text-secondary" />
-      )}
-
-      <span>{label}</span>
-
-      {iconPosition === "right" && (
-        <ReplyIcon size="xs" color="text-secondary" />
-      )}
     </button>
   );
 }

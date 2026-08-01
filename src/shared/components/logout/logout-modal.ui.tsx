@@ -3,7 +3,6 @@
 
 import texts from "@/src/shared/constants/texts/texts.json";
 import { DefaultButton, Modal, Text } from "@/src/shared/ui";
-import { CloseModalIcon } from "../../constants/icons";
 
 interface LogoutModalProps {
   isOpen: boolean;
@@ -42,7 +41,6 @@ export const LogoutModal = ({
             color="primary"
           />
           <div className="cursor-pointer" onClick={onClose}>
-            <CloseModalIcon size="xs" />
           </div>
         </div>
 

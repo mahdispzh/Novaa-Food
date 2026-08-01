@@ -2,8 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { CloseModalIcon } from "../../constants/icons/close-modal-icon";
-import { DualSquareEmpty } from "../../constants/icons/dual-square-empty";
 import { DefaultButton, Text } from "../../ui";
 import { NotificationItem } from "./notification-item";
 import { NotificationsDrawerProps } from "./notifications-modal.types";
@@ -54,7 +52,6 @@ export function NotificationsDrawer({
         <div className="flex flex-row justify-between px-4 py-5">
           <Text text="پیام ها" size="lg" weight="bold" />
           <button onClick={onClose} className="cursor-pointer">
-            <CloseModalIcon size="xs" />
           </button>
         </div>
 
@@ -63,7 +60,6 @@ export function NotificationsDrawer({
           <div className="flex flex-row items-center justify-end gap-1 border-t border-gray px-4 py-4">
             <Text text="خواندن همه" size="md" weight="medium" />
             <div className="cursor-pointer" onClick={onMarkAllRead}>
-              <DualSquareEmpty size="md" />
             </div>
           </div>
         )}

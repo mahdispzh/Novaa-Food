@@ -1,10 +1,7 @@
 "use client";
 
-import { CloseIcon } from "@/src/shared/constants/icons/close-icon";
-import { SearchIcon } from "@/src/shared/constants/icons/search-icon";
 import { Caption, Text } from "@/src/shared/ui";
 import { useEffect, useRef } from "react";
-import { SadIcon } from "../../constants/icons";
 import { SearchChip } from "./search-chip";
 import { SearchChipsSkeleton } from "./search-chips-skeleton.ui";
 import { SearchResultsSkeleton } from "./search-results-skeleton.ui";
@@ -65,7 +62,6 @@ export function SearchInput({ open, onOpen, onClose }: SearchInputProps) {
             }`}
           >
             <div className="ml-4 shrink-0">
-              <SearchIcon size="sm" color="text-secondary" />
             </div>
 
             <input
@@ -81,7 +77,6 @@ export function SearchInput({ open, onOpen, onClose }: SearchInputProps) {
                 onClick={() => setValue("")}
                 className="cursor-pointer opacity-70 transition-opacity hover:opacity-100"
               >
-                <CloseIcon size="xs" color="text-secondary" />
               </button>
             )}
           </div>
@@ -97,7 +92,6 @@ export function SearchInput({ open, onOpen, onClose }: SearchInputProps) {
             {/* SEARCH INPUT - ورودی داخل پنل */}
             <div className="mb-6 flex h-9 items-center rounded-full bg-accent px-6 md:h-11 lg:h-[3vw]">
               <div className="ml-4 shrink-0">
-                <SearchIcon size="sm" color="text-secondary" />
               </div>
               <input
                 value={value}
@@ -118,7 +112,6 @@ export function SearchInput({ open, onOpen, onClose }: SearchInputProps) {
                   onClick={() => setValue("")}
                   className="cursor-pointer opacity-70 transition-opacity hover:opacity-100"
                 >
-                  <CloseIcon size="xs" color="text-secondary" />
                 </button>
               )}
             </div>
@@ -140,7 +133,6 @@ export function SearchInput({ open, onOpen, onClose }: SearchInputProps) {
                     <SearchResultsSkeleton />
                   ) : liveResults.length === 0 ? (
                     <div className="flex justify-center gap-2 py-8">
-                      <SadIcon color="text-secondary" size="md" />
                       <Text
                         text="متأسفانه محصولی مطابق با جستجوی شما پیدا نکردیم."
                         color="secondary"
@@ -159,7 +151,6 @@ export function SearchInput({ open, onOpen, onClose }: SearchInputProps) {
                           }}
                           className="flex w-full cursor-pointer items-center gap-3 rounded-lg p-3 text-right transition-colors hover:bg-accent"
                         >
-                          <SearchIcon size="xs" color="text-secondary" />
                           <span className="text-medium text-sm text-primary">
                             {product.name}
                           </span>
