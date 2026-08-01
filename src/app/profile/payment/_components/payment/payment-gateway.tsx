@@ -1,6 +1,6 @@
 // - درگاه پرداخت (بدون state داخلی)
 "use client";
-import { ClockIcon } from "@/src/shared/constants/icons/clock-icon";
+import { ClockIcon } from "@/src/shared/constants/icons/pan-icon";
 import { PayIcon } from "@/src/shared/constants/icons/pay-icon";
 import { Subtitle, Text } from "@/src/shared/ui";
 import { PaymentGatewayProps } from "../../_types/payment.types";
