@@ -1,6 +1,5 @@
 "use client";
 
-import { SpinnerIcon } from "@/src/shared/constants/icons/spinner-icon";
 import React from "react";
 import { DefaultButtonProps } from "./default-button.types";
 import { useDefaultButton } from "./useDefaultButton";
@@ -41,7 +40,6 @@ export function DefaultButton({
     >
       {showLoader ? (
         <div className="flex items-center justify-center gap-2">
-          <SpinnerIcon size="md" color={getLoaderColor()} />
         </div>
       ) : (
         <>

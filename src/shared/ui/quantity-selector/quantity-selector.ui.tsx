@@ -1,7 +1,5 @@
 "use client";
 
-import { MinusIcon } from "../../constants/icons/minus-icon";
-import { PlusEmptyIcon } from "../../constants/icons/plus-empty-icon";
 import { Text } from "../text/text.ui";
 import { SIZE_CLASSES } from "./quantity-selector.constants";
 import { useQuantitySelector } from "./quantity-selector.hooks";
@@ -27,7 +25,6 @@ export function QuantitySelector({
         className="cursor-pointer object-cover transition-transform hover:scale-105"
       >
         {/* <PlusEmptyIcon size={sizeClasses.icon} color={typeClasses.iconColor} /> */}
-        <PlusEmptyIcon size="xs" color={typeClasses.iconColor} />
       </div>
       <Text
         text={String(quantity)}
@@ -40,7 +37,6 @@ export function QuantitySelector({
         className="cursor-pointer object-cover transition-transform hover:scale-105"
       >
         {/* <MinusIcon size={sizeClasses.icon} color={typeClasses.iconColor} /> */}
-        <MinusIcon size="xs" color={typeClasses.iconColor} />
       </div>
     </div>
   );

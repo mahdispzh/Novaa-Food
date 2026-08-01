@@ -1,10 +1,5 @@
 "use client";
 
-import { CheckBoldIcon } from "../../constants/icons/check-bold-icon";
-import { CircularCommentIcon } from "../../constants/icons/circular-comment-icon";
-import { CloseIcon } from "../../constants/icons/close-icon";
-import { LikeIcon } from "../../constants/icons/like-icon";
-import { TruckIcon } from "../../constants/icons/truck-icon";
 import { Text } from "../../ui";
 import { NotificationItemProps } from "./notifications-modal.types";
 
@@ -15,15 +10,6 @@ const categoryColors: Record<NotificationItemProps["category"], string> = {
   delivery: "bg-secondary",
 };
 
-const categoryIcons: Record<
-  NotificationItemProps["category"],
-  React.ReactNode
-> = {
-  order: <CheckBoldIcon size="sm" color="text-white" />,
-  favorite: <LikeIcon size="sm" color="text-white" />,
-  comment: <CircularCommentIcon size="sm" color="text-white" />,
-  delivery: <TruckIcon size="sm" color="text-white" />,
-};
 
 export function NotificationItem({
   category,
@@ -40,7 +26,6 @@ export function NotificationItem({
         <div
           className={`mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${categoryColors[category]}`}
         >
-          {categoryIcons[category]}
         </div>
 
         <div className="flex min-w-0 flex-1 flex-col items-start gap-2">
@@ -58,7 +43,6 @@ export function NotificationItem({
       </div>
 
       <button className="shrink-0 cursor-pointer" onClick={() => onRemove(id)}>
-        <CloseIcon size="xs" />
       </button>
     </div>
   );

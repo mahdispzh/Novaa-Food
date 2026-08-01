@@ -1,5 +1,4 @@
 // ui/price.ui.tsx
-import { TomanIcon } from "@/src/shared/constants/icons/toman-icon";
 import { sizeToTextClass } from "./price.constants";
 import type { PriceProps } from "./price.types";
 import { usePrice } from "./usePrice";
@@ -35,7 +34,6 @@ export function Price({ price, discount, size = "md" }: PriceProps) {
         <span className={`${mainTextClass} mt-2 text-primary`}>
           {format(price)}
         </span>
-        <TomanIcon size={mainIconSize} />
       </div>
     );
   }
@@ -47,7 +45,6 @@ export function Price({ price, discount, size = "md" }: PriceProps) {
         <span className={`${mainTextClass} mt-2 text-primary`}>
           {format(discountedPrice)}
         </span>
-        <TomanIcon size={mainIconSize} />
       </div>
 
       <div className="relative flex w-fit items-center gap-1">
@@ -55,7 +52,6 @@ export function Price({ price, discount, size = "md" }: PriceProps) {
         <span className={`${strikethroughTextClass} text-medium text-gray`}>
           {format(price)}
         </span>
-        <TomanIcon size={strikethroughIconSize} color="text-gray" />
       </div>
     </div>
   );

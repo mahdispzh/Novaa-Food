@@ -3,12 +3,6 @@
 import { DashboardContainer } from "@/src/shared/components/dashboard-container";
 import { DashboardMain } from "@/src/shared/components/dashboard-main";
 import { DashboardSidebar } from "@/src/shared/components/dashboard-sidebar";
-import {
-  DashboardPlusIcon,
-  DualSquareEmpty,
-  DualSquareOutline,
-  TrashIcon,
-} from "@/src/shared/constants/icons";
 import { DefaultButton, Subtitle, Text } from "@/src/shared/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -142,7 +136,6 @@ export default function DashboardBlog() {
               className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-sm bg-primary shadow-xl"
               onClick={openCreateModal}
             >
-              <DashboardPlusIcon size="xl" />
             </div>
           </div>
 
@@ -200,15 +193,12 @@ export default function DashboardBlog() {
             >
               {isDeleting ? (
                 <div className="h-5 w-5 animate-spin rounded-full border-2 border-gray-300 border-t-danger" />
-              ) : (
-                <TrashIcon size="md" />
+              ) : (<></>
               )}
             </button>
             <div className="cursor-pointer" onClick={toggleSelectAll}>
-              {isAllSelected ? (
-                <DualSquareEmpty size="md" />
-              ) : (
-                <DualSquareOutline size="md" />
+              {isAllSelected ? (<></>
+              ) : (<></>
               )}
             </div>
           </div>

@@ -1,7 +1,5 @@
 "use client";
 
-import { LeftArrowCircledIcon } from "@/src/shared/constants/icons/left-arrow-circled-icon";
-import { RightArrowCircledIcon } from "@/src/shared/constants/icons/right-arrow-circled-icon";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
@@ -51,14 +49,14 @@ export function SwiperSlider({
           <>
             <SwiperNavButton
               direction="left"
-              icon={<LeftArrowCircledIcon size="xl" />}
+              icon
               className={`prev-${sliderId}`}
               disabled={isEnd}
             />
 
             <SwiperNavButton
               direction="right"
-              icon={<RightArrowCircledIcon size="xl" />}
+              icon
               className={`next-${sliderId}`}
               disabled={isBeginning}
             />

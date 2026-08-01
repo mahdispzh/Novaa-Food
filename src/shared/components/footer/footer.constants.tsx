@@ -1,23 +1,17 @@
 // _constants/footer._constants.ts
 
-import { DiscountIcon } from "../../constants/icons/discount-icon";
-import { GiftIcon } from "../../constants/icons/gift-icon";
-import { SupportIcon } from "../../constants/icons/support-icon";
-import { TruckIcon } from "../../constants/icons/truck-icon";
 import { FeatureItem, FooterItem } from "./footer.types";
 
 // آیتم‌های ویژگی‌های فوتر
 export const features: FeatureItem[] = [
-  { icon: <TruckIcon size="xl" color="text-secondary" />, key: "fastShipping" },
+  { key: "fastShipping" },
   {
-    icon: <DiscountIcon size="xl" color="text-secondary" />,
     key: "returnGuarantee",
   },
   {
-    icon: <GiftIcon size="xl" color="text-secondary" />,
     key: "specialPackaging",
   },
-  { icon: <SupportIcon size="xl" color="text-secondary" />, key: "support" },
+  { key: "support" },
 ];
 
 // آیتم‌های فروشگاه

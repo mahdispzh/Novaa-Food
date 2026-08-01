@@ -1,9 +1,7 @@
 // _types/footer._types.ts
-import { ReactNode } from "react";
 
 // ==================== تایپ‌های فوتر (Footer) ====================
 export interface FeatureItem {
-  icon: ReactNode;
   key: string;
 }
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { Text } from "../text/text.ui";
-import { iconMap } from "./icon-label-button.constants";
 import { IconLabelButtonProps } from "./icon-label-button.types";
 import { getBorderClass } from "./icon-label-button.utils";
 

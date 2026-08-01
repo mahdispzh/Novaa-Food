@@ -7,7 +7,6 @@ import {
   ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from "recharts";
 import { Text } from "@/src/shared/ui";
-import { DropdownArrowIcon } from "../../constants/icons";
 import { 
   ChartDataProps, 
   ChartDatum, 
@@ -207,10 +206,6 @@ function PeriodDropdown({ period, isOpen, onToggle, onSelect }: {
         className="flex flex-row items-center gap-2 rounded-sm border border-gray px-3 py-1.5 text-primary cursor-pointer"
       >
          <div  className={` transition-transform ${isOpen ? "rotate-180" : ""}`}>
- <DropdownArrowIcon 
-          size="xs"  // استفاده از size به جای کلاس مستقیم
-         
-        />
         </div>
         <Text text={period} size="sm" color="primary" weight="regular" />
       </button>

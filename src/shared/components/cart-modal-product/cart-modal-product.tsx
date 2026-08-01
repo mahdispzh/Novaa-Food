@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { RulerIcon } from "../../constants/icons/ruler-icon";
-import { TrashIcon } from "../../constants/icons/trash-icon";
 import { Caption, Price, Text } from "../../ui";
 import { QuantitySelector } from "../../ui/quantity-selector/quantity-selector.ui";
 import { CartModalProductProps } from "./cart-modal-product.types";
@@ -37,7 +35,6 @@ export function CartModalProduct({
             <Text text={title} size="lg" weight="medium" />
             <div className="flex flex-row gap-3">
               <div className="flex flex-row gap-1">
-                <RulerIcon size="xs" />
                 <Text text={size} size="sm" />
               </div>
               <div className="flex flex-row items-center gap-1">
@@ -79,7 +76,6 @@ export function CartModalProduct({
         </div>
       </div>
       <div onClick={onRemove} className="mb-1.5 cursor-pointer">
-        <TrashIcon size="md" />
       </div>
     </div>
   );

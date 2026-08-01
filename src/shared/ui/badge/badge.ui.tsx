@@ -1,7 +1,5 @@
 "use client";
 
-import { NewIcon } from "../../constants/icons/new-icon";
-import { SolidStarIcon } from "../../constants/icons/solid-star-icon";
 import { Caption } from "../caption/caption.ui";
 import { Text } from "../text/text.ui";
 import type { BadgeProps } from "./badge.types";
@@ -11,14 +9,11 @@ export function Badge({
   label = "",
   number,
   rating,
-  iconSize = "sm",
-  iconColor = "text-danger",
 }: BadgeProps) {
   // NEW
   if (type === "new") {
     return (
       <div className="inline-flex items-center justify-center">
-        <NewIcon size={iconSize} color={iconColor} />
       </div>
     );
   }
@@ -76,8 +71,6 @@ export function Badge({
             weight="bold"
           />
         </div>
-
-        <SolidStarIcon size="xs" color="text-danger" />
       </div>
     );
   }

@@ -1,4 +1,3 @@
-import { TagIcon } from "@/src/shared/constants/icons/tag-icon";
 import type { TitleProps } from "./title.types";
 import { useTitle } from "./useTitle";
 
@@ -27,7 +26,7 @@ export function Title({
       }`}
     >
       <span className="flex items-center gap-2">
-        {isFeatured && <TagIcon size={iconSize} />}
+        {isFeatured}
         {text}
       </span>
     </Component>

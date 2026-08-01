@@ -7,7 +7,6 @@ import { useSwiperNavButton } from "./useSwiperNavButton";
 export function SwiperNavButton({
   direction,
   onClick,
-  icon,
   className = "",
   disabled = false,
 }: SwiperNavButtonProps) {
@@ -23,7 +22,6 @@ export function SwiperNavButton({
       disabled={disabled}
       className={finalClassName}
     >
-      {icon}
     </button>
   );
 }

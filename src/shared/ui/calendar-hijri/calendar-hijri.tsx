@@ -4,8 +4,6 @@
 import * as React from "react"
 import { getDefaultClassNames, type DayButton } from "@daypicker/react"
 import { DayPicker, faIR, getDateLib } from "@daypicker/persian"
-import { CalendarIcon } from "../../constants/icons/calendar-icon"
-import { DropleftArrowIcon } from "../../constants/icons"
 
 function cn(...classes: (string | undefined | false | null)[]): string {
   return classes.filter(Boolean).join(" ")
@@ -89,7 +87,6 @@ export function DatePickerField({
           placeholder={placeholder}
 className="h-10 w-full cursor-pointer rounded-sm border border-gray px-3 pl-8 text-sm text-primary outline-none"        />
         <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2">
-          <CalendarIcon size="md" color="text-secondary" />
         </span>
       </div>
 
@@ -139,14 +136,12 @@ function CalendarModeHeader({ currentMonth, onPrevMonth, onNextMonth, onOpenMont
       <div className="flex w-full flex-row items-center justify-between">
         <SimpleButton type="button" variant="ghost" size="icon" onClick={onPrevMonth} aria-label="ماه قبل">
           <div className="rotate-180">
-            <DropleftArrowIcon size="sm" />
           </div>
         </SimpleButton>
         <button type="button" onClick={onOpenMonths} className="rounded-xs px-2 py-0.5 text-sm font-medium text-primary hover:bg-accent select-none">
           {getPersianYearLabel(currentMonth)}
         </button>
         <SimpleButton type="button" variant="ghost" size="icon" onClick={onNextMonth} aria-label="ماه بعد">
-          <DropleftArrowIcon size="sm" />
         </SimpleButton>
       </div>
       <button type="button" onClick={onOpenMonths} className="rounded-xs px-2 py-0.5 text-sm font-medium text-primary hover:bg-accent select-none">
@@ -167,14 +162,12 @@ function MonthsModeHeader({ currentMonth, onPrevYear, onNextYear }: MonthsModeHe
     <div className="flex flex-row items-center justify-between px-1 pt-1">
       <SimpleButton type="button" variant="ghost" size="icon" onClick={onPrevYear} aria-label="سال قبل">
         <div className="rotate-180">
-          <DropleftArrowIcon size="sm" />
         </div>
       </SimpleButton>
       <span className="text-sm font-medium text-primary select-none">
         {getPersianYearLabel(currentMonth)}
       </span>
       <SimpleButton type="button" variant="ghost" size="icon" onClick={onNextYear} aria-label="سال بعد">
-        <DropleftArrowIcon size="sm" />
       </SimpleButton>
     </div>
   )

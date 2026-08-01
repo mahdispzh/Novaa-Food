@@ -8,13 +8,6 @@ import { useRef, useState } from "react";
 import { Caption, DefaultButton, Text } from "../../ui";
 import { formatCartCount } from "../../utils/formatCartCount";
 
-import { ArrowIcon } from "../../constants/icons/arrow-icon";
-import { BagIcon } from "../../constants/icons/bag-icon";
-import { CloseModalIcon } from "../../constants/icons/close-modal-icon";
-import { LoginIcon } from "../../constants/icons/login-icon";
-import { MenuIcon } from "../../constants/icons/menu-icon";
-import { NotificationIcon } from "../../constants/icons/notification-icon";
-import { UserIcon } from "../../constants/icons/user-icon";
 import { CartModal } from "../cart-modal/cart-modal";
 import { CategoriesModal } from "../categories-modal/categories.ui";
 import { VerticalSeparator } from "../footer/footer.constants";
@@ -76,7 +69,6 @@ export function NavbarLanding() {
             className="shrink-0 cursor-pointer rounded-xs p-1.5 transition-all duration-200 hover:bg-accent lg:hidden"
             aria-label="باز کردن منو"
           >
-            <MenuIcon size="md" color="text-primary" />
           </button>
 
           <Link href="/" className="shrink-0 cursor-pointer">
@@ -106,10 +98,6 @@ export function NavbarLanding() {
                   onClick={notifications.open}
                   className="group relative cursor-pointer rounded-xs p-1.5 transition-all duration-200 hover:bg-accent"
                 >
-                  <NotificationIcon
-                    size="sm"
-                    color="text-primary transition-colors duration-200"
-                  />
                   {notifications.unreadCount > 0 && (
                     <span className="absolute -top-1.5 -right-2 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-danger">
                       <Caption
@@ -127,17 +115,13 @@ export function NavbarLanding() {
                   onClick={profile.openProfileMenu}
                   className="group flex cursor-pointer items-center gap-1 rounded-xs p-1.5 transition-all duration-200 hover:bg-accent"
                 >
-                  <UserIcon
-                    size="sm"
-                    color="text-primary transition-colors duration-200"
-                  />
+
                   <div className="hidden sm:block">
                     <div
                       className={`transition-transform duration-300 ${
                         profile.isProfileMenuOpen ? "rotate-180" : "rotate-0"
                       }`}
                     >
-                      <ArrowIcon size="2xs" />
                     </div>
                   </div>
                 </button>
@@ -150,10 +134,6 @@ export function NavbarLanding() {
                   onClick={cart.handleBagIconClick}
                   className="group relative cursor-pointer rounded-xs p-1.5 transition-all duration-200 hover:bg-accent"
                 >
-                  <BagIcon
-                    size="sm"
-                    color="text-primary transition-colors duration-200"
-                  />
                   {cart.itemsCount > 0 && (
                     <span className="absolute -top-1.5 -right-1.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-danger">
                       <Caption
@@ -171,7 +151,6 @@ export function NavbarLanding() {
                 type="primary"
                 style="outline"
                 label="ورود | ثبت نام"
-                icon={<LoginIcon size="md" color="text-current" />}
                 iconPosition="left"
                 action={() => (window.location.href = "/send-otp")}
               />
@@ -245,7 +224,6 @@ export function NavbarLanding() {
                 className="cursor-pointer"
                 aria-label="بستن منو"
               >
-                <CloseModalIcon size="sm" />
               </button>
             </div>
 

@@ -1,8 +1,5 @@
 "use client";
 
-import { CameraIcon } from "@/src/shared/constants/icons/camera-icon";
-import { CloseIcon } from "@/src/shared/constants/icons/close-icon";
-import { SpinnerIcon } from "@/src/shared/constants/icons/spinner-icon";
 import React from "react";
 import {
   getBackground,
@@ -47,14 +44,12 @@ export function ImageUploader({
         {/* Default */}
         {state === "default" && (
           <>
-            <CameraIcon size={"md"} />
           </>
         )}
 
         {/* Loading */}
         {state === "loading" && (
           <>
-            <SpinnerIcon size={"xs"} />
             <span style={{ fontSize: 10, color: "var(--color-primary)" }}>
               در حال بارگذاری
             </span>
@@ -64,7 +59,6 @@ export function ImageUploader({
         {/* Error */}
         {state === "error" && (
           <>
-            <CloseIcon size={"xs"} />
             <span
               style={{
                 fontSize: 10,

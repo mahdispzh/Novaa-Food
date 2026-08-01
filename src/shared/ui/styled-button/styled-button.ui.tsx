@@ -2,8 +2,6 @@
 
 "use client";
 
-import { OutlineStarIcon } from "@/src/shared/constants/icons/outline-star-icon";
-import { SolidStarIcon } from "@/src/shared/constants/icons/solid-star-icon";
 import React from "react";
 import { StyledButtonProps } from "./styled-button.types";
 import { useStyledButton } from "./useStyledButton";
@@ -71,10 +69,8 @@ export function StyledButton({
               onMouseEnter={() => setHoverValue(starValue)}
               onMouseLeave={() => setHoverValue(0)}
             >
-              <OutlineStarIcon size={size} color="text-danger" />
               {isFilled && (
                 <div className="absolute top-0 left-0">
-                  <SolidStarIcon size={size} color="text-danger" />
                 </div>
               )}
             </div>

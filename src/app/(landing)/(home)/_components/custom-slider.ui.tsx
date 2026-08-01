@@ -1,7 +1,5 @@
 "use client";
 
-import { LeftArrowCircledIcon } from "@/src/shared/constants/icons/left-arrow-circled-icon";
-import { RightArrowCircledIcon } from "@/src/shared/constants/icons/right-arrow-circled-icon";
 import { SliderButton } from "@/src/shared/ui";
 import { SwiperNavButton } from "@/src/shared/ui/swiper-nav-button/swiper-nav-button.ui";
 import { useEffect, useRef, useState } from "react";
@@ -105,7 +103,7 @@ export function CustomSlider({
           <SwiperNavButton
             direction="left"
             onClick={nextSlide}
-            icon={<LeftArrowCircledIcon size="xl" />}
+            icon
           />
         </div>
 
@@ -113,7 +111,7 @@ export function CustomSlider({
           <SwiperNavButton
             direction="right"
             onClick={prevSlide}
-            icon={<RightArrowCircledIcon size="xl" />}
+            icon
           />
         </div>
       </div>

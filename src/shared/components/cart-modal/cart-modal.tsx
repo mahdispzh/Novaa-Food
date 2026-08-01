@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react"; // ← اضافه شود
-import { CloseModalIcon } from "../../constants/icons/close-modal-icon";
 import { DefaultButton, Text } from "../../ui";
 import { CartModalProduct } from "../cart-modal-product/cart-modal-product";
 import { CartModalProps } from "./cart-modal.types";
@@ -73,7 +72,6 @@ export function CartModal({
         <div className="flex flex-row justify-between px-4 py-5">
           <Text text="سبد خرید" size="lg" weight="bold" />
           <button onClick={onClose} className="cursor-pointer">
-            <CloseModalIcon size="xs" />
           </button>
         </div>
 

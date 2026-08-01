@@ -1,10 +1,8 @@
 "use client";
 
-import { DropleftArrowIcon } from "@/src/shared/constants/icons/dropleft-arrow-icon";
 import { Caption, EmptyImage, Text } from "@/src/shared/ui";
 import { StyledButton } from "@/src/shared/ui/styled-button/styled-button.ui";
 import Link from "next/link";
-import { CloseModalIcon } from "../../constants/icons";
 import { CategoriesModalSkeleton } from "./categories-modal-skeleton.ui";
 import { CategoriesModalProps } from "./categories.types";
 import { useBreakpoint } from "./useBreakpoint";
@@ -102,7 +100,6 @@ export const CategoriesModal = ({
         <Text text="دسته‌بندی" size="lg" weight="bold" color="primary" />
         <StyledButton
           variant="icon"
-          icon={<CloseModalIcon size="xs" color="text-primary" />}
           action={handleClose}
           size="md"
           type="primary"
@@ -181,7 +178,6 @@ export const CategoriesModal = ({
                           isSelected ? "-rotate-90" : ""
                         }`}
                       >
-                        <DropleftArrowIcon size="xs" color="text-primary" />
                       </div>
                     </div>
 
@@ -347,7 +343,6 @@ export const CategoriesModal = ({
                     color="danger"
                     weight="medium"
                   />
-                  <DropleftArrowIcon size="sm" color="text-danger" />
                   {selectedCategory.productsCount > 0 && (
                     <Caption
                       text={`(${selectedCategory.productsCount})`}

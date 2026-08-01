@@ -1,39 +1,6 @@
 // profile-modal.constants.ts
-import { IconKeys, MenuItem } from "./profile-modal.types";
+import { MenuItem } from "./profile-modal.types";
 
-import {
-  BagIcon,
-  CircularCommentIcon,
-  ClockIcon,
-  FactorIcon,
-  LikeIcon,
-  LocationPinIcon,
-  LogoutIcon,
-  ProductIcon,
-  ReplyIcon,
-  StoreIcon,
-  UsersIcon,
-  WalletIcon,
-} from "../../constants/icons";
-
-export const ICON_MAP: Record<IconKeys, React.ComponentType<any>> = {
-  // آیکون‌های قبلی
-  Bag: BagIcon,
-  Location: LocationPinIcon,
-  Comment: CircularCommentIcon,
-  Logout: LogoutIcon,
-  LikeIcon: LikeIcon,
-  // آیکون‌های جدید ادمین
-  Dashboard: StoreIcon,
-  Product: ProductIcon,
-  Invoice: FactorIcon,
-  Payment: WalletIcon,
-  Store: StoreIcon,
-  Users: UsersIcon,
-  Blog: StoreIcon,
-  Replay: ReplyIcon,
-  Clock: ClockIcon,
-};
 
 // آیتم‌های منوی کاربر عادی
 export const MENU_ITEMS: Omit<MenuItem, "onClick">[] = [

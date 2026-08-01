@@ -1,6 +1,5 @@
 "use client";
 
-import { DropdownArrowIcon } from "@/src/shared/constants/icons";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Text } from "../text/text.ui";
 import { Props } from "./custom-select.type";
@@ -75,7 +74,6 @@ export function CustomSelect<T extends string | number>({
             open ? "rotate-180" : ""
           }`}
         >
-          <DropdownArrowIcon size="sm" color="text-primary" />
         </span>
       </button>
 
