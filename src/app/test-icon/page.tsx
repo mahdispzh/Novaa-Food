@@ -1,46 +1,47 @@
-import { BriefcaseIcon } from "@/src/shared/constants/icons/briefcase-icon";
 import { BuildingIcon } from "@/src/shared/constants/icons/building-icon";
 import { BurgerIcon } from "@/src/shared/constants/icons/burger-icon";
 import { CheckboxCheckedIcon } from "@/src/shared/constants/icons/chackboxchecked-icon";
 import { ChevronDownIcon } from "@/src/shared/constants/icons/chevrondown-icon";
+import { ClockIcon } from "@/src/shared/constants/icons/clock-icon";
 import { CoffeeIcon } from "@/src/shared/constants/icons/coffee-icon";
 import { ComplexDesignIcon } from "@/src/shared/constants/icons/complexdesign-icon";
-import { ResturantIcon } from "@/src/shared/constants/icons/resturant-icon";
-import { HalfstarIcon } from "@/src/shared/constants/icons/halfstar-icon";
+import { EventIcon } from "@/src/shared/constants/icons/event-icon";
 import { EyeIcon } from "@/src/shared/constants/icons/eye-icon";
 import { FilterIcon } from "@/src/shared/constants/icons/filter-icon";
+import { HalfstarIcon } from "@/src/shared/constants/icons/halfstar-icon";
 import { HeadsetIcon } from "@/src/shared/constants/icons/headset-icon";
 import { HeartIcon } from "@/src/shared/constants/icons/heart-icon";
 import { HomeIcon } from "@/src/shared/constants/icons/home-icon";
 import { InstagramIcon } from "@/src/shared/constants/icons/instagram-icon";
 import { LikeIcon } from "@/src/shared/constants/icons/like-icon";
 import { LocationIcon } from "@/src/shared/constants/icons/location-icon";
-import { MessageIcon } from "@/src/shared/constants/icons/message-icon";
-import { ClockIcon } from "@/src/shared/constants/icons/clock-icon";
-import { NotificationIcon } from "@/src/shared/constants/icons/notification-icon";
+import { LogoIcon } from "@/src/shared/constants/icons/logo-icon";
 import { MapIcon } from "@/src/shared/constants/icons/map-icon";
 import { MascotIcon } from "@/src/shared/constants/icons/mascot-icon";
 import { MemoryCheckpointIcon } from "@/src/shared/constants/icons/memory-icon";
+import { MessageIcon } from "@/src/shared/constants/icons/message-icon";
 import { PanIcon } from "@/src/shared/constants/icons/pan-icon";
 import { PenIcon } from "@/src/shared/constants/icons/pen-icon";
 import { PhoneIcon } from "@/src/shared/constants/icons/phone-icon";
 import { ProfileIcon } from "@/src/shared/constants/icons/profile-icon";
+import { ResturantIcon } from "@/src/shared/constants/icons/resturant-icon";
+import { RoundedSquareIcon } from "@/src/shared/constants/icons/rondedsqare-icon";
 import { SaveIcon } from "@/src/shared/constants/icons/save-icon";
 import { SearchIcon } from "@/src/shared/constants/icons/search-icon";
 import { SettingsIcon } from "@/src/shared/constants/icons/settings-icon";
 import { ShareIcon } from "@/src/shared/constants/icons/share-icon";
-import { SparkleIcon } from "@/src/shared/constants/icons/sparkle-icon";
 import { SortDescendingIcon } from "@/src/shared/constants/icons/sortdescending-icon";
+import { SparkleIcon } from "@/src/shared/constants/icons/sparkle-icon";
 import { TelegramIcon } from "@/src/shared/constants/icons/telegram-icon";
 import { TimeIcon } from "@/src/shared/constants/icons/time-icon";
 import { TypeIcon } from "@/src/shared/constants/icons/type-icon";
 import { UserIcon } from "@/src/shared/constants/icons/user-icon";
 import { VerifiedIcon } from "@/src/shared/constants/icons/verified-icon";
 import { WhatsappIcon } from "@/src/shared/constants/icons/whatsapp-icon";
-import {RoundedSquareIcon} from "@/src/shared/constants/icons/rondedsqare-icon";
+import { DislikeIcon } from "@/src/shared/constants/icons/dislike-icon";
 
 const icons = [
-  { name: "BriefcaseIcon", Component: BriefcaseIcon },
+  { name: "EventIcon", Component: EventIcon },
   { name: "BuildingIcon", Component: BuildingIcon },
   { name: "CheckboxCheckedIcon", Component: CheckboxCheckedIcon },
   { name: "ChevronDownIcon", Component: ChevronDownIcon },
@@ -56,12 +57,13 @@ const icons = [
   { name: "HomeIcon", Component: HomeIcon },
   { name: "InstagramIcon", Component: InstagramIcon },
   { name: "LocationIcon", Component: LocationIcon },
+  { name: "LogoIcon", Component: LogoIcon },
   { name: "MessageIcon", Component: MessageIcon },
   { name: "MapIcon", Component: MapIcon },
   { name: "MascotIcon", Component: MascotIcon },
   { name: "MemoryCheckpointIcon", Component: MemoryCheckpointIcon },
   { name: "ClockIcon", Component: ClockIcon },
-  { name: "NotificationIcon", Component: NotificationIcon },
+  { name: "DislikeIcon", Component: DislikeIcon },
   { name: "PenIcon", Component: PenIcon },
   { name: "PhoneIcon", Component: PhoneIcon },
   { name: "ProfileIcon", Component: ProfileIcon },
