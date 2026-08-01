@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/src/shared/lib/utils";
 import { FilterChipProps } from "./filter-chip-types";
 import { filterChipVariants } from "./filter-chip-variants";
 

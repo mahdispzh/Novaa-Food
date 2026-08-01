@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/src/shared/lib/utils";
 
 import { SliderDotsProps } from "./slider-dots-types";
 import { sliderDotsVariants } from "./slider-dots-variants";

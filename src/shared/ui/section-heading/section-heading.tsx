@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { SectionHeadingProps } from "./section-heading.types";
-import CircleSvg from "@/shared/ui/assets/svg/CircleSvg";
+import CircleSvg from "@/src/shared/ui/assets/svg/CircleSvg";
 
 export default function SectionHeading({
   title,

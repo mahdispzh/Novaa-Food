@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/src/shared/lib/utils";
 
 import {
   BreadcrumbProps,
