@@ -1,7 +1,7 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function WeatherIcon({ size = "lg", color = "text-primary", ...props }: IconProps) {
+export function BurgerIcon({ size = "lg", color = "text-primary", ...props }: IconProps) {
   return (
     <svg
       width="32"

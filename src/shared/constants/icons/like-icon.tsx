@@ -1,7 +1,7 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function ShoppingBagIcon({
+export function LikeIcon({
   size = "lg",
   color = "text-primary",
 }: IconProps) {
