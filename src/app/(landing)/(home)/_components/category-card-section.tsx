@@ -1,3 +1,4 @@
+"use client"
 import CategoryCard from "@/src/shared/ui/category-card/category-card";
 import { categories } from "@/src/shared/ui/category-card/category-card-constants";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
