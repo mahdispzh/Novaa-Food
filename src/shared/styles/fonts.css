@@ -1,46 +1,69 @@
+/* Fonts */
+
 @font-face {
-  font-family: "IRANSans";
-  src: url("/fonts/iransans-pro/IRANSansXFaNum-Light.woff") format("woff");
+  font-family: "KalamehWeb";
+  src: url("../shared/ui/assets/fonts/KalamehWeb-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "IRANSans";
-  src: url("/fonts/iransans-pro/IRANSansXFaNum-Regular.woff2") format("woff2");
+  font-family: "KalamehWeb";
+  src: url("../shared//ui/assets/fonts/KalamehWeb-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "IRANSans";
-  src: url("/fonts/iransans-pro/IRANSansXFaNum-Medium.woff2") format("woff2");
+  font-family: "KalamehWeb";
+  src: url("../shared/ui/assets/fonts/KalamehWeb-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "IRANSans";
-  src: url("/fonts/iransans-pro/IRANSansXFaNum-Bold.woff2") format("woff2");
-  font-weight: 700;
+  font-family: "KalamehWeb";
+  src: url("../shared/ui/assets/fonts/KalamehWeb-SemiBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Times";
-  src: url("/fonts/times.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "Morabba";
+  src: url("../shared/ui/assets/fonts/Morabba-UltraLight.ttf")
+    format("truetype");
+  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
-/* font shafarik */
+
 @font-face {
-  font-family: "shafarik";
-  src: url("/fonts/shafarik/Shafarik-400.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "Morabba";
+  src: url("../shared/ui/assets/fonts/Morabba-Light.ttf")
+    format("truetype");
+  font-weight: 300;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Morabba";
+  src: url("../shared/ui/assets/fonts/Morabba-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Morabba";
+  src: url("../shared/ui/assets/fonts/Morabba-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
