@@ -1,10 +1,12 @@
 @import "tailwindcss";
-@import "./fonts.css";
-@import "./theme.css";
-@import "./utilities.css";
 
-@media print {
-  .no-print {
-    display: none !important;
-  }
+@import "../shared/styles/fonts.css";
+@import "../shared/styles/theme.css";
+@import "../shared/styles/reset.css";
+@import "../shared/styles/utilities.css";
+
+
+::selection {
+  background-color:var(--color-primary);
+  color:var(--color-white);
 }
