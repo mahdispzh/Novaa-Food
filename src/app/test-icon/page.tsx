@@ -21,7 +21,7 @@ import { MascotIcon } from "@/src/shared/constants/icons/mascot-icon";
 import { MemoryCheckpointIcon } from "@/src/shared/constants/icons/memory-icon";
 import { MessageIcon } from "@/src/shared/constants/icons/message-icon";
 import { PanIcon } from "@/src/shared/constants/icons/pan-icon";
-import { PenIcon } from "@/src/shared/constants/icons/pen-icon";
+import { StarIcon } from "@/src/shared/constants/icons/star-icon";
 import { PhoneIcon } from "@/src/shared/constants/icons/phone-icon";
 import { ProfileIcon } from "@/src/shared/constants/icons/profile-icon";
 import { ResturantIcon } from "@/src/shared/constants/icons/resturant-icon";
@@ -64,7 +64,7 @@ const icons = [
   { name: "MemoryCheckpointIcon", Component: MemoryCheckpointIcon },
   { name: "ClockIcon", Component: ClockIcon },
   { name: "DislikeIcon", Component: DislikeIcon },
-  { name: "PenIcon", Component: PenIcon },
+  { name: "StarIcon", Component: StarIcon },
   { name: "PhoneIcon", Component: PhoneIcon },
   { name: "ProfileIcon", Component: ProfileIcon },
   { name: "RoundedSquareIcon", Component: RoundedSquareIcon },
