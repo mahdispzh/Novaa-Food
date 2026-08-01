@@ -11,6 +11,7 @@ import { FilterIcon } from "@/src/shared/constants/icons/filter-icon";
 import { HalfstarIcon } from "@/src/shared/constants/icons/halfstar-icon";
 import { HeadsetIcon } from "@/src/shared/constants/icons/headset-icon";
 import { HeartIcon } from "@/src/shared/constants/icons/heart-icon";
+import {TasteIcon} from "@/src/shared/constants/icons/taste-icon";
 import { HomeIcon } from "@/src/shared/constants/icons/home-icon";
 import { InstagramIcon } from "@/src/shared/constants/icons/instagram-icon";
 import { LikeIcon } from "@/src/shared/constants/icons/like-icon";
@@ -21,6 +22,7 @@ import { MascotIcon } from "@/src/shared/constants/icons/mascot-icon";
 import { MemoryCheckpointIcon } from "@/src/shared/constants/icons/memory-icon";
 import { MessageIcon } from "@/src/shared/constants/icons/message-icon";
 import { PanIcon } from "@/src/shared/constants/icons/pan-icon";
+import {IdkIcon} from "@/src/shared/constants/icons/idk-icon";
 import { StarIcon } from "@/src/shared/constants/icons/star-icon";
 import { PhoneIcon } from "@/src/shared/constants/icons/phone-icon";
 import { ProfileIcon } from "@/src/shared/constants/icons/profile-icon";
@@ -39,6 +41,8 @@ import { UserIcon } from "@/src/shared/constants/icons/user-icon";
 import { VerifiedIcon } from "@/src/shared/constants/icons/verified-icon";
 import { WhatsappIcon } from "@/src/shared/constants/icons/whatsapp-icon";
 import { DislikeIcon } from "@/src/shared/constants/icons/dislike-icon";
+import { PersonelIcon } from "@/src/shared/constants/icons/personel-icon";
+import {SortIcon} from "@/src/shared/constants/icons/sort-icon";
 
 const icons = [
   { name: "EventIcon", Component: EventIcon },
@@ -47,12 +51,17 @@ const icons = [
   { name: "ChevronDownIcon", Component: ChevronDownIcon },
   { name: "ComplexDesignIcon", Component: ComplexDesignIcon },
   { name: "PanIcon", Component: PanIcon },
+  { name: "TasteIcon", Component: TasteIcon },
+  { name: "SortIcon", Component: SortIcon },
+  { name: "PersonelIcon", Component: PersonelIcon },
   { name: "CoffeeIcon", Component: CoffeeIcon },
   { name: "ResturantIcon", Component: ResturantIcon },
   { name: "HalfstarIcon", Component: HalfstarIcon },
   { name: "EyeIcon", Component: EyeIcon },
+  { name: "TasteIcon", Component: TasteIcon },
   { name: "FilterIcon", Component: FilterIcon },
   { name: "HeadsetIcon", Component: HeadsetIcon },
+  { name: "IdkIcon", Component: IdkIcon },
   { name: "HeartIcon", Component: HeartIcon },
   { name: "HomeIcon", Component: HomeIcon },
   { name: "InstagramIcon", Component: InstagramIcon },
