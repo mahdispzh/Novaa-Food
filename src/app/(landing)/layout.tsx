@@ -10,9 +10,9 @@ export default function LandingLayout({
 }>) {
   return (
     <>
-      <NavbarLanding />
+      {/* <NavbarLanding /> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
