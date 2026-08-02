@@ -27,17 +27,17 @@ export default function Badge({
       )}
       {...props}
     >
-      {leftIcon && (
+      {rightIcon && (
         <span className="flex items-center">
-          {leftIcon}
+          {rightIcon}
         </span>
       )}
 
       <span>{children}</span>
 
-      {rightIcon && (
+      {leftIcon && (
         <span className="flex items-center">
-          {rightIcon}
+          {leftIcon}
         </span>
       )}
     </span>

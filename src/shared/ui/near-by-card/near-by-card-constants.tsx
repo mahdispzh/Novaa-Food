@@ -9,6 +9,7 @@ export const nearByCards = [
         location: "شیراز, ارم (۲.۱ کیلومتر)",
         rating: 4.8,
         image: nearByCardImage,
+        
     },
 
     {

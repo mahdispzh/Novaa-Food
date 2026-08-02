@@ -5,11 +5,12 @@ export const badgeVariants = cva(
     "inline-flex",
     "items-center",
     "justify-center",
-    "gap-2",
+    "gap-1",
     "font-medium",
     "transition-colors",
     "whitespace-nowrap",
     "select-none",
+    "leading-none",
   ],
   {
     variants: {

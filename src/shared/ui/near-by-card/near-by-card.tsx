@@ -3,10 +3,12 @@ import Image from "next/image";
 import nearByCardShape from "../assets/svg/near-by-card.svg";
 import Badge from "../Badge/Badge";
 import { nearByCardProps } from "./near-by-card-types";
+import { ICONS } from "@/src/shared/constants/dynamic-icon";
+
+const { starIcon: StarIcon, locationIcon: LocationIcon, typeIcon: TypeIcon } = ICONS;
 
 export default function NearByCard({
   title,
-  icon,
   location,
   rating,
   image,
@@ -27,29 +29,40 @@ export default function NearByCard({
             className="rounded-3xl object-cover"
           />
         </div>
-        <div className="absolute top-50 right-25 flex gap-10">
+        <div className="absolute top-52 right-25 flex gap-5">
           {/* title */}
-          <div className="top-52 right-25">
+
             <h5>{title}</h5>
-          </div>
 
           {/* Rating */}
-          <div className="top-60 right-25 z-10">
-            <Badge variant="secondary" badgeSize="sm">
+
+            <div className="flex gap-1">
+
+            </div>
+            <Badge
+              variant="secondary"
+              badgeSize="sm"
+              leftIcon={<StarIcon size="xs" color="text-white" />}
+            >
               {rating}
             </Badge>
-          </div>
-
-          <div className="absolute top-5 left-46 z-20 flex flex-col items-center justify-center gap-1 text-white">
-            <span className="flex items-center justify-center">{icon}</span>
-            <span className="text-xs">{category}</span>
-          </div>
+          
+         
         </div>
 
+         {/* category */}
+          <div className="absolute top-56 right-7.5 z-20 flex flex-col items-center justify-center gap-1 text-white">
+            <TypeIcon size="xl" color="text-white" />
+            <span className="text-xs">{category}</span>
+          </div>
+
         {/* location */}
-        <p className="absolute top-60 right-25 text-sm font-light">
-          {location}
-        </p>
+        <div className="flex gap-1 absolute items-center top-60 right-25">
+            <LocationIcon size="sm" color="text-white" />
+          <p className=" text-sm font-light">
+            {location}
+          </p>
+        </div>
       </div>
     </div>
   );
