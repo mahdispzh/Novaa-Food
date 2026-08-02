@@ -2,11 +2,13 @@
 
 import CategoryCard from "@/src/shared/ui/category-card/category-card";
 import { categories } from "@/src/shared/ui/category-card/category-card-constants";
+import Container from "@/src/shared/ui/container/container";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 
  export default function CategoryCardSection(){
     return(
-        <div className="flex flex-col gap-5">
+        <Container>
+        <div className="flex flex-col gap-3">
 
             <SectionHeading
         title="دسته‌بندی‌ها"
@@ -24,11 +26,10 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
         />
 
        ) )}
-
-
        </div>
 
         </div>
+        </Container>
         
 
     )

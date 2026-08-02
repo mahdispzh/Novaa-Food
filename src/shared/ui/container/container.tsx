@@ -1,17 +1,14 @@
-import { cn } from "@/shared/lib/utils";
-import { ContainerProps } from "./container-types";
-import { containerVariants } from "./container-variants";
+import { cn } from "@/src/shared/lib/utils";
+import { ContainerProps } from "./container.types";
 
-
-export function Container({
+export default function Container({
   children,
   className,
 }: ContainerProps) {
-
   return (
     <div
       className={cn(
-        containerVariants(),
+        "w-full px-4",
         className
       )}
     >
