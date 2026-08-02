@@ -12,7 +12,7 @@ export default function SectionHeading({
   return (
     <div
       className={clsx(
-        "relative flex flex-col items-center",
+        "relative flex flex-col",
         className
       )}
       {...props}

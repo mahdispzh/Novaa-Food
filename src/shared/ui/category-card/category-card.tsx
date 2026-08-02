@@ -1,5 +1,7 @@
+"use client"
+
 import Image from "next/image";
-import categoryCard from "../assets/svg/CircleSvg";
+import CircleSvg from "../assets/svg/category-card.svg";
 
 import { CategoryCardProps } from "./category-card-types";
 
@@ -14,7 +16,7 @@ export default function CategoryCard({
 
       {/* Shape */}
       <Image
-        src={categoryCard}
+        src={CircleSvg}
         alt=""
         fill
         className="object-contain"

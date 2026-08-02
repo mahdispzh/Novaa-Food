@@ -1,3 +1,5 @@
+"use client"
+
 import CategoryCard from "@/src/shared/ui/category-card/category-card";
 import { categories } from "@/src/shared/ui/category-card/category-card-constants";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
@@ -11,7 +13,7 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
         subtitle="از کافه‌های دنج تا رستوران‌های خاص"
         />
 
-       <div>
+       <div className="flex gap-5">
 
        {categories.map( (category) =>(
 

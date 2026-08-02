@@ -10,7 +10,7 @@ export const categories : Category[]=[
     {
         id : "fastfood",
         title : "فست‌فود‌ها" ,
-        icon :""
+        icon :"BurgerIcon"
     },
 
     {
