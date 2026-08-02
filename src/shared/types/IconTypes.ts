@@ -1,4 +1,4 @@
-import { ICON_SIZE_CLASS } from "@/src/shared/constants/icon-sizes";
+import type { ICON_SIZE_CLASS } from "@/src/shared/constants/icon-sizes";
 
 export type IconSize = keyof typeof ICON_SIZE_CLASS;
 
