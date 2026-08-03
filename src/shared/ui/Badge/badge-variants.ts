@@ -25,6 +25,8 @@ export const badgeVariants = cva(
       },
 
       badgeSize: {
+        xs: "h-5 px-1 text-[10px]",
+
         sm: "h-7 px-3 text-xs",
 
         md: "h-9 px-4 text-sm",

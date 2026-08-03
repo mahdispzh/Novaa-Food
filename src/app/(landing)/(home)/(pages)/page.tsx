@@ -1,10 +1,10 @@
-// src/app/(landing)/(home)/page.tsx
-import CategoryCardSection from "../_components/category-card-section";
+
+import EventCardSection from "../_components/event-card/event-card-section";
 
 export default function HomePage() {
   return (
     <main>
-      <CategoryCardSection />
+      <EventCardSection />
     </main>
   );
 }

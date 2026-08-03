@@ -7,5 +7,6 @@ export interface popularCardProps {
   rating: number;
   image: StaticImageData;
   category: string;
+  reviewsCount: number,
 
 }
