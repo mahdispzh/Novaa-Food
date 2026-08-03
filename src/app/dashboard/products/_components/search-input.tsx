@@ -1,8 +1,8 @@
 "use client";
 
 import { CloseIcon } from "@/src/shared/constants/icons/close-icon";
+import { SearchIcon } from "@/src/shared/constants/icons/explore-icon";
 import React, { useRef, useState } from "react";
-import {SearchIcon} from "@/src/shared/constants/icons/search-icon";
 
 export interface SearchProps {
   placeholder?: string;
@@ -66,7 +66,7 @@ export const SearchInput: React.FC<SearchProps> = ({
         onChange={handleInputChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className="h-full w-full bg-transparent text-md outline-none placeholder:text-secondary disabled:cursor-not-allowed"
+        className="text-md h-full w-full bg-transparent outline-none placeholder:text-secondary disabled:cursor-not-allowed"
       />
 
       {/* Close Icon */}

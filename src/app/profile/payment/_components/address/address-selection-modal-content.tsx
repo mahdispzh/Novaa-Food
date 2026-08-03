@@ -2,13 +2,13 @@
 
 "use client";
 import { CloseIcon } from "@/src/shared/constants/icons/close-icon";
+import { SearchIcon } from "@/src/shared/constants/icons/explore-icon";
 import { PlusEmptyIcon } from "@/src/shared/constants/icons/plus-empty-icon";
-import { SearchIcon } from "@/src/shared/constants/icons/search-icon";
-import { Text, DefaultButton } from "@/src/shared/ui";
-import { AddressItem } from "./address-item";
-import { AddressSelectionModalContentProps } from "../../_types/address.types";
-import { useEffect } from "react";
+import { DefaultButton, Text } from "@/src/shared/ui";
 import Link from "next/link";
+import { useEffect } from "react";
+import { AddressSelectionModalContentProps } from "../../_types/address.types";
+import { AddressItem } from "./address-item";
 
 export function AddressSelectionModalContent({
   addresses,
@@ -21,7 +21,10 @@ export function AddressSelectionModalContent({
   // ✅ دیباگ - لاگ گرفتن از آدرس‌ها
   useEffect(() => {
     console.log("📋 AddressSelectionModalContent - addresses:", addresses);
-    console.log("📋 AddressSelectionModalContent - selectedAddressId:", selectedAddressId);
+    console.log(
+      "📋 AddressSelectionModalContent - selectedAddressId:",
+      selectedAddressId,
+    );
   }, [addresses, selectedAddressId]);
 
   return (
@@ -33,9 +36,9 @@ export function AddressSelectionModalContent({
           </div>
           <Text text="انتخاب آدرس" size="md" weight="medium" />
         </div>
-          <Link 
+        <Link
           href="/profile/addresses"
-          className="flex cursor-pointer flex-row items-center gap-[0.5vw] hover:opacity-70 transition-opacity"
+          className="flex cursor-pointer flex-row items-center gap-[0.5vw] transition-opacity hover:opacity-70"
           onClick={(e) => {
             // اگر می‌خواهید مودال بسته شود قبل از رفتن به صفحه آدرس
             onClose();
@@ -87,9 +90,9 @@ export function AddressSelectionModalContent({
                 title: address.title,
                 isDefault: address.isDefault,
                 isSelected: selectedAddressId === address.id,
-                fullAddress: address.fullAddress
+                fullAddress: address.fullAddress,
               });
-              
+
               return (
                 <div
                   key={address.id}
@@ -130,7 +133,6 @@ export function AddressSelectionModalContent({
               onConfirm();
             }}
             disabled={isLoading || addresses.length === 0}
-           
           />
         </div>
       </div>

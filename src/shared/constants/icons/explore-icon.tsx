@@ -1,7 +1,7 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function SearchIcon({
+export function ExploreIcon({
   size = "lg",
   color = "text-primary",
 }: IconProps) {

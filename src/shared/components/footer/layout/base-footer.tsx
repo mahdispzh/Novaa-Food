@@ -9,8 +9,10 @@ import { cn } from "@/src/shared/utils/cn";
 export interface FooterNavItem {
   href: string;
   label: string;
-  /** Position (as % of footer width) of the invisible hit area over the icon */
   style: CSSProperties;
+  center: string;
+  /** Small icon shown inside the moving active-state circle */
+  activeIcon: ComponentType<{ className?: string }>;
 }
 
 export interface BaseFooterProps {
@@ -21,6 +23,8 @@ export interface BaseFooterProps {
   label?: string;
   iconProps?: Partial<IconProps>;
   navItems?: FooterNavItem[];
+  activeCenter?: string;
+  ActiveIcon?: ComponentType<{ className?: string }>;
 }
 
 export default function BaseFooter({
@@ -31,6 +35,8 @@ export default function BaseFooter({
   label = "Bottom footer",
   iconProps,
   navItems = [],
+  activeCenter,
+  ActiveIcon,
 }: BaseFooterProps) {
   return (
     <>
@@ -49,7 +55,6 @@ export default function BaseFooter({
         )}
       >
         <div className="w-full pb-[env(safe-area-inset-bottom)]">
-          {/* relative wrapper so the invisible buttons can sit on top of the SVG */}
           <div className="relative flex w-full items-center justify-center overflow-hidden">
             <div
               className={cn(
@@ -60,13 +65,29 @@ export default function BaseFooter({
               <Icon {...iconProps} />
             </div>
 
-            {/* invisible clickable overlays, one per icon zone */}
+            {/* moving active-state circle with icon inside */}
+            {activeCenter && (
+              <div
+                aria-hidden="true"
+                className="absolute flex aspect-square items-center justify-center rounded-full bg-[#8E977D] text-[#F4EFE5] transition-[left] duration-300 ease-out"
+                style={{
+                  left: activeCenter,
+                  top: "30.5%",
+                  width: "17.6%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                {ActiveIcon && <ActiveIcon />}
+              </div>
+            )}
+
+            {/* invisible clickable overlays */}
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-label={item.label}
-                className="absolute top-0 h-full outline-none"
+                className="absolute top-0 z-10 h-full outline-none"
                 style={item.style}
               />
             ))}

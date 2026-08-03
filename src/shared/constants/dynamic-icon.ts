@@ -1,12 +1,13 @@
 import { BuildingIcon as buildingIcon } from "@/src/shared/constants/icons/building-icon";
 import { BurgerIcon as burgerIcon } from "@/src/shared/constants/icons/burger-icon";
-import { CheckboxCheckedIcon } from "@/src/shared/constants/icons/checkbox-checked-icon";
+import { CheckboxCheckedIcon as checkbox } from "@/src/shared/constants/icons/checkbox-checked-icon";
 import { ChevronDownIcon as chevronDownIcon } from "@/src/shared/constants/icons/chevrondown-icon";
 import { ClockIcon as clockIcon } from "@/src/shared/constants/icons/clock-icon";
 import { CoffeeIcon as coffeeIcon } from "@/src/shared/constants/icons/coffee-icon";
 import { ComplexDesignIcon as complexDesignIcon } from "@/src/shared/constants/icons/complexdesign-icon";
 import { DislikeIcon as dislikeIcon } from "@/src/shared/constants/icons/dislike-icon";
 import { EventIcon as eventIcon } from "@/src/shared/constants/icons/event-icon";
+import { ExploreIcon as exploreIcon } from "@/src/shared/constants/icons/explore-icon";
 import { EyeIcon as eyeIcon } from "@/src/shared/constants/icons/eye-icon";
 import { FilterIcon as filterIcon } from "@/src/shared/constants/icons/filter-icon";
 import { HalfstarIcon as halfstarIcon } from "@/src/shared/constants/icons/halfstar-icon";
@@ -28,7 +29,6 @@ import { ProfileIcon as profileIcon } from "@/src/shared/constants/icons/profile
 import { ResturantIcon as resturantIcon } from "@/src/shared/constants/icons/resturant-icon";
 import { RoundedSquareIcon as roundedSquareIcon } from "@/src/shared/constants/icons/rondedsqare-icon";
 import { SaveIcon as saveIcon } from "@/src/shared/constants/icons/save-icon";
-import { SearchIcon as searchIcon } from "@/src/shared/constants/icons/search-icon";
 import { SettingsIcon as settingsIcon } from "@/src/shared/constants/icons/settings-icon";
 import { ShareIcon as shareIcon } from "@/src/shared/constants/icons/share-icon";
 import { SortIcon as sortIcon } from "@/src/shared/constants/icons/sort-icon";
@@ -43,12 +43,22 @@ import { UserIcon as userIcon } from "@/src/shared/constants/icons/user-icon";
 import { VerifiedIcon as verifiedIcon } from "@/src/shared/constants/icons/verified-icon";
 import { WhatsappIcon as whatsappIcon } from "@/src/shared/constants/icons/whatsapp-icon";
 import { HomeFooter as home } from "../components/footer/layout/home-footer";
+import { SettingsFooter as settings } from "../components/footer/layout/settings-footer";
+import { EventFooter as events } from "../components/footer/layout/event-footer";
+import { MapFooter as map } from "../components/footer/layout/map-footer";
+import { ExploreFooter as explore } from "../components/footer/layout/explore-footer";
+import { CorrectIcon as correctIcon } from "./icons/correct-icon";
 
 export const ICONS = {
   buildingIcon,
   burgerIcon,
-  CheckboxCheckedIcon,
+  checkbox,
+  settings,
+  events,
+  map,
+  explore,
   chevronDownIcon,
+  correctIcon,
   clockIcon,
   coffeeIcon,
   complexDesignIcon,
@@ -78,7 +88,7 @@ export const ICONS = {
   resturantIcon,
   roundedSquareIcon,
   saveIcon,
-  searchIcon,
+  exploreIcon,
   settingsIcon,
   shareIcon,
   sortDescendingIcon,
