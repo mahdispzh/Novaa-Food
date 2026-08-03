@@ -1,9 +1,9 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
-import { ICON_SIZE_CLASS } from "../icon-sizes";
+import { ICON_SIZE_CLASS } from "@/src/shared/constants/icon-sizes";
 
 export function SettingsFooter({ size = "lg", color = "text-primary" }: IconProps) {
   return (
-<svg className={`${ICON_SIZE_CLASS[size]} ${color}`} width="375" height="108" viewBox="0 0 375 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className={`${ICON_SIZE_CLASS} ${color}block h-auto w-full max-w-none`} viewBox="0 0 375 108" style={{ width: "100%", height: "auto" }} fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M375 25C375 22.2386 372.761 20 370 20H5C2.23859 20 0 22.2386 0 25V78C0 94.5685 13.4315 108 30 108H345C361.569 108 375 94.5685 375 78V25Z" fill="#301F18"/>
 <path d="M4.00977 19C4.00373 19.3326 4 19.6659 4 20C22.8889 20 6.77778 72 54 72C101.222 72 84.5556 20 104 20C104 19.6659 103.996 19.3326 103.99 19H4.00977Z" fill="#F4EFE5"/>
 <circle cx="33" cy="33" r="33" transform="matrix(-1 0 0 1 87 0)" fill="#8E977D"/>

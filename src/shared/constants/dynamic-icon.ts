@@ -42,22 +42,14 @@ import { TypeIcon as typeIcon } from "@/src/shared/constants/icons/type-icon";
 import { UserIcon as userIcon } from "@/src/shared/constants/icons/user-icon";
 import { VerifiedIcon as verifiedIcon } from "@/src/shared/constants/icons/verified-icon";
 import { WhatsappIcon as whatsappIcon } from "@/src/shared/constants/icons/whatsapp-icon";
-import { HomeFooter as home } from "./icons/home-footer";
-import { ExploreFooter as explore } from "./icons/explore-footer";
-import { MapFooter as map } from "./icons/map-footer";
-import { EventFooter as event } from "./icons/event-footer";
-import { SettingsFooter as settings } from "./icons/settings-footer";
+import { HomeFooter as home } from "../components/footer/layout/home-footer";
 
 export const ICONS = {
   buildingIcon,
-  explore,
   burgerIcon,
   CheckboxCheckedIcon,
   chevronDownIcon,
   clockIcon,
-  event,
-  settings,
-  map,
   coffeeIcon,
   complexDesignIcon,
   eventIcon,
