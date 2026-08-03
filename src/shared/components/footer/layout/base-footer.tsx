@@ -11,8 +11,7 @@ export interface FooterNavItem {
   label: string;
   style: CSSProperties;
   center: string;
-  /** Small icon shown inside the moving active-state circle */
-  activeIcon: ComponentType<{ className?: string }>;
+  activeIcon: ComponentType<Partial<IconProps>>;
 }
 
 export interface BaseFooterProps {
@@ -24,7 +23,9 @@ export interface BaseFooterProps {
   iconProps?: Partial<IconProps>;
   navItems?: FooterNavItem[];
   activeCenter?: string;
-  ActiveIcon?: ComponentType<{ className?: string }>;
+  ActiveIcon?: ComponentType<Partial<IconProps>>;
+  size?: IconProps["size"];
+  color?: string;
 }
 
 export default function BaseFooter({
@@ -37,6 +38,8 @@ export default function BaseFooter({
   navItems = [],
   activeCenter,
   ActiveIcon,
+  size,
+  color,
 }: BaseFooterProps) {
   return (
     <>
@@ -65,11 +68,10 @@ export default function BaseFooter({
               <Icon {...iconProps} />
             </div>
 
-            {/* moving active-state circle with icon inside */}
             {activeCenter && (
               <div
                 aria-hidden="true"
-                className="absolute flex aspect-square items-center justify-center rounded-full bg-[#8E977D] text-[#F4EFE5] transition-[left] duration-300 ease-out"
+                className="absolute flex aspect-square items-center justify-center rounded-full bg-[#8E977D] transition-[left] duration-300 ease-out"
                 style={{
                   left: activeCenter,
                   top: "30.5%",
@@ -77,11 +79,10 @@ export default function BaseFooter({
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                {ActiveIcon && <ActiveIcon />}
+                {ActiveIcon && <ActiveIcon size={size} color={color} />}
               </div>
             )}
 
-            {/* invisible clickable overlays */}
             {navItems.map((item) => (
               <Link
                 key={item.href}

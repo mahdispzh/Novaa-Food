@@ -1,7 +1,7 @@
 import type { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function HomeIcon({ size = "lg", color = "text-white" }: IconProps) {
+export function HomeIcon({ size = "lg", color = "text-primary" }: IconProps) {
   return (
     <svg
       className={`${ICON_SIZE_CLASS[size]} ${color}`}

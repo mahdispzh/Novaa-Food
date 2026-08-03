@@ -10,4 +10,5 @@ export const ICON_SIZE_CLASS = {
   "3xl": "w-[clamp(2rem,4.6vw,3.8rem)] h-[clamp(2rem,4.6vw,3.8rem)]",
   "4xl": "w-[clamp(2.25rem,5.2vw,4.4rem)] h-[clamp(2.25rem,5.2vw,4.4rem)]",
   "5xl": "w-[clamp(2.5rem,5.8vw,5rem)] h-[clamp(2.5rem,5.8vw,5rem)]",
+  "6xl": "w-[clamp(2.75rem,6.4vw,5.6rem)] h-[clamp(2.75rem,6.4vw,5.6rem)]",
 } as const;
