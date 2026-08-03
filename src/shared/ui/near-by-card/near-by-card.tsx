@@ -36,9 +36,6 @@ export default function NearByCard({
 
           {/* Rating */}
 
-            <div className="flex gap-1">
-
-            </div>
             <Badge
               variant="secondary"
               badgeSize="sm"
