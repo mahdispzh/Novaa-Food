@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function BaseHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-secondary)] bg-[var(--color-white)]/95 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-secondary)] bg-[var(--color-white)]/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-6 py-4">
         <div className="flex items-center gap-3">
           <button

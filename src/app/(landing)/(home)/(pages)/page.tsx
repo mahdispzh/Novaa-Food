@@ -1,18 +1,16 @@
-import BloggerCard from "@/src/shared/ui/blogger-card/blogger-card";
-import NearByCardSection from "../_components/near-by-card/near-by-card-section";
-import PopularCardSection from "../_components/popular-card/popular-card-section";
-import EventCardSection from "../_components/event-card/event-card-section";
-import CategoryCardSection from "../_components/category-card/category-card-section";
-import BloggerCardSection from "@/src/shared/ui/blogger-card/blogger-card-section";
+// src/app/(landing)/(home)/page.tsx
+import AppFooter from "@/src/shared/components/footer/AppFooter";
+import CategoryCardSection from "../_components/category-card-section";
 
 export default function HomePage() {
   return (
-    <main>
-      <CategoryCardSection />
-      <EventCardSection />
-      <NearByCardSection />
-      <PopularCardSection/>
-      <BloggerCardSection/>
-    </main>
+    <html lang="fa" dir="rtl">
+      <body>
+        <main className="pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-[calc(6.5rem+env(safe-area-inset-bottom))]">
+          <CategoryCardSection />
+          <AppFooter />
+        </main>
+      </body>
+    </html>
   );
 }
