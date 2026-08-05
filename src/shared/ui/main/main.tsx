@@ -1,7 +1,7 @@
 import { cn } from "@/src/shared/lib/utils";
 import type { HTMLAttributes } from "react";
 
-export interface MainProps extends HTMLAttributes<HTMLElement> {}
+export type MainProps = HTMLAttributes<HTMLElement>;
 
 export function Main({ className, children, ...props }: MainProps) {
   return (
