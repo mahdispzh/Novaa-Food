@@ -5,9 +5,16 @@ import EventCardSection from "../_components/event-card/event-card-section";
 import NearByCardSection from "../_components/near-by-card/near-by-card-section";
 import PopularCardSection from "../_components/popular-card/popular-card-section";
 import BloggerCardSection from "@/src/shared/ui/blogger-card/blogger-card-section";
+import useHome from "../_hooks/useHome";
 
 export default function HomePage() {
-  
+    const {
+    categories,
+    eventCards,
+    nearByCards,
+    PopularCards,
+    bloggerCards,
+  } = useHome();
   return (
     <html lang="fa" dir="rtl">
       <body>
