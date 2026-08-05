@@ -1,6 +1,6 @@
 "use client";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
-import eventCardShape from "@/src/shared/ui/assets/svg/event-card.svg";
+import eventCardShape from "@/src/shared/ui/assets/shapes/event-card.svg";
 import Image from "next/image";
 import { EventCardProps } from "./event-card-types";
 

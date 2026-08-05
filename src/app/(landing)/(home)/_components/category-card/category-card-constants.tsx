@@ -1,21 +1,29 @@
 import { Category } from "./category-card-types";
+import { ICONS } from "@/src/shared/constants/dynamic-icon";
 
-export const categories : Category[]=[
-    {
-        id : "resturant" ,
-        title : "رستوران‌ها" ,
-        icon :""
-    },
+const {
+  resturantIcon: ResturantIcon,
+  memoryCheckpointIcon: MemoryCheckpointIcon,
+  burgerIcon: BurgerIcon,
+} = ICONS;
 
-    {
-        id : "fastfood",
-        title : "فست‌فود‌ها" ,
-        icon :"BurgerIcon"
-    },
 
-    {
-        id : "bakery",
-        title : "بیکری‌ها" ,
-        icon :""
-    },
-]
+export const categories: Category[] = [
+  {
+    id: "resturant",
+    title: "رستوران‌ها",
+    icon: "resturantIcon",
+  },
+
+  {
+    id: "fastfood",
+    title: "فست‌فود‌ها",
+    icon: "burgerIcon",
+  },
+
+  {
+    id: "bakery",
+    title: "بیکری‌ها",
+    icon: "memoryCheckpointIcon",
+  },
+];

@@ -8,7 +8,7 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 export default function CategoryCardSection() {
   return (
     <Container>
-      <div className="flex flex-col gap-3">
+      <div className="mt-5 flex flex-col gap-3">
         <SectionHeading
           title="دسته‌بندی‌ها"
           subtitle="از کافه‌های دنج تا رستوران‌های خاص"

@@ -12,7 +12,7 @@ const { sparkleIcon: SparkleIcon } = ICONS;
 export default function NearByCardSection() {
   return (
     <Container>
-      <div className="flex flex-col justify-between gap-3">
+      <div className="mt-5 flex flex-col justify-between gap-3">
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="نزدیک‌ترین‌ها"

@@ -1,7 +1,7 @@
 "use client";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import Image from "next/image";
-import bloggerCardShape from "../assets/svg/blooger-card.svg";
+import bloggerCardShape from "../assets/shapes/blooger-card.svg";
 import { Button } from "../button/Button";
 import { BloggerCardProps } from "./blogger-card-typs";
 import bloggerCardAvatar from "../blogger-card/blogger-card-avatar.svg"
