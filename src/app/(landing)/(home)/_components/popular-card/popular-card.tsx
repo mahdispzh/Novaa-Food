@@ -40,7 +40,7 @@ export default function PopularCard({
           >
             {rating}
           </Badge>
-          <span className="text-[7px] text-primary">({reviewsCount} نظر)</span>
+          <span className="text-[9px] text-primary">({reviewsCount} نظر)</span>
 
           </div>
          
