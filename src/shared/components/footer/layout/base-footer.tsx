@@ -26,6 +26,7 @@ export interface BaseFooterProps {
   ActiveIcon?: ComponentType<Partial<IconProps>>;
   size?: IconProps["size"];
   color?: string;
+  onNavItemPress?: (href: string) => void;
 }
 
 export default function BaseFooter({
@@ -40,6 +41,7 @@ export default function BaseFooter({
   ActiveIcon,
   size,
   color,
+  onNavItemPress,
 }: BaseFooterProps) {
   return (
     <>
@@ -59,19 +61,14 @@ export default function BaseFooter({
       >
         <div className="w-full pb-[env(safe-area-inset-bottom)]">
           <div className="relative flex w-full items-center justify-center overflow-hidden">
-            <div
-              className={cn(
-                "flex w-full items-center justify-center",
-                iconClassName,
-              )}
-            >
+            <div className={cn("flex w-full items-center justify-center", iconClassName)}>
               <Icon {...iconProps} />
             </div>
 
             {activeCenter && (
               <div
                 aria-hidden="true"
-                className="absolute flex aspect-square items-center justify-center rounded-full bg-[#8E977D] transition-[left] duration-300 ease-out"
+                className="absolute flex aspect-square items-center justify-center rounded-full bg-[#8E977D] transition-[left] duration-500 ease-out"
                 style={{
                   left: activeCenter,
                   top: "30.5%",
@@ -90,7 +87,10 @@ export default function BaseFooter({
                 aria-label={item.label}
                 className="absolute top-0 z-10 h-full outline-none"
                 style={item.style}
-              />
+                onClick={() => onNavItemPress?.(item.href)}
+              >
+                {}
+              </Link>
             ))}
           </div>
         </div>
