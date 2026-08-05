@@ -2,21 +2,21 @@
 
   /* Font Family */
 
-  --font-sans: "Kalameh", sans-serif;
+  --font-sans: "KalamehWeb", sans-serif;
   --font-morabba: "Morabba", sans-serif;
 
   /* Colors */
 
-  --color-primary: #495E57;
+  --color-primary: #8E977D;
   --color-primary-75: rgb(73 94 87 / 75%);
   --color-primary-50: rgb(73 94 87 / 50%);
 
-  --color-secondary: #F2EAE0;
+  --color-secondary: #301F18;
   --color-footer: #2d1f16;
   --color-footer-active: #A0A88D;
   --color-home-active: #a0a88d;
 
-  --color-beige: #FFAA6A;
+  --color-beige: #F4EFE5;
   --color-light-beige: #45474B;
 
   --color-gray: #9C9C9C;

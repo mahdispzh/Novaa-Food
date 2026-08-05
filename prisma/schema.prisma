@@ -201,6 +201,10 @@ model payments {
   paid_at          DateTime? @db.Timestamptz(6)
   created_at       DateTime  @default(now()) @db.Timestamptz(6)
   sending_method   String?
+  ref_id           String?
+  card_pan         String?
+  card_hash        String?
+  authority        String?
   orders           orders    @relation(fields: [order_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "order_id_fkey")
 }
 
@@ -304,6 +308,11 @@ model store_information {
   account_number  String? @map("account-number")
   account_name    String? @map("account-name")
   account_owner   String? @map("account-owner")
+  logo_main       String?
+  logo_sub        String?
+  logo_fav        String?
+  title           String?
+  description     String?
 }
 
 model user_addresses {
@@ -326,7 +335,6 @@ model users {
   name            String?          @db.VarChar(255)
   mail            String?          @db.VarChar(255)
   phone           String?          @unique(map: "unique_phone") @db.VarChar(20)
-  password        String?          @db.VarChar(255)
   created_at      DateTime?        @default(now()) @db.Timestamptz(6)
   updated_at      DateTime?        @db.Timestamptz(6)
   id              Int              @id @unique(map: "unique_user_id") @default(autoincrement())
@@ -334,6 +342,11 @@ model users {
   recently_search String[]
   recently_viewed Int[]
   recently_blogs  Int[]
+  image_id        Int              @default(0)
+  bank_id         Int?
+  card_number     String?
+  account_number  String?
+  sheba_number    String?
   auth_sessions   auth_sessions[]
   blogs           blogs[]
   carts           carts[]

@@ -29,17 +29,17 @@ export const buttonVariants = cva(
 
         outline: ["border", "border-primary", "text-primary", "bg-transparent"],
 
-        link: ["bg-transparent", "text-primary", "p-0", "shadow-none"],
+        link: ["bg-transparent", "text-secondary", "p-0", "shadow-none"],
       },
 
       size: {
-        sm: ["h-[30px]", "px-3", "text-sm"],
+        sm: ["h-[30px]", "text-[13px]"],
 
-        md: ["h-[35px]", "px-4", "text-sm"],
+        md: ["h-[35px]", "text-sm"],
 
-        xl: ["h-[40px]", "px-4", "text-sm"],
+        xl: ["h-[40px]","text-sm"],
 
-        lg: ["h-[45px]", "px-5", "text-sm"],
+        lg: ["h-[45px]", "text-sm"],
       },
 
       rounded: {
