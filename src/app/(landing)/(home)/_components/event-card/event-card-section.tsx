@@ -11,25 +11,33 @@ const { sparkleIcon: SparkleIcon } = ICONS;
 
 export default function EventCardSection() {
   return (
-    <Container>
-      <div className="mt-5 flex flex-col justify-between gap-3">
+    <div className="mt-5 flex flex-col gap-3">
+      <Container>
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="رویدادها و لحظه‌ها"
             subtitle="بیشتر از یک وعده, یک تجربه"
           />
-          <div className="flex gap-1 items-center">
+          <div className="flex items-center gap-1">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
             <SparkleIcon size="md" color="text-primary" />
           </div>
         </div>
+      </Container>
 
-        <div className="flex gap-5">
-          {eventCards.map((event) => (
+      <div
+        className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
+        style={{ scrollSnapType: "x mandatory" }}
+      >
+        {eventCards.map((event) => (
+          <div
+            key={event.id}
+            className="shrink-0"
+            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+          >
             <EventCard
-              key={event.id}
               title={event.title}
               description={event.description}
               weekday={event.weekday}
@@ -39,9 +47,9 @@ export default function EventCardSection() {
               location={event.location}
               remainingTime={event.remainingTime}
             />
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </Container>
+    </div>
   );
 }

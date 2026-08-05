@@ -11,35 +11,42 @@ const { sparkleIcon: SparkleIcon } = ICONS;
 
 export default function BloggerCardSection() {
   return (
-    <Container>
-      <div className="mt-5 flex flex-col justify-between gap-3">
+    <div className="mt-5 flex flex-col gap-3">
+      <Container>
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="بلاگرها"
             subtitle="انتخاب‌های واقعی, تجربه‌های واقعی"
           />
-          <div className="flex gap-1 items-center">
+          <div className="flex items-center gap-1">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
             <SparkleIcon size="md" color="text-primary" />
           </div>
         </div>
+      </Container>
 
-        <div className="flex gap-5">
-          {bloggerCards.map((blogger) => (
+      <div
+        className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
+        style={{ scrollSnapType: "x mandatory" }}
+      >
+        {bloggerCards.map((blogger) => (
+          <div
+            key={blogger.id}
+            className="shrink-0"
+            style={{ scrollSnapAlign: "start", width: "80%", maxWidth: 280 }}
+          >
             <BloggerCard
-              key={blogger.id}
               name={blogger.name}
               username={blogger.username}
               avatar={blogger.avatar}
               role={blogger.role}
               reviewsCount={blogger.reviewsCount}
-              
             />
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </Container>
+    </div>
   );
 }

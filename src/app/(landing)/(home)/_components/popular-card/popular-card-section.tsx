@@ -7,13 +7,12 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import { PopularCards } from "./popular-card-constants";
 import PopularCard from "./popular-card";
 
-
 const { sparkleIcon: SparkleIcon } = ICONS;
 
 export default function PopularCardSection() {
   return (
-    <Container>
-      <div className="mt-5 flex flex-col justify-between gap-3">
+    <div className="mt-5 flex flex-col gap-3">
+      <Container>
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="محبوب‌ترین‌ها"
@@ -26,22 +25,29 @@ export default function PopularCardSection() {
             <SparkleIcon size="md" color="text-primary" />
           </div>
         </div>
+      </Container>
 
-        <div className="flex gap-5">
-                  {PopularCards.map((popular) => (
-                    <PopularCard
-                      key={popular.id}
-                      title={popular.title}
-                      category={popular.category}
-                      image={popular.image}
-                      rating={popular.rating}
-                      location={popular.location}
-                      reviewsCount = {popular.reviewsCount}
-                      
-                    />
-                  ))}
-                </div>
+      <div
+        className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
+        style={{ scrollSnapType: "x mandatory" }}
+      >
+        {PopularCards.map((popular) => (
+          <div
+            key={popular.id}
+            className="shrink-0"
+            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+          >
+            <PopularCard
+              title={popular.title}
+              category={popular.category}
+              image={popular.image}
+              rating={popular.rating}
+              location={popular.location}
+              reviewsCount={popular.reviewsCount}
+            />
+          </div>
+        ))}
       </div>
-    </Container>
+    </div>
   );
 }

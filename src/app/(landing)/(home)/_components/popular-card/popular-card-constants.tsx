@@ -13,13 +13,14 @@ export const PopularCards = [
         
     },
 
-  //   {
-  //   id: "resturant",
-  //   title: "کافه رادیو",
-  //   category: "کافه",
-  //   image: popularCardImage,
-  //   rating: 4.6,
-  //   location: "شیراز، معالی آباد 3 کیلومتر",
+    {
+    id: "resturant",
+    title: "کافه رادیو",
+    category: "کافه",
+    image: popularCardImage,
+    rating: 4.6,
+    location: "شیراز، معالی آباد 3 کیلومتر",
+    reviewsCount:140,
 
-  // },
+  },
 ]

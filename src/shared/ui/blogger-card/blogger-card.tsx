@@ -1,7 +1,7 @@
 "use client";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import Image from "next/image";
-import bloggerCardShape from "../assets/shapes/blooger-card.svg";
+import bloggerCardShape from "../assets/shapes/blogger-card.svg";
 import { Button } from "../button/Button";
 import { BloggerCardProps } from "./blogger-card-typs";
 import bloggerCardAvatar from "../blogger-card/blogger-card-avatar.svg"
@@ -21,7 +21,7 @@ export default function BloggerCard({
   reviewsCount,
 }: BloggerCardProps) {
   return (
-    <div className="relative h-[260px] w-[240px]">
+    <div className="relative w-[236px] h-[264px] mt-5">
       <Image src={bloggerCardShape} alt="" fill className="object-contain" />
       <div className="flex flex-col">
         <div className="absolute right-15 -top-2 h-30 w-30 overflow-hidden rounded-full border-4 border-white">

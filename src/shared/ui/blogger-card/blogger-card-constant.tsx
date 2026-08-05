@@ -12,13 +12,13 @@ export const bloggerCards = [
     role: "Food Explorer",
     reviewsCount: 120,
   },
-  // {
-  //   id: "maryam-rezaei",
-  //   name: "مریم رضایی",
-  //   username: "maryam.rezaei",
-  //   avatar: maryamAvatar,
-  //   isVerified: true,
-  //   role: "Food Explorer",
-  //   reviewsCount: 98,
-  // },
+  {
+    id: "maryam-rezaei",
+    name: "مریم رضایی",
+    username: "maryam.rezaei",
+    avatar: bloggerCardAvatar,
+    isVerified: true,
+    role: "Food Explorer",
+    reviewsCount: 98,
+  },
 ];

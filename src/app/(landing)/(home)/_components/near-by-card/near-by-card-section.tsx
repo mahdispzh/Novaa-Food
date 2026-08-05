@@ -11,8 +11,8 @@ const { sparkleIcon: SparkleIcon } = ICONS;
 
 export default function NearByCardSection() {
   return (
-    <Container>
-      <div className="mt-5 flex flex-col justify-between gap-3">
+    <div className="mt-5 flex flex-col gap-3">
+      <Container>
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="نزدیک‌ترین‌ها"
@@ -25,21 +25,29 @@ export default function NearByCardSection() {
             <SparkleIcon size="md" color="text-primary" />
           </div>
         </div>
+      </Container>
 
-        <div className="flex gap-5">
-                  {nearByCards.map((nearBy) => (
-                    <NearByCard
-                      key={nearBy.id}
-                      title={nearBy.title}
-                      category={nearBy.category}
-                      image={nearBy.image}
-                      rating={nearBy.rating}
-                      location={nearBy.location}
-                      
-                    />
-                  ))}
-                </div>
+      {/* این بخش عمداً بیرون Container ـه تا بشه از لبه‌ی صفحه اسکرول کرد */}
+      <div
+        className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
+        style={{ scrollSnapType: "x mandatory" }}
+      >
+        {nearByCards.map((nearBy) => (
+          <div
+            key={nearBy.id}
+            className="shrink-0"
+            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+          >
+            <NearByCard
+              title={nearBy.title}
+              category={nearBy.category}
+              image={nearBy.image}
+              rating={nearBy.rating}
+              location={nearBy.location}
+            />
+          </div>
+        ))}
       </div>
-    </Container>
+    </div>
   );
 }
