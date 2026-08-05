@@ -7,11 +7,15 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import { PopularCards } from "./popular-card-constants";
 import PopularCard from "./popular-card";
 
+type PopularSectionProps = {
+  data: any[];
+};
+
 const { sparkleIcon: SparkleIcon,
   chevronlefticon: ChevronLeftIcon,
  } = ICONS;
 
-export default function PopularCardSection() {
+export default function PopularCardSection({data}:PopularSectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
       <Container>

@@ -7,11 +7,15 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import { nearByCards } from "./near-by-card-constants";
 import NearByCard from "./near-by-card";
 
+type NearBySectionProps = {
+  data: any[];
+};
+
 const { sparkleIcon: SparkleIcon,
  chevronlefticon: ChevronLeftIcon
  } = ICONS;
 
-export default function NearByCardSection() {
+export default function NearByCardSection({data}:NearBySectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
       <Container>

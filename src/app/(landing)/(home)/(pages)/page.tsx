@@ -19,11 +19,21 @@ export default function HomePage() {
     <html lang="fa" dir="rtl">
       <body>
         <main className="pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-[calc(6.5rem+env(safe-area-inset-bottom))]">
-          <CategoryCardSection />
-          <EventCardSection/>
-          <NearByCardSection/>
-          <PopularCardSection/>
-          <BloggerCardSection/>
+          <CategoryCardSection 
+          data={categories}
+          />
+          <EventCardSection
+          data={eventCards}
+          />
+          <NearByCardSection
+          data={nearByCards}
+          />
+          <PopularCardSection
+          data={PopularCards}
+          />
+          <BloggerCardSection
+          data={bloggerCards}
+          />
           <AppFooter />
         </main>
       </body>

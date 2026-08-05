@@ -7,11 +7,15 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import BloggerCard from "./blogger-card";
 import { bloggerCards } from "./blogger-card-constant";
 
+type BloggerSectionProps = {
+  data: any[];
+};
+
 const { sparkleIcon: SparkleIcon,
   chevronlefticon:ChevronLeftIcon
  } = ICONS;
 
-export default function BloggerCardSection() {
+export default function BloggerCardSection({data}:BloggerSectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
       <Container>

@@ -5,7 +5,11 @@ import { categories } from "@/src/app/(landing)/(home)/_components/category-card
 import Container from "@/src/shared/ui/container/container";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 
-export default function CategoryCardSection() {
+type CatgorySectionProps = {
+  data: any[];
+};
+
+export default function CategoryCardSection({data}:CatgorySectionProps) {
   return (
     <Container>
       <div className="mt-5 flex flex-col gap-3">

@@ -7,11 +7,15 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import EventCard from "./event-card";
 import { eventCards } from "./event-card-constant";
 
+type EventSectionProps = {
+  data: any[];
+};
+
 const { sparkleIcon: SparkleIcon,
   chevronlefticon:ChevronLeftIcon
  } = ICONS;
 
-export default function EventCardSection() {
+export default function EventCardSection({data}:EventSectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
       <Container>
