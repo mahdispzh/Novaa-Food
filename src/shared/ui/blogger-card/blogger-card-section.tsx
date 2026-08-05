@@ -7,7 +7,9 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import BloggerCard from "./blogger-card";
 import { bloggerCards } from "./blogger-card-constant";
 
-const { sparkleIcon: SparkleIcon } = ICONS;
+const { sparkleIcon: SparkleIcon,
+  chevronlefticon:ChevronLeftIcon
+ } = ICONS;
 
 export default function BloggerCardSection() {
   return (
@@ -18,11 +20,11 @@ export default function BloggerCardSection() {
             title="بلاگرها"
             subtitle="انتخاب‌های واقعی, تجربه‌های واقعی"
           />
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
-            <SparkleIcon size="md" color="text-primary" />
+            <ChevronLeftIcon size="sm" color="text-secondary" />
           </div>
         </div>
       </Container>

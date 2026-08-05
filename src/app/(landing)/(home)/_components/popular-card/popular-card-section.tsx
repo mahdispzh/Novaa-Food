@@ -7,7 +7,9 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import { PopularCards } from "./popular-card-constants";
 import PopularCard from "./popular-card";
 
-const { sparkleIcon: SparkleIcon } = ICONS;
+const { sparkleIcon: SparkleIcon,
+  chevronlefticon: ChevronLeftIcon,
+ } = ICONS;
 
 export default function PopularCardSection() {
   return (
@@ -18,11 +20,11 @@ export default function PopularCardSection() {
             title="محبوب‌ترین‌ها"
             subtitle="انتخاب شده توسط عاشقان غذا"
           />
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
-            <SparkleIcon size="md" color="text-primary" />
+            <ChevronLeftIcon size="md" color="text-secondary" />
           </div>
         </div>
       </Container>

@@ -35,7 +35,7 @@ export default function CategoryCard({
 
 
       {/* Title */}
-      <p className="absolute top-22 w-full font-regular text-[13px] text-center">
+      <p className="absolute text-beige top-22 w-full font-regular text-[13px] text-center">
         {title}
       </p>
 

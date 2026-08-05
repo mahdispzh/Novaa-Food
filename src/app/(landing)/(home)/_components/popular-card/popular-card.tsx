@@ -28,7 +28,7 @@ export default function PopularCard({
       <div className="flex flex-col">
         <div className="absolute right-11 top-6 flex flex-col">
           {/* title */}
-          <p className="text-[12px]">{title}</p>
+          <p className="text-[12px] text-beige font-light">{title}</p>
 
           {/* rating */}
           <div className="flex items-center">
@@ -59,7 +59,7 @@ export default function PopularCard({
         {/* location */}
         <div className="absolute top-83 right-10 flex items-center gap-1">
           <LocationIcon size="xs" color="text-white" />
-          <span className="text-[10px] font-light">{location}</span>
+          <span className="text-[10px] text-beige font-light">{location}</span>
         </div>
       </div>
     </div>

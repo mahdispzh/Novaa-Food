@@ -42,7 +42,7 @@ export default function EventCards({
           {/* location */}
           <div className="absolute top-40 right-5 flex flex-col items-center gap-2">
             <LocationIcon size="xl" color="text-beige" />
-            <p className="text-[12px] font-light whitespace-pre-line">
+            <p className="text-[12px] text-beige font-light whitespace-pre-line">
               {location}{" "}
             </p>
           </div>
@@ -51,9 +51,9 @@ export default function EventCards({
 
           {/* date */}
           <div className="absolute top-40 right-33 flex flex-col items-center gap-0 leading-none">
-            <p className="font-morabba text-[12px]">{weekday}</p>
-            <p className="mt-2 font-morabba text-[32px] font-bold">{day}</p>
-            <p className="font-ultralight mt-2 font-morabba text-[16px]">
+            <p className="font-morabba text-beige text-[12px]">{weekday}</p>
+            <p className="mt-2 font-morabba text-beige text-[32px] font-bold">{day}</p>
+            <p className="font-ultralight text-beige mt-2 font-morabba text-[16px]">
               {month}
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function EventCards({
 
           <div className="absolute top-40 right-60 flex flex-col items-center">
             <ClockIcon size="xl" color="text-beige" />
-            <p className="mt-4 text-[12px] font-light whitespace-pre-line">
+            <p className="mt-4 text-beige text-[12px] font-light whitespace-pre-line">
               {timeRange}
             </p>
           </div>

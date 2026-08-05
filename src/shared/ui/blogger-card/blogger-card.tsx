@@ -8,7 +8,7 @@ import bloggerCardAvatar from "../blogger-card/blogger-card-avatar.svg"
 
 const {
   verifiedIcon: VerifiedIcon,
-  checkboxCheckedIcon: CheckIcon,
+  correctIcon: CorrectIcon,
   starIcon: StarIcon,
 } = ICONS;
 
@@ -43,8 +43,8 @@ export default function BloggerCard({
         </p>
 
         <div className="absolute top-44 right-4 flex items-center gap-2">
-          <StarIcon size="xs" color="text-primary" />
-          <p className="font-regular text-[12px] text-primary">
+          <CorrectIcon size="md" color="text-primary" />
+          <p className="font-regular text-[12px] text-primary whitespace-nowrap">
             {reviewsCount} معرفی و پیشنهاد
           </p>
         </div>

@@ -56,7 +56,7 @@ export default function NearByCard({
         </div>
 
         {/* location */}
-        <div className="absolute top-70 right-30 flex items-center gap-1">
+        <div className="absolute text-beige top-70 right-30 flex items-center gap-1">
           <LocationIcon size="sm" color="text-beige" />
           <p className="text-sm font-light">{location}</p>
         </div>

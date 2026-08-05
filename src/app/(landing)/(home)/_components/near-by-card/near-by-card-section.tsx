@@ -7,7 +7,9 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import { nearByCards } from "./near-by-card-constants";
 import NearByCard from "./near-by-card";
 
-const { sparkleIcon: SparkleIcon } = ICONS;
+const { sparkleIcon: SparkleIcon,
+ chevronlefticon: ChevronLeftIcon
+ } = ICONS;
 
 export default function NearByCardSection() {
   return (
@@ -18,16 +20,16 @@ export default function NearByCardSection() {
             title="نزدیک‌ترین‌ها"
             subtitle="بهترین انتخاب ها در چند قدمی"
           />
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
-            <SparkleIcon size="md" color="text-primary" />
+            <ChevronLeftIcon size="sm" color="text-secondary" />
           </div>
         </div>
       </Container>
 
-      {/* این بخش عمداً بیرون Container ـه تا بشه از لبه‌ی صفحه اسکرول کرد */}
+
       <div
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
         style={{ scrollSnapType: "x mandatory" }}

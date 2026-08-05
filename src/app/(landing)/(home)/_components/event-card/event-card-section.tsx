@@ -7,7 +7,9 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import EventCard from "./event-card";
 import { eventCards } from "./event-card-constant";
 
-const { sparkleIcon: SparkleIcon } = ICONS;
+const { sparkleIcon: SparkleIcon,
+  chevronlefticon:ChevronLeftIcon
+ } = ICONS;
 
 export default function EventCardSection() {
   return (
@@ -18,11 +20,11 @@ export default function EventCardSection() {
             title="رویدادها و لحظه‌ها"
             subtitle="بیشتر از یک وعده, یک تجربه"
           />
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
-            <SparkleIcon size="md" color="text-primary" />
+            <ChevronLeftIcon size="sm" color="text-secondary" />
           </div>
         </div>
       </Container>

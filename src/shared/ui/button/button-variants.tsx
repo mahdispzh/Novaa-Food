@@ -29,11 +29,11 @@ export const buttonVariants = cva(
 
         outline: ["border", "border-primary", "text-primary", "bg-transparent"],
 
-        link: ["bg-transparent", "text-primary", "p-0", "shadow-none"],
+        link: ["bg-transparent", "text-secondary", "p-0", "shadow-none"],
       },
 
       size: {
-        sm: ["h-[30px]", "text-sm"],
+        sm: ["h-[30px]", "text-[13px]"],
 
         md: ["h-[35px]", "text-sm"],
 
