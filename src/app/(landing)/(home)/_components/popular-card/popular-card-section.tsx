@@ -37,7 +37,7 @@ export default function PopularCardSection({data}:PopularSectionProps) {
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {PopularCards.map((popular) => (
+        {data.map((popular) => (
           <div
             key={popular.id}
             className="shrink-0"

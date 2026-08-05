@@ -19,7 +19,7 @@ export default function CategoryCardSection({data}:CatgorySectionProps) {
         />
 
         <div className="flex gap-5">
-          {categories.map((category) => (
+          {data.map((category) => (
             <CategoryCard
               key={category.id}
               title={category.title}

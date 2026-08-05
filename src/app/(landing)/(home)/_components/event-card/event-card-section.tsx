@@ -37,7 +37,7 @@ export default function EventCardSection({data}:EventSectionProps) {
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {eventCards.map((event) => (
+        {data.map((event) => (
           <div
             key={event.id}
             className="shrink-0"
