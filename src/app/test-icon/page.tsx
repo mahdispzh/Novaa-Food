@@ -46,6 +46,7 @@ const icons = [
   { name: "BurgerIcon", Component: ICONS.burgerIcon },
   { name: "WhatsappIcon", Component: ICONS.whatsappIcon },
   { name: "CorrectIcon", Component: ICONS.correctIcon },
+  { name: "ChevronLeftIcon", Component: ICONS.chevronlefticon},
 ] as const;
 
 export default function Page() {

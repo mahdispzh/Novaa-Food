@@ -48,12 +48,14 @@ import { EventFooter as events } from "../components/footer/layout/event-footer"
 import { MapFooter as map } from "../components/footer/layout/map-footer";
 import { ExploreFooter as explore } from "../components/footer/layout/explore-footer";
 import { CorrectIcon as correctIcon } from "./icons/correct-icon";
+import { ChevronLeftIcon as chevronlefticon } from "./icons/chevronleft-icon";
 
 export const ICONS = {
   buildingIcon,
   burgerIcon,
   checkbox,
   settings,
+  chevronlefticon,
   events,
   map,
   explore,
