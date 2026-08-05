@@ -8,6 +8,8 @@ const {
   clockIcon: ClockIcon,
   locationIcon: LocationIcon,
   sparkleIcon: SparkleIcon,
+  complexDesignIcon: ComplexDesignIcon,
+  timeIcon: TimeIcon,
 } = ICONS;
 
 export default function EventCards({
@@ -21,33 +23,70 @@ export default function EventCards({
   remainingTime,
 }: EventCardProps) {
   return (
-    <div className="relative h-[350px] w-[330px] bg-blue-200">
+    <div className="relative h-[350px] w-[330px] ">
       <Image src={eventCardShape} alt="" fill className="object-contain" />
       <div className="flex flex-col">
-        <p className="font-semiBold font-Morabba absolute top-13 right-5 text-[28px] text-beige">
+        <p className="font-semibold font-morabba absolute top-11 right-5  text-[28px] text-beige">
           {title}
         </p>
-        <p className="absolute top-25 right-5 text-[16px] font-light whitespace-pre-line text-beige">
+        <p className="absolute top-22 right-5 text-[16px] font-light whitespace-pre-line text-beige">
           {description}
         </p>
+
+        {/* ComplexDesignIcon */}
+        <div className="absolute top-13 right-68">
+          <ComplexDesignIcon size="4xl" color="text-beige" />
+        </div>
+
         <div className="flex gap-2">
-          <div className="absolute top-40 right-5 flex flex-col gap-2 text-center">
-            <LocationIcon size="xl" color="text-white" />
+          {/* location */}
+          <div className="absolute top-40 right-5 flex flex-col items-center gap-2">
+            <LocationIcon size="xl" color="text-beige" />
             <p className="text-[12px] font-light whitespace-pre-line">
               {location}{" "}
             </p>
           </div>
-          <div className="h-10 w-px bg-white/20" />
-          <div className="absolute top-40 right-30 flex flex-col items-center">
-            <p>{weekday}</p>
-            <p>{day}</p>
-            <p className="font-Morabba font-ultralight text-[16px]">{month}</p>
+          {/* divider */}
+          <div className="absolute top-40 right-23 h-20 w-px bg-beige" />
+
+          {/* date */}
+          <div className="absolute top-40 right-33 flex flex-col items-center gap-0 leading-none">
+            <p className="font-morabba text-[12px]">{weekday}</p>
+            <p className="mt-2 font-morabba text-[32px] font-bold">{day}</p>
+            <p className="font-ultralight mt-2 font-morabba text-[16px]">
+              {month}
+            </p>
           </div>
 
-          <div className="absolute top-40 right-55 flex flex-col">
-            <ClockIcon size="xl" color="text-white" />
-            <p className="whitespace-pre-line text-[12px] font-light">{timeRange}</p>
+          {/* divider */}
+          <div className="absolute top-40 right-55 h-20 w-px bg-beige" />
+
+          <div className="absolute top-40 right-60 flex flex-col items-center">
+            <ClockIcon size="xl" color="text-beige" />
+            <p className="mt-4 text-[12px] font-light whitespace-pre-line">
+              {timeRange}
+            </p>
           </div>
+
+          {/* timeRemaining */}
+          <div className="flex gap-2 absolute top-66 right-5">
+            <div className="flex flex-col ">
+              <p className="font-morabba text-primary text-[12px] font-light">
+                مانده تا شروع
+              </p>
+              <p className="font-morabba text-primary text-[22px] font-semibold">
+                {remainingTime}
+              </p>
+            </div>
+            </div>
+            {/* timeRemaining icon */}
+            <div className="absolute top-68 right-31">
+              <TimeIcon size="4xl" color="text-primary" />
+            </div>
+             
+            
+           
+          
         </div>
       </div>
     </div>

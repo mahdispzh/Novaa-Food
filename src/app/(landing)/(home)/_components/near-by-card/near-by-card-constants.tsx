@@ -12,13 +12,13 @@ export const nearByCards = [
         
     },
 
-    {
-    id: "resturant",
-    title: "کافه رادیو",
-    category: "کافه",
-    image: nearByCardImage,
-    rating: 4.6,
-    location: "شیراز، معالی آباد 3 کیلومتر",
+  //   {
+  //   id: "resturant",
+  //   title: "کافه رادیو",
+  //   category: "کافه",
+  //   image: nearByCardImage,
+  //   rating: 4.6,
+  //   location: "شیراز، معالی آباد 3 کیلومتر",
 
-  },
+  // },
 ]

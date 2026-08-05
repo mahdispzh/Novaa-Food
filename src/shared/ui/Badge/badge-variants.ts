@@ -25,13 +25,13 @@ export const badgeVariants = cva(
       },
 
       badgeSize: {
-        xs: "h-5 px-1 text-[10px]",
+        xs: "h-5  text-[10px]",
 
-        sm: "h-7 px-3 text-xs",
+        sm: "h-7  text-xs",
 
-        md: "h-9 px-4 text-sm",
+        md: "h-9  text-sm",
 
-        lg: "h-11 px-5 text-base",
+        lg: "h-11 text-base",
       },
 
       rounded: {

@@ -1,7 +1,7 @@
 import popularCardImage from "../popular-card/popular-card-image.svg"
 
 
-export const nearByCards = [
+export const PopularCards = [
     {
         id:"fastfood",
         title : "سام کافه",
@@ -9,16 +9,17 @@ export const nearByCards = [
         location: "شیراز, ارم (۲.۱ کیلومتر)",
         rating: 4.8,
         image: popularCardImage,
+        reviewsCount: 230,
         
     },
 
-    {
-    id: "resturant",
-    title: "کافه رادیو",
-    category: "کافه",
-    image: popularCardImage,
-    rating: 4.6,
-    location: "شیراز، معالی آباد 3 کیلومتر",
+  //   {
+  //   id: "resturant",
+  //   title: "کافه رادیو",
+  //   category: "کافه",
+  //   image: popularCardImage,
+  //   rating: 4.6,
+  //   location: "شیراز، معالی آباد 3 کیلومتر",
 
-  },
+  // },
 ]

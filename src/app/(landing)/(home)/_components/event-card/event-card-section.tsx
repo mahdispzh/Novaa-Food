@@ -1,10 +1,13 @@
 "use client";
 
+import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import { Button } from "@/src/shared/ui";
 import Container from "@/src/shared/ui/container/container";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import EventCard from "./event-card";
 import { eventCards } from "./event-card-constant";
+
+const { sparkleIcon: SparkleIcon } = ICONS;
 
 export default function EventCardSection() {
   return (
@@ -15,9 +18,12 @@ export default function EventCardSection() {
             title="رویدادها و لحظه‌ها"
             subtitle="بیشتر از یک وعده, یک تجربه"
           />
-          <Button variant="link">
-            <span>مشاهده بیشتر</span>
-          </Button>
+          <div className="flex gap-1 items-center">
+            <Button variant="link" size="sm">
+              <span>مشاهده همه</span>
+            </Button>
+            <SparkleIcon size="md" color="text-primary" />
+          </div>
         </div>
 
         <div className="flex gap-5">

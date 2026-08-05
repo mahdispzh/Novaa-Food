@@ -1,9 +1,9 @@
 "use client";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import Image from "next/image";
-import popularCardShape from "../assets/svg/popular-card.svg";
+import popularCardShape from "@/src/shared/ui/assets/shapes/popular-card.svg";
 import popularCardImage from "../popular-card/popular-card-image.svg"
-import Badge from "../Badge/Badge";
+import Badge from "../../../../../shared/ui/Badge/Badge";
 import { popularCardProps } from "./popular-card-types";
 
 const {
@@ -21,14 +21,14 @@ export default function PopularCard({
   reviewsCount,
 }: popularCardProps) {
   return (
-    <div className="relative h-[280px] w-[260px]">
+    <div className="relative h-[360px] w-[320px] shrink-0">
       {/* shape */}
       <Image src={popularCardShape} alt="" fill className="object-contain" />
 
       <div className="flex flex-col">
-        <div className="absolute right-11 top-4 flex flex-col">
+        <div className="absolute right-11 top-6 flex flex-col">
           {/* title */}
-          <p className="text-[10px]">{title}</p>
+          <p className="text-[12px]">{title}</p>
 
           {/* rating */}
           <div className="flex items-center">
@@ -46,18 +46,18 @@ export default function PopularCard({
          
         </div>
         {/* category */}
-        <div className="absolute right-46 top-3 z-20 flex flex-col items-center justify-center gap-1 text-white">
-          <TypeIcon size="md" color="text-white" />
+        <div className="absolute right-59 top-4 z-20 flex flex-col items-center justify-center gap-1 text-white">
+          <TypeIcon size="lg" color="text-white" />
           <span className="text-[10px] font-light">{category}</span>
         </div>
 
         {/* image */}
-        <div className="absolute top-20 right-4 left-4 h-[170px]">
+        <div className="absolute top-25  h-[220px] w-[320px]">
           <Image src={popularCardImage} alt="" fill className="object-contain" />
         </div>
 
         {/* location */}
-        <div className="absolute top-65 right-10 flex items-center gap-1">
+        <div className="absolute top-83 right-10 flex items-center gap-1">
           <LocationIcon size="xs" color="text-white" />
           <span className="text-[10px] font-light">{location}</span>
         </div>

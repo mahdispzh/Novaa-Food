@@ -22,13 +22,13 @@ export default function SectionHeading({
           <CircleSvg />
         </div>
 
-        <div className="flex flex-col absolute mr-5">
-          <h2 className="text-primary text-xl font-bold whitespace-nowrap">
+        <div className="flex flex-col absolute top-1 right-4">
+          <h2 className="text-primary text-[16px] font-bold whitespace-nowrap">
             {title}
           </h2>
 
           {subtitle && (
-            <p className="mt-0 text-gray whitespace-nowrap text-sm">
+            <p className="mt-0 text-gray whitespace-nowrap text-[13px]">
               {subtitle}
             </p>
           )}

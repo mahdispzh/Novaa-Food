@@ -33,13 +33,13 @@ export const buttonVariants = cva(
       },
 
       size: {
-        sm: ["h-[30px]", "px-3", "text-sm"],
+        sm: ["h-[30px]", "text-sm"],
 
-        md: ["h-[35px]", "px-4", "text-sm"],
+        md: ["h-[35px]", "text-sm"],
 
-        xl: ["h-[40px]", "px-4", "text-sm"],
+        xl: ["h-[40px]","text-sm"],
 
-        lg: ["h-[45px]", "px-5", "text-sm"],
+        lg: ["h-[45px]", "text-sm"],
       },
 
       rounded: {
