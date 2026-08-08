@@ -1,10 +1,9 @@
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextResponse } from "next/server";
 
 export const GET = withAuth(
   async (_, user) => {
-    
     const currentUser = await prisma.users.findUnique({
       where: {
         id: user.userId,

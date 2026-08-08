@@ -1,6 +1,6 @@
 import type { Prisma } from "@/prisma/generated/prisma/client";
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextResponse } from "next/server";
 
 export const GET = withAuth(
@@ -63,7 +63,7 @@ export const GET = withAuth(
      * 0 = در انتظار
      * 1 = موفق
      * 2 = ناموفق
-     * 3 = نامشخص 
+     * 3 = نامشخص
      */
     if (status) {
       filters.push({

@@ -54,7 +54,7 @@ export default function AppFooter() {
       icon={icon}
       label="ناوبری پایین صفحه"
       navItems={navItems}
-      size="5xl"
+      size="3xl"
       onNavItemPress={setActiveHref}
     />
   );

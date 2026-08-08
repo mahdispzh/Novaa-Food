@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import { Button } from "@/src/shared/ui";
 import Container from "@/src/shared/ui/container/container";
@@ -24,12 +26,12 @@ export default function BloggerCardSection({data}:BloggerSectionProps) {
             title="بلاگرها"
             subtitle="انتخاب‌های واقعی, تجربه‌های واقعی"
           />
-          <div className="flex items-center">
+          <Link href="/bloggers" className="flex items-center">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
             <ChevronLeftIcon size="sm" color="text-secondary" />
-          </div>
+          </Link>
         </div>
       </Container>
 

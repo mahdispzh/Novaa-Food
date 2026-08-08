@@ -1,4 +1,4 @@
-import { authService } from "../auth/auth.service";
+import { authService } from "../components/auth/auth.service";
 import { useAuthStore } from "../store/store";
 import { apiClient } from "./client";
 

@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextResponse } from "next/server";
 
 export const GET = withAuth(
-  async (req, user, ctx: any) => {   // ✅ سه پارامتر
+  async (req, user, ctx: any) => {
+    // ✅ سه پارامتر
     const { paymentId } = await ctx.params;
 
     const payment = await prisma.payments.findUnique({
@@ -19,7 +20,8 @@ export const GET = withAuth(
   [2],
 );
 export const PUT = withAuth(
-  async (req, user, ctx: any) => {   // ✅ سه پارامتر
+  async (req, user, ctx: any) => {
+    // ✅ سه پارامتر
     const { paymentId } = await ctx.params;
     const body = await req.json();
 
@@ -34,10 +36,11 @@ export const PUT = withAuth(
 
     return NextResponse.json(payment);
   },
-  [1,2],
+  [1, 2],
 );
 export const DELETE = withAuth(
-  async (req, user, ctx: any) => {   // ✅ سه پارامتر
+  async (req, user, ctx: any) => {
+    // ✅ سه پارامتر
     const { paymentId } = await ctx.params;
 
     await prisma.payments.delete({

@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { deleteImage } from "@/src/shared/services/delete-image";
 import { uploadImage } from "@/src/shared/services/upload-image";
 

@@ -1,7 +1,6 @@
 // app/api/users/route.ts
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
-import type { NextRequest } from "next/server";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextResponse } from "next/server";
 
 export const POST = withAuth(
@@ -75,36 +74,41 @@ export const GET = withAuth(
         ...(status !== null && { status: Number(status) }),
       };
 
-     const [comments, total] = await Promise.all([
-  prisma.comments.findMany({
-    where,
-    include: {
-      users: { select: { id: true, name: true } },
-      products: {
-        select: {
-          id: true,
-          name: true,
-              slug: true,
+      const [comments, total] = await Promise.all([
+        prisma.comments.findMany({
+          where,
+          include: {
+            users: { select: { id: true, name: true } },
+            products: {
+              select: {
+                id: true,
+                name: true,
+                slug: true,
 
-          images: true,
-          ratings: {
-            where: { user_id: user.userId },
-            select: { rating: true },
+                images: true,
+                ratings: {
+                  where: { user_id: user.userId },
+                  select: { rating: true },
+                },
+              },
+            },
           },
-        },
-      },
-    },
-    orderBy: { created_at: "desc" },
-    skip: (page - 1) * limit,
-    take: limit,
-  }),
-  prisma.comments.count({ where }),
-]);
+          orderBy: { created_at: "desc" },
+          skip: (page - 1) * limit,
+          take: limit,
+        }),
+        prisma.comments.count({ where }),
+      ]);
 
       return NextResponse.json({
         success: true,
         data: comments,
-        pagination: { page, limit, total, totalPages: Math.ceil(total / limit) },
+        pagination: {
+          page,
+          limit,
+          total,
+          totalPages: Math.ceil(total / limit),
+        },
       });
     } catch (error) {
       console.error(error);

@@ -18,11 +18,11 @@ export default function SectionHeading({
       {...props}
     >
       <div className="flex relative">
-        <div className="relative top-0 -right-5">
+        <div className="relative top-0">
           <CircleSvg />
         </div>
 
-        <div className="flex flex-col absolute top-1 right-4">
+        <div className="flex flex-col absolute top-1 right-9">
           <h2 className="text-primary text-[16px] font-bold whitespace-nowrap">
             {title}
           </h2>

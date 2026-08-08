@@ -1,7 +1,7 @@
 // app/api/auth/me/route.ts
 
 import { prisma } from "@/prisma/prisma";
-import { verifyToken } from "@/src/shared/auth/jwt";
+import { verifyToken } from "@/src/shared/components/auth/jwt";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 

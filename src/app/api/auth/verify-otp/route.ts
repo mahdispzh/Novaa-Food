@@ -1,6 +1,9 @@
 import { prisma } from "@/prisma/prisma";
 
-import { signAccessToken, signRefreshToken } from "@/src/shared/auth/jwt";
+import {
+  signAccessToken,
+  signRefreshToken,
+} from "@/src/shared/components/auth/jwt";
 
 import { NextResponse } from "next/server";
 
