@@ -10,6 +10,8 @@ export interface BloggerRecommendedPlace {
   name: string;
   image: string;
   rating: number;
+  address?: string;
+  hours?: string;
 }
 
 export interface BloggerVideo {

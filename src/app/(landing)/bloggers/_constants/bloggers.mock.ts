@@ -23,6 +23,8 @@ export const MOCK_BLOGGERS: Blogger[] = [
         name: "سام کافه",
         image: "/images/places/sam-cafe.jpg",
         rating: 4.8,
+        address: "خیابان سینا، کوچه نوشابه‌ن",
+        hours: "باز تا ۱۲:۳۰ بعد از ظهر",
       },
     ],
     videos: [

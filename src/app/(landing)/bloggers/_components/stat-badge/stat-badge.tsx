@@ -1,11 +1,21 @@
+import statBadgeFrame from "../../_assets/frames/stat-badge-frame.svg";
+import { frameMaskStyle } from "../../_utils/frame-mask";
 import { StatBadgeProps } from "./stat-badge.types";
 
 export default function StatBadge({ icon: Icon, value, label }: StatBadgeProps) {
   return (
-    <div className="flex flex-1 flex-col items-center gap-1 rounded-2xl bg-light-beige px-3 py-4 text-center">
-      <Icon size="lg" color="text-primary" />
-      <span className="text-[14px] font-bold text-primary">{value}</span>
-      <span className="text-gray text-[11px] whitespace-nowrap">{label}</span>
+    <div className="relative aspect-square flex-1">
+      <div
+        className="bg-primary absolute inset-0"
+        style={frameMaskStyle(statBadgeFrame)}
+      />
+      <div className="relative flex h-full flex-col items-center justify-center gap-1 px-2 text-center">
+        <Icon size="md" color="text-white" />
+        <span className="text-[13px] font-bold text-white">{value}</span>
+        <span className="text-[10px] whitespace-nowrap text-white/85">
+          {label}
+        </span>
+      </div>
     </div>
   );
 }
