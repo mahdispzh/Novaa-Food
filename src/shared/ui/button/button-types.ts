@@ -19,7 +19,8 @@ export type ButtonRounded =
   | "auto"
   | "full"
   | "small"
-  | "medium";
+  | "medium"
+  | "large";
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {

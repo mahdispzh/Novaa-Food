@@ -41,7 +41,7 @@ export default function EventCardSection({data}:EventSectionProps) {
           <div
             key={event.id}
             className="shrink-0"
-            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+            style={{ scrollSnapAlign: "start" }}
           >
             <EventCard
               title={event.title}

@@ -42,7 +42,7 @@ export default function NearByCardSection({data}:NearBySectionProps) {
           <div
             key={nearBy.id}
             className="shrink-0"
-            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+            style={{ scrollSnapAlign: "start" }}
           >
             <NearByCard
               title={nearBy.title}

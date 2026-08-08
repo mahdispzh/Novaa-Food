@@ -12,6 +12,7 @@ export default function Badge({
   leftIcon,
   rightIcon,
   children,
+  width,
   ...props
 }: BadgeProps) {
   return (
@@ -22,6 +23,7 @@ export default function Badge({
           badgeSize,
           rounded,
           clickable,
+          width,
         }),
         className
       )}

@@ -41,7 +41,7 @@ export default function BloggerCardSection({data}:BloggerSectionProps) {
           <div
             key={blogger.id}
             className="shrink-0"
-            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+            style={{ scrollSnapAlign: "start" }}
           >
             <BloggerCard
               name={blogger.name}
