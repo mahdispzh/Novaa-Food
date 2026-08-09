@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/src/shared/ui/button/Button";
+
 import { useFollowBlogger } from "../../_hooks/use-follow-blogger";
 
 interface FollowButtonWrapperProps {
@@ -12,14 +14,17 @@ export default function FollowButtonWrapper({
   const { isFollowing, toggleFollow } = useFollowBlogger(initialIsFollowing);
 
   return (
-    <button
-      type="button"
-      onClick={toggleFollow}
+    <Button
       aria-pressed={isFollowing}
-      className="border-primary/30 text-primary flex w-full items-center justify-center gap-1.5 rounded-2xl border bg-white py-3 text-[13px] font-medium transition hover:opacity-90"
+      
+      className="border-primary bg-white text-primary text-[13px]"
+      size="md"
+      type="button"
+      variant="outline"
+      width="full"
+      onClick={toggleFollow}
     >
-      {!isFollowing && <span aria-hidden>+</span>}
-      <span>{isFollowing ? "دنبال شده" : "دنبال کردن"}</span>
-    </button>
+      {isFollowing ? "دنبال شده" : "دنبال کردن"}
+    </Button>
   );
 }

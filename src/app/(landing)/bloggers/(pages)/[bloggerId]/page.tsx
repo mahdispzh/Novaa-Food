@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
 
-import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
-
 import Main from "@/src/shared/ui/main/main";
 import BloggerHero from "../../_components/blogger-hero/blogger-hero";
 import BloggerStatsRow from "../../_components/blogger-states-row/blogger-states-row";
@@ -24,8 +22,6 @@ export default async function BloggerPage({ params }: BloggerPageProps) {
   }
 
   return (
-    <html dir="rtl" lang="fa">
-      <body>
         <Main>
           <div className="flex flex-col gap-6 pb-6">
             <BloggerHero blogger={blogger} />
@@ -39,7 +35,6 @@ export default async function BloggerPage({ params }: BloggerPageProps) {
 
               {blogger.recommendedPlaces.length > 0 && (
                 <div className="flex flex-col gap-3">
-                  <SectionHeading title="منتخب‌های من" />
                   <RecommendedPlacesCarousel
                     places={blogger.recommendedPlaces}
                   />
@@ -52,7 +47,5 @@ export default async function BloggerPage({ params }: BloggerPageProps) {
             </div>
           </div>
         </Main>
-      </body>
-    </html>
   );
 }

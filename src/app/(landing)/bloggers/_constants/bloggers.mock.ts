@@ -21,7 +21,7 @@ export const MOCK_BLOGGERS: Blogger[] = [
         id: "p1",
         slug: "sam-cafe",
         name: "سام کافه",
-        image: "/images/places/sam-cafe.jpg",
+        image: blogger1,
         rating: 4.8,
         address: "خیابان سینا، کوچه نوشابه‌ن",
         hours: "باز تا ۱۲:۳۰ بعد از ظهر",

@@ -7,8 +7,6 @@ export default async function BloggersPage() {
   const bloggers = await getBloggers();
 
   return (
-    <html lang="fa" dir="rtl">
-      <body>
         <Main>
           <div className="min-h-screen bg-white pt-6 sm:pt-8">
             <div className="mx-auto flex w-[95%] max-w-[1024px] flex-col gap-6">
@@ -30,7 +28,5 @@ export default async function BloggersPage() {
             </div>
           </div>
         </Main>
-      </body>
-    </html>
   );
 }

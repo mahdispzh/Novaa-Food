@@ -23,11 +23,17 @@ export default function RecommendedPlacesCarousel({
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-0">
+      <div className="mb-[-25px] flex items-center  right-0">
+        <h3 className="mr-3 text-right text-[20px] font-bold text-gray">
+          منتخب‌های من
+        </h3>
+      </div>
+
       <div
         ref={scrollerRef}
         onScroll={handleScroll}
-        className="flex snap-x snap-mandatory gap-3 overflow-x-auto"
+        className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1"
       >
         {places.map((place) => (
           <RecommendedPlaceCard key={place.id} place={place} />

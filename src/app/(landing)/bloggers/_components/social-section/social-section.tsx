@@ -1,5 +1,3 @@
-import socialFrame from "../../_assets/frames/social-frame.svg";
-import { frameMaskStyle } from "../../_utils/frame-mask";
 import { BloggerSocialLinks } from "../../_types/blogger.types";
 import SocialLinks from "../social-links/social-links";
 
@@ -15,12 +13,23 @@ export default function SocialSection({ links }: SocialSectionProps) {
 
   return (
     <div className="relative">
-      {/* aspect matches the native social-frame.svg (366x133) */}
+      {/* aspect matches the native SVG (366x133) */}
       <div className="relative aspect-[366/133] w-full">
-        <div
-          className="bg-primary absolute inset-0"
-          style={frameMaskStyle(socialFrame)}
-        />
+        <svg
+          viewBox="0 0 366 133"
+          preserveAspectRatio="none"
+          className="absolute inset-0 h-full w-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 0H366V126.179H88C43.8172 126.179 8 90.3623 8 46.1795V0Z"
+            fill="#8E977D"
+          />
+          <path
+            d="M357.5 7.32056V132.5H80C36.0934 132.5 0.500115 96.9068 0.5 53.0002V7.32056H357.5Z"
+            stroke="#301F18"
+          />
+        </svg>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
           <div className="flex flex-col gap-1">

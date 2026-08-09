@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { FollowButtonProps } from "./follow-button.types";
+import type { FollowButtonProps } from "./follow-button.types";
 
 // Traced directly from the reference frame SVG (viewBox 186x211): this path
 // cuts the bottom-left "notch" the avatar clips into; the follow button sits
@@ -31,7 +31,7 @@ export default function FollowButton({
       style={{ width: FRAME_WIDTH, height: FRAME_HEIGHT }}
     >
       <div
-        className="absolute left-0 top-0 overflow-hidden bg-secondary"
+        className="absolute top-0 left-0 overflow-hidden bg-secondary"
         style={{
           clipPath: AVATAR_CLIP_PATH,
           WebkitClipPath: AVATAR_CLIP_PATH,
@@ -41,14 +41,12 @@ export default function FollowButton({
           transformOrigin: "top left",
         }}
       >
-        <Image src={avatarSrc} alt={alt} fill className="object-cover" />
+        <Image fill alt={alt} className="object-cover" src={avatarSrc} />
       </div>
 
       {/* follow button circle sitting in the notch */}
       <button
-        type="button"
-        onClick={onToggleFollow}
-        className="absolute flex flex-col items-center justify-center rounded-full bg-[var(--color-primary)] text-center text-[9px] font-medium leading-tight text-white transition hover:opacity-90"
+        className="absolute flex flex-col items-center justify-center rounded-full bg-[var(--color-primary)] text-center text-[9px] leading-tight font-medium text-white transition hover:opacity-90"
         style={{
           width: BUTTON_DIAMETER,
           height: BUTTON_DIAMETER,
@@ -56,6 +54,8 @@ export default function FollowButton({
           top: BUTTON_CENTER_Y,
           transform: "translate(-50%, -50%)",
         }}
+        type="button"
+        onClick={onToggleFollow}
       >
         {isFollowing ? (
           <>

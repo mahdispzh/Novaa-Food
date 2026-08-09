@@ -10,7 +10,7 @@ interface BloggerStatsRowProps {
 
 export default function BloggerStatsRow({ stats }: BloggerStatsRowProps) {
   return (
-    <div className="flex w-full items-stretch gap-2">
+    <div className="flex left-30 items-stretch gap-2">
       <StatBadge
         icon={ICONS.personelIcon}
         value={`${stats.visitors}+`}
