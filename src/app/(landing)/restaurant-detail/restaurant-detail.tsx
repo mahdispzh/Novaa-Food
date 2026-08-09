@@ -18,6 +18,7 @@ const {
   locationIcon: LocationIcon,
   phoneIcon: PhoneIcon,
   correctIcon: CorrectIcon,
+  dotIcon : DotIcon,
 } = ICONS;
 
 export default function RestaurantDetail({
@@ -64,7 +65,11 @@ export default function RestaurantDetail({
             <SaveIcon size="md" color="text-secondary" />
           </div>
         </div>
-        <p className="text-[12px] font-light text-primary">{category}</p>
+        <div className="flex gap-1 items-center">
+          <DotIcon size="2xs" color="text-primary" />
+<p className="text-[12px] font-light text-primary">{category}</p>
+        </div>
+        
 
         <div className="mt-4 flex flex-wrap gap-1">
           {tabs.map((tab) => (

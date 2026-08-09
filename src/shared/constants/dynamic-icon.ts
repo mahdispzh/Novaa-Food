@@ -6,6 +6,7 @@ import { ClockIcon as clockIcon } from "@/src/shared/constants/icons/clock-icon"
 import { CoffeeIcon as coffeeIcon } from "@/src/shared/constants/icons/coffee-icon";
 import { ComplexDesignIcon as complexDesignIcon } from "@/src/shared/constants/icons/complexdesign-icon";
 import { DislikeIcon as dislikeIcon } from "@/src/shared/constants/icons/dislike-icon";
+import { DotIcon as dotIcon } from "@/src/shared/constants/icons/dot-icon";
 import { EventIcon as eventIcon } from "@/src/shared/constants/icons/event-icon";
 import { ExploreIcon as exploreIcon } from "@/src/shared/constants/icons/explore-icon";
 import { EyeIcon as eyeIcon } from "@/src/shared/constants/icons/eye-icon";
@@ -68,6 +69,7 @@ export const ICONS = {
   home,
   eyeIcon,
   dislikeIcon,
+  dotIcon,
   filterIcon,
   halfstarIcon,
   headsetIcon,

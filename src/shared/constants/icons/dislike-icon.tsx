@@ -4,10 +4,11 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export const DislikeIcon = ({
   size = "lg",
   color = "text-primary",
+  className,
 }: IconProps) => {
   return (
     <svg
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       width="18"
       height="19"
       viewBox="0 0 18 19"

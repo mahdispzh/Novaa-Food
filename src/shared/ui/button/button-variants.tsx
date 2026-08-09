@@ -56,7 +56,7 @@ export const buttonVariants = cva(
 
         medium: "w-[210px]",
 
-        large: "w-[300px]",
+        large: "w-[320px]",
       },
     },
 

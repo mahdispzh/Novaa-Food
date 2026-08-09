@@ -4,9 +4,10 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export const TasteIcon = ({
   size = "lg",
   color = "text-primary",
+  className,
 }: IconProps) => {
   return (
-<svg className={`${ICON_SIZE_CLASS[size]} ${color}`} width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`} width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.7449 24.3705H2.82003C2.02728 24.3705 1.38428 24.8826 1.38428 25.5143V25.5478C1.38428 26.1795 2.02703 26.6911 2.82003 26.6911H15.7449C16.5382 26.6911 17.1812 26.1795 17.1812 25.5478V25.5143C17.1811 24.8826 16.5381 24.3705 15.7449 24.3705Z" fill="currentColor"/>
 <path d="M4.58144 17.7412C4.35369 17.7412 4.16919 17.9259 4.16919 18.1536C4.16919 18.3818 4.35369 18.5665 4.58144 18.5665C4.80963 18.5665 4.99457 18.3818 4.99457 18.1536C4.99463 17.9259 4.80963 17.7412 4.58144 17.7412Z" fill="currentColor"/>
 <path d="M7.67643 17.7412C7.44843 17.7412 7.26343 17.9259 7.26343 18.1536C7.26343 18.3818 7.44843 18.5665 7.67643 18.5665C7.90412 18.5665 8.08887 18.3818 8.08887 18.1536C8.08887 17.9259 7.90412 17.7412 7.67643 17.7412Z" fill="currentColor"/>

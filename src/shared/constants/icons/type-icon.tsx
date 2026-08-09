@@ -1,10 +1,10 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function TypeIcon({ size = "lg", color = "text-primary" }: IconProps) {
+export function TypeIcon({ size = "lg", color = "text-primary", className }: IconProps) {
   return (
     <svg
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       width="17"
       height="17"
       viewBox="0 0 17 17"
