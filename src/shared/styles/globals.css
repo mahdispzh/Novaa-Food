@@ -5,6 +5,9 @@
 @import "./reset.css";
 @import "./utilities.css";
 
+body {
+  background-color: var(--color-beige);
+}
 
 ::selection {
   background-color:var(--color-primary);

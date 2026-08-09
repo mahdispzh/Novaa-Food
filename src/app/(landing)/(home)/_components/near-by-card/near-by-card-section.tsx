@@ -18,7 +18,7 @@ const { sparkleIcon: SparkleIcon,
 export default function NearByCardSection({data}:NearBySectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
-      <Container>
+
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="نزدیک‌ترین‌ها"
@@ -31,7 +31,7 @@ export default function NearByCardSection({data}:NearBySectionProps) {
             <ChevronLeftIcon size="sm" color="text-secondary" />
           </div>
         </div>
-      </Container>
+
 
 
       <div

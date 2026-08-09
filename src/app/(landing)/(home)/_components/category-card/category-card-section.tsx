@@ -11,7 +11,7 @@ type CatgorySectionProps = {
 
 export default function CategoryCardSection({data}:CatgorySectionProps) {
   return (
-    <Container>
+
       <div className="mt-5 flex flex-col gap-3">
         <SectionHeading
           title="دسته‌بندی‌ها"
@@ -28,6 +28,6 @@ export default function CategoryCardSection({data}:CatgorySectionProps) {
           ))}
         </div>
       </div>
-    </Container>
+
   );
 }

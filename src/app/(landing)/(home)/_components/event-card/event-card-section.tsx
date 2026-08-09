@@ -18,7 +18,7 @@ const { sparkleIcon: SparkleIcon,
 export default function EventCardSection({data}:EventSectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
-      <Container>
+
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="رویدادها و لحظه‌ها"
@@ -31,7 +31,7 @@ export default function EventCardSection({data}:EventSectionProps) {
             <ChevronLeftIcon size="sm" color="text-secondary" />
           </div>
         </div>
-      </Container>
+
 
       <div
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
