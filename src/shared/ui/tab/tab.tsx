@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/src/shared/lib/utils";
 import { TabProps } from "./tab-types";
 import { tabVariants } from "./tab-variants";
 

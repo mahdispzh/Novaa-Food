@@ -18,7 +18,7 @@ const { sparkleIcon: SparkleIcon,
 export default function PopularCardSection({data}:PopularSectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
-      <Container>
+
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="محبوب‌ترین‌ها"
@@ -31,17 +31,17 @@ export default function PopularCardSection({data}:PopularSectionProps) {
             <ChevronLeftIcon size="md" color="text-secondary" />
           </div>
         </div>
-      </Container>
+
 
       <div
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {PopularCards.map((popular) => (
+        {data.map((popular) => (
           <div
             key={popular.id}
             className="shrink-0"
-            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+            style={{ scrollSnapAlign: "start"}}
           >
             <PopularCard
               title={popular.title}

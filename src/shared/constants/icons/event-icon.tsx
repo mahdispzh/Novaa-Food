@@ -4,10 +4,11 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export function EventIcon({
   size = "lg",
   color = "text-primary",
+  className,
 }: IconProps) {
   return (
     <svg
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       fill="none"
       height="24"
       viewBox="0 0 25 24"

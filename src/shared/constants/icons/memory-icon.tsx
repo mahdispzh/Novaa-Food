@@ -4,10 +4,11 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export function MemoryCheckpointIcon({
   size = "lg",
   color = "text-primary",
+  className,
 }: IconProps) {
   return (
     <svg
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       width="34"
       height="34"
       viewBox="0 0 34 34"

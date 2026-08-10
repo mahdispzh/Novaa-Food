@@ -34,6 +34,18 @@ export const badgeVariants = cva(
         lg: "h-11 text-base",
       },
 
+      width: {
+        auto: "w-fit",
+
+        sm: "w-20",
+
+        md: "w-32",
+
+        lg: "w-40",
+        
+        full: "w-full",
+      },
+
       rounded: {
         none: "rounded-none",
 
@@ -62,5 +74,5 @@ export const badgeVariants = cva(
 
       clickable: false,
     },
-  }
+  },
 );

@@ -19,7 +19,7 @@ const { sparkleIcon: SparkleIcon,
 export default function NearByCardSection({data}:NearBySectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
-      <Container>
+
         <div className="flex items-center justify-between gap-2">
           <SectionHeading
             title="نزدیک‌ترین‌ها"
@@ -32,18 +32,18 @@ export default function NearByCardSection({data}:NearBySectionProps) {
             <ChevronLeftIcon size="sm" color="text-secondary" />
           </div>
         </div>
-      </Container>
+
 
 
       <div
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {nearByCards.map((nearBy) => (
+        {data.map((nearBy) => (
           <div
             key={nearBy.id}
             className="shrink-0"
-            style={{ scrollSnapAlign: "start", width: "85%", maxWidth: 280 }}
+            style={{ scrollSnapAlign: "start" }}
           >
             <NearByCard
               title={nearBy.title}

@@ -5,9 +5,9 @@ export const tabVariants = cva(
   [
     "relative",
     "h-10",
-    "px-4",
+    "px-3",
     "font-regular",
-    "text-sm",
+    "text-[16px]",
     "transition-colors",
     "duration-normal",
   ],

@@ -4,10 +4,11 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export function TelegramIcon({
   size = "lg",
   color = "text-secondary",
+  className,
 }: IconProps) {
   return (
 <svg 
-    className={`${ICON_SIZE_CLASS[size]} ${color}`} 
+    className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`} 
     fill="none"
     height="25" 
     viewBox="0 0 25 25" 

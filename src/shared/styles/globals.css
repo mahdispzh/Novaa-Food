@@ -3,8 +3,11 @@
 @import "./fonts.css";
 @import "./theme.css";
 @import "./reset.css";
-@import "./reset.css";
+@import "./utilities.css";
 
+body {
+  background-color: var(--color-light-beige);
+}
 
 ::selection {
   background-color:var(--color-primary);

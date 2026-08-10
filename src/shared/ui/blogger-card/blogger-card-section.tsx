@@ -39,11 +39,11 @@ export default function BloggerCardSection({data}:BloggerSectionProps) {
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {bloggerCards.map((blogger) => (
+        {data.map((blogger) => (
           <div
             key={blogger.id}
             className="shrink-0"
-            style={{ scrollSnapAlign: "start", width: "80%", maxWidth: 280 }}
+            style={{ scrollSnapAlign: "start" }}
           >
             <BloggerCard
               name={blogger.name}

@@ -4,10 +4,11 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export const SparkleIcon = ({
   size = "lg",
   color = "text-primary",
+  className,
 }: IconProps) => {
   return (
     <svg
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       width="8"
       height="10"
       viewBox="0 0 8 10"

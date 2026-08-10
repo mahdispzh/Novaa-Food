@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import categoryCardShape from "@/src/shared/ui/assets/shapes/category-card.svg";
-import { CategoryCardProps } from "./category-card-types";
+import type { CategoryCardProps } from "./category-card-types";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 
 
@@ -18,18 +18,18 @@ export default function CategoryCard({
 
       {/* Shape */}
       <Image
-        src={categoryCardShape}
-        alt=""
         fill
+        alt=""
         className="object-contain"
+        src={categoryCardShape}
       />
 
 
       {/* Icon */}
       <div className="absolute top-10 right-4">
         <Icon 
-          size="2xl"
           color="text-beige"
+          size="2xl"
         />
       </div>
 

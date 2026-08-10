@@ -1,7 +1,7 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function ResturantIcon({ size = "lg", color = "text-primary", ...props }: IconProps) {
+export function ResturantIcon({ size = "lg", color = "text-primary", className, ...props }: IconProps) {
   return (
     <svg
       width="29"
@@ -9,7 +9,7 @@ export function ResturantIcon({ size = "lg", color = "text-primary", ...props }:
       viewBox="0 0 29 29"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       {...props}
     >
       <path
