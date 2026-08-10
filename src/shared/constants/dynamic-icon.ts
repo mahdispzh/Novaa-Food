@@ -42,6 +42,7 @@ import { TypeIcon as typeIcon } from "@/src/shared/constants/icons/type-icon";
 import { UserIcon as userIcon } from "@/src/shared/constants/icons/user-icon";
 import { VerifiedIcon as verifiedIcon } from "@/src/shared/constants/icons/verified-icon";
 import { WhatsappIcon as whatsappIcon } from "@/src/shared/constants/icons/whatsapp-icon";
+import { PlusIcon as plusIcon } from "@/src/shared/constants/icons/plus-icon";
 import { HomeFooter as home } from "../components/footer/layout/home-footer";
 import { SettingsFooter as settings } from "../components/footer/layout/settings-footer";
 import { EventFooter as events } from "../components/footer/layout/event-footer";
@@ -93,6 +94,7 @@ export const ICONS = {
   exploreIcon,
   settingsIcon,
   shareIcon,
+  plusIcon,
   sortDescendingIcon,
   sparkleIcon,
   sortIcon,

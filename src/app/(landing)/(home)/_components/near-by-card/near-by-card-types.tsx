@@ -1,11 +1,10 @@
 import { StaticImageData } from "next/image";
-import { ReactNode } from "react";
 
 
 export interface nearByCardProps {
   title: string;
   location: string;
-  rating: number;
+  rating: string;
   image: StaticImageData;
   category: string;
 

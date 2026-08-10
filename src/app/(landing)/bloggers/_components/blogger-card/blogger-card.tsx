@@ -54,7 +54,7 @@ export default function BloggerCard({
   );
 
   return (
-    <div className="flex w-full flex-col rounded-[28px] bg-white p-5">
+    <div className="flex w-full flex-col rounded-[28px] bg-light-beige p-5">
       <div className="flex items-stretch gap-5">
         {reversed ? (
           <>

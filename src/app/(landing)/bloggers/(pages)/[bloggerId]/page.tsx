@@ -22,30 +22,29 @@ export default async function BloggerPage({ params }: BloggerPageProps) {
   }
 
   return (
-        <Main>
-          <div className="flex flex-col gap-6 pb-6">
-            <BloggerHero blogger={blogger} />
+    <Main>
+      <div className="flex flex-col gap-6 pb-6">
+        <BloggerHero blogger={blogger} />
+        <div className="flex flex-col gap-4 px-4">
+          <FollowButtonWrapper initialIsFollowing={blogger.isFollowing} />
 
-            <div className="flex flex-col gap-4 px-4">
-              <FollowButtonWrapper initialIsFollowing={blogger.isFollowing} />
+          <p className="text-[13px] leading-6 text-gray">{blogger.bio}</p>
 
-              <p className="text-[13px] leading-6 text-gray">{blogger.bio}</p>
+          <BloggerStatsRow stats={blogger.stats} />
 
-              <BloggerStatsRow stats={blogger.stats} />
-
-              {blogger.recommendedPlaces.length > 0 && (
-                <div className="flex flex-col gap-3">
-                  <RecommendedPlacesCarousel
-                    places={blogger.recommendedPlaces}
-                  />
-                </div>
-              )}
-
-              <VideosSection videos={blogger.videos} />
-
-              <SocialSection links={blogger.socialLinks} />
+          {blogger.recommendedPlaces.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <RecommendedPlacesCarousel
+                places={blogger.recommendedPlaces}
+              />
             </div>
-          </div>
-        </Main>
+          )}
+
+          <VideosSection videos={blogger.videos} />
+
+          <SocialSection links={blogger.socialLinks} />
+        </div>
+      </div>
+    </Main>
   );
 }

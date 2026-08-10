@@ -3,22 +3,22 @@ import Link from "next/link";
 
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 
-import { RecommendedPlaceCardProps } from "./recommended-place-card.types";
+import type { RecommendedPlaceCardProps } from "./recommended-place-card.types";
 
 export default function RecommendedPlaceCard({
   place,
 }: RecommendedPlaceCardProps) {
   return (
     <Link
+      className="relative block w-full shrink-0 snap-center"
       href={`/restaurants/${place.slug}`}
-      className="relative block w-full flex-shrink-0 snap-center"
     >
       {/* frame: aspect matches the native SVG (370x203) */}
-      <div className="relative aspect-[370/203] w-full overflow-hidden">
+      <div className="relative aspect-370/203 w-full overflow-hidden">
         <svg
-          viewBox="0 0 370 203"
-          preserveAspectRatio="none"
           className="absolute inset-0 h-full w-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 370 203"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -26,7 +26,7 @@ export default function RecommendedPlaceCard({
             fill="#8E977D"
           />
           {/* thin inset border line, traced from the reference frame */}
-          <mask id="recommended-frame-inner-mask" fill="white">
+          <mask fill="white" id="recommended-frame-inner-mask">
             <path d="M29.6406 17.3757C18.3508 17.3757 9.19824 26.5283 9.19824 37.8181V172.735C9.1983 184.025 18.3509 193.177 29.6406 193.177H340.358C351.648 193.177 360.801 184.025 360.801 172.735V84.6049C360.801 75.0086 353.021 67.2292 343.425 67.2292H220.696C216.757 67.2292 212.902 66.0912 209.595 63.9519L141.896 20.1618C139.085 18.3432 135.807 17.3757 132.459 17.3757H29.6406Z" />
           </mask>
           <path
@@ -36,52 +36,40 @@ export default function RecommendedPlaceCard({
           />
         </svg>
 
-        {/* image: absolute + explicit insets so it can never overflow the card */}
-        <div className="absolute bottom-3 left-3 top-3 w-[38%] overflow-hidden rounded-2xl">
+        {/* image: absolute on the left, explicit insets so it can never overflow the card */}
+        <div className="absolute top-6 left-4 bottom-4 w-[34%] overflow-hidden rounded-2xl">
           <Image
-            src={place.image}
-            alt={place.name}
             fill
-            sizes="200px"
+            alt={place.name}
             className="object-cover"
+            sizes="200px"
+            src={place.image}
           />
         </div>
 
         {/* text block: absolute on the right, starts after the image + gap */}
-        <div className="absolute bottom-3 right-3 top-3 left-[calc(38%+1.5rem)] flex flex-col justify-center gap-2 text-right">
-          {/* name + rating + review count */}
-          <div className="flex items-center justify-end gap-1">
-            <span className="truncate text-[15px] font-bold text-white">
+        <div className="absolute top-7 left-[calc(34%+6rem)] -bottom-3 right-3 flex flex-col justify-center gap-2 text-right">
+          <div className="flex items-center justify-end gap-2">
+            <span className="truncate text-[15px] font-bold text-secondary">
               {place.name}
             </span>
-            <span className="flex shrink-0 items-center gap-1 text-[12px] text-white">
-              <ICONS.starIcon size="xs" color="text-white" />
+            <span className="flex shrink-0 items-center gap-1 text-[12px] text-secondary">
+              <ICONS.starIcon color="text-secondary" size="xs" />
               {place.rating}
             </span>
-            {place.reviewCount && (
-              <span className="shrink-0 text-[11px] text-white/80">
-                ({place.reviewCount} نظر)
-              </span>
-            )}
           </div>
 
-          {/* category tags */}
-          {place.categories && (
-            <div className="flex items-center justify-end gap-1">
-              <span className="truncate text-[11px] text-white/80">
-                {place.categories}
-              </span>
-              <span className="h-1 w-1 shrink-0 rounded-full bg-white/80" />
+          {place.address && (
+            <div className="flex items-center justify-end gap-2 text-[11px] text-white/85">
+              <ICONS.locationIcon color="text-white" size="xs" />
+              <span className="truncate">{place.address}</span>
             </div>
           )}
 
-          {/* distance */}
-          {place.distance && (
-            <div className="flex items-center justify-end gap-1">
-              <span className="truncate text-[11px] text-white/80">
-                {place.distance}
-              </span>
-              <ICONS.locationIcon size="xs" color="text-white" />
+          {place.hours && (
+            <div className="flex items-center justify-end gap-2 text-[11px] text-white/85">
+              <ICONS.clockIcon color="text-white" size="xs" />
+              <span className="truncate">{place.hours}</span>
             </div>
           )}
         </div>

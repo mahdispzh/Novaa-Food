@@ -1,5 +1,5 @@
 // src/app/layout.tsx
-import { BaseHeader } from "@/src/shared/components/header/base-header";
+import HeaderController from "@/src/shared/components/header/header-controller";
 import { ReactQueryProvider } from "@/src/shared/providers/react-query-provider";
 import "@/src/shared/styles/globals.css";
 import type { Metadata } from "next";
@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className="bg-white">
         <ReactQueryProvider>
           <AuthBootstrap />
-          <BaseHeader />
+          <HeaderController />
           <AuthProvider>{children}</AuthProvider>
         </ReactQueryProvider>
       </body>

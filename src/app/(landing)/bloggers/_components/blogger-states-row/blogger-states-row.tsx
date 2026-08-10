@@ -12,9 +12,9 @@ export default function BloggerStatsRow({ stats }: BloggerStatsRowProps) {
   return (
     <div className="flex left-30 items-stretch gap-2">
       <StatBadge
-        icon={ICONS.personelIcon}
-        value={`${stats.visitors}+`}
-        label="بازدیدکننده"
+        icon={ICONS.heartIcon}
+        value={formatFollowers(stats.followers)}
+        label="دنبال‌کننده"
       />
       <StatBadge
         icon={ICONS.coffeeIcon}
@@ -22,9 +22,9 @@ export default function BloggerStatsRow({ stats }: BloggerStatsRowProps) {
         label="معرفی کافه"
       />
       <StatBadge
-        icon={ICONS.heartIcon}
-        value={formatFollowers(stats.followers)}
-        label="دنبال‌کننده"
+        icon={ICONS.profileIcon}
+        value={`${stats.visitors}+`}
+        label="بازدیدکننده"
       />
     </div>
   );

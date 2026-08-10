@@ -8,6 +8,7 @@ import { nearByCards } from "./near-by-card-constants";
 import NearByCard from "./near-by-card";
 
 type NearBySectionProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any[];
 };
 
