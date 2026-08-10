@@ -37,7 +37,7 @@ export default function RecommendedPlaceCard({
         </svg>
 
         {/* image: absolute on the left, explicit insets so it can never overflow the card */}
-        <div className="absolute top-6 left-4 bottom-4 w-[34%] overflow-hidden rounded-2xl">
+        <div className="absolute top-6 bottom-4 left-4 w-[34%] overflow-hidden rounded-2xl">
           <Image
             fill
             alt={place.name}
@@ -46,33 +46,43 @@ export default function RecommendedPlaceCard({
             src={place.image}
           />
         </div>
-
         {/* text block: absolute on the right, starts after the image + gap */}
-        <div className="absolute top-7 left-[calc(34%+6rem)] -bottom-3 right-3 flex flex-col justify-center gap-2 text-right">
-          <div className="flex items-center justify-end gap-2">
-            <span className="truncate text-[15px] font-bold text-secondary">
-              {place.name}
-            </span>
-            <span className="flex shrink-0 items-center gap-1 text-[12px] text-secondary">
-              <ICONS.starIcon color="text-secondary" size="xs" />
-              {place.rating}
-            </span>
-          </div>
+<div className="absolute top-7 right-6.5 -bottom-3 flex flex-col justify-center gap-3 text-right">
+  <div className="flex items-center justify-end gap-2">
+    <span className="truncate text-[15px] font-bold text-secondary">
+      {place.name}
+    </span>
+    <div className="flex items-center gap-1">
+      <span className="flex shrink-0 items-center font-bold gap-1 text-[12px] text-secondary">
+        {place.ratingnumber}
+        <span className="-translate-y-1 inline-flex">
+          <ICONS.starIcon color="text-secondary" size="sm" />
+        </span>
+      </span>
+      <span className="flex shrink-0 items-center gap-0 text-[9px] text-secondary">
+        {place.number}
+      </span>
+    </div>
+  </div>
 
-          {place.address && (
-            <div className="flex items-center justify-end gap-2 text-[11px] text-white/85">
-              <ICONS.locationIcon color="text-white" size="xs" />
-              <span className="truncate">{place.address}</span>
-            </div>
-          )}
+  {place.menu && (
+    <div className="relative translate-x-7 flex flex-col items-end gap-1 text-[11px] text-white/85">
+      <div className="flex items-center gap-1">
+        <ICONS.dotIcon color="text-white" size="2xs" />
+        <span className="truncate">{place.menu}</span>
+      </div>
+    </div>
+  )}
 
-          {place.hours && (
-            <div className="flex items-center justify-end gap-2 text-[11px] text-white/85">
-              <ICONS.clockIcon color="text-white" size="xs" />
-              <span className="truncate">{place.hours}</span>
-            </div>
-          )}
-        </div>
+  {place.location && (
+    <div className="relative translate-x-14 flex flex-col items-end gap-1 text-[11px] text-secondary">
+      <div className="flex items-center gap-1">
+        <ICONS.locationIcon color="text-secondary" size="md" />
+        <span className="truncate">{place.location}</span>
+      </div>
+    </div>
+  )}
+</div>
       </div>
     </Link>
   );

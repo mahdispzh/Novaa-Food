@@ -2,9 +2,7 @@
 
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import { Button } from "@/src/shared/ui";
-import Container from "@/src/shared/ui/container/container";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
-import { nearByCards } from "./near-by-card-constants";
 import NearByCard from "./near-by-card";
 
 type NearBySectionProps = {

@@ -9,9 +9,10 @@ export interface BloggerRecommendedPlace {
   slug: string;
   name: string;
   image: string;
-  rating: number;
-  address?: string;
-  hours?: string;
+  ratingnumber: string;
+  number: string;
+  menu?: string;
+  location?: string;
 }
 
 export interface BloggerVideo {

@@ -7,7 +7,7 @@ export const nearByCards = [
         title : "سام کافه",
         category: "کافه",
         location: "شیراز, ارم (۲.۱ کیلومتر)",
-        rating: "۴.۸",
+        rating: 4.8,
         image: nearByCardImage,
         
     },
@@ -17,7 +17,7 @@ export const nearByCards = [
     title: "کافه رادیو",
     category: "کافه",
     image: nearByCardImage,
-    rating: "۴.۶",
+    rating: 4.6,
     location: "شیراز، معالی آباد 3 کیلومتر",
 
   },

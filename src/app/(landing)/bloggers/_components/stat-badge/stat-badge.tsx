@@ -34,7 +34,7 @@ export default function StatBadge({ icon: Icon, value, label }: StatBadgeProps) 
         className="absolute flex flex-col items-center justify-center gap-1 px-2 text-center"
         style={{ left: "0%", top: "6.92%", width: "88.16%", height: "88.16%" }}
       >
-        <Icon size="lg" color="text-white" />
+        <Icon size="xl" color="text-white" />
         <span className="text-[13px] font-bold text-white">{value}</span>
         <span className="text-[10px] whitespace-nowrap text-white/85">
           {label}

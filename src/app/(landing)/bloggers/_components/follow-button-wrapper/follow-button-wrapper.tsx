@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/src/shared/ui/button/Button";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
+import { Button } from "@/src/shared/ui/button/Button";
 import { useFollowBlogger } from "../../_hooks/use-follow-blogger";
 
 interface FollowButtonWrapperProps {
@@ -17,7 +17,7 @@ export default function FollowButtonWrapper({
   return (
     <Button
       aria-pressed={isFollowing}
-      className="border-primary bg-white text-primary text-[13px]"
+      className="border-primary bg-white text-[13px] text-primary"
       size="md"
       type="button"
       variant="outline"
@@ -25,7 +25,7 @@ export default function FollowButtonWrapper({
       onClick={toggleFollow}
     >
       {PlusIcon && (
-        <span className="inline-block ml-2">
+        <span className="ml-2 inline-block">
           <PlusIcon color="text-primary" size="md" />
         </span>
       )}
