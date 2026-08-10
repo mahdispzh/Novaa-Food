@@ -6,7 +6,7 @@
 @import "./utilities.css";
 
 body {
-  background-color: var(--color-beige);
+  background-color: var(--color-light-beige);
 }
 
 ::selection {

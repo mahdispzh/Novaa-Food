@@ -52,7 +52,9 @@ export const buttonVariants = cva(
 
         full: "w-full",
 
-        small: "w-[125px]",
+        Xsmall: "w-[125px]",
+
+        small : "w-[155px]",
 
         medium: "w-[210px]",
 
