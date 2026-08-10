@@ -5,8 +5,29 @@ interface VideosSectionProps {
   videos: BloggerVideo[];
 }
 
+// The reference layout isn't a plain 2-column grid: rows alternate between
+// 2 large squares and 3 smaller squares, repeating down the section.
+const ROW_PATTERN = [2, 3];
+
+function chunkVideosIntoRows(videos: BloggerVideo[]) {
+  const rows: BloggerVideo[][] = [];
+  let index = 0;
+  let patternIndex = 0;
+
+  while (index < videos.length) {
+    const rowSize = ROW_PATTERN[patternIndex % ROW_PATTERN.length];
+    rows.push(videos.slice(index, index + rowSize));
+    index += rowSize;
+    patternIndex += 1;
+  }
+
+  return rows;
+}
+
 export default function VideosSection({ videos }: VideosSectionProps) {
   if (videos.length === 0) return null;
+
+  const rows = chunkVideosIntoRows(videos);
 
   return (
     <div className="relative">
@@ -26,13 +47,27 @@ export default function VideosSection({ videos }: VideosSectionProps) {
       </svg>
 
       <div className="relative flex flex-col gap-3 p-3">
-        <h2 className="pt-3 text-center text-[15px] font-bold text-white">
-          ویدیوهای معرفی
-        </h2>
+        <div className="pt-3 -translate-y-6 text-center">
+          <h2 className="text-[20px] font-bold text-secondary">
+            ویدیوهای معرفی
+          </h2>
+          <p className="mt-1 text-[11px] text-white/80">
+            برای مشاهده ویدیوها روی هر مربع کلیک کنید.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-2 gap-1.5">
-          {videos.map((video) => (
-            <VideoThumbnail key={video.id} video={video} />
+        <div className="flex flex-col gap-1.5">
+          {rows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className={`grid gap-1.5 ${
+                row.length === 3 ? "grid-cols-3" : "grid-cols-2"
+              }`}
+            >
+              {row.map((video) => (
+                <VideoThumbnail key={video.id} video={video} />
+              ))}
+            </div>
           ))}
         </div>
       </div>

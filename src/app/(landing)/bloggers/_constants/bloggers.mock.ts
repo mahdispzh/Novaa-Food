@@ -30,10 +30,23 @@ export const MOCK_BLOGGERS: Blogger[] = [
       },
     ],
     videos: [
-      { id: "v1", thumbnail: "/images/bloggers/ali-video-1.jpg" },
-      { id: "v2", thumbnail: "/images/bloggers/ali-video-2.jpg" },
-      { id: "v3", thumbnail: "/images/bloggers/ali-video-3.jpg" },
-      { id: "v4", thumbnail: "/images/bloggers/ali-video-4.jpg" },
+      // Row 1 (2 cols)
+      { id: "v1", thumbnail: "/images/bloggers/ali-video-1.jpg", viewsCount: 1280 },
+      { id: "v2", thumbnail: "/images/bloggers/ali-video-2.jpg", viewsCount: 1190 },
+      // Row 2 (3 cols)
+      { id: "v3", thumbnail: "/images/bloggers/ali-video-3.jpg", viewsCount: 1280 },
+      { id: "v4", thumbnail: "/images/bloggers/ali-video-4.jpg", viewsCount: 900 },
+      { id: "v5", thumbnail: "/images/bloggers/ali-video-5.jpg", viewsCount: 900 },
+      // Row 3 (2 cols)
+      { id: "v6", thumbnail: "/images/bloggers/ali-video-6.jpg", viewsCount: 1280 },
+      { id: "v7", thumbnail: "/images/bloggers/ali-video-7.jpg", viewsCount: 900 },
+      // Row 4 (3 cols)
+      { id: "v8", thumbnail: "/images/bloggers/ali-video-8.jpg", viewsCount: 1280 },
+      { id: "v9", thumbnail: "/images/bloggers/ali-video-9.jpg", viewsCount: 900 },
+      { id: "v10", thumbnail: "/images/bloggers/ali-video-10.jpg", viewsCount: 900 },
+      // Row 5 (2 cols)
+      { id: "v11", thumbnail: "/images/bloggers/ali-video-11.jpg", viewsCount: 1280 },
+      { id: "v12", thumbnail: "/images/bloggers/ali-video-12.jpg", viewsCount: 900 },
     ],
     socialLinks: {
       instagram: "https://instagram.com/alihedarii",
