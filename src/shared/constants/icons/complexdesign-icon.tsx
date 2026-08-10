@@ -1,7 +1,7 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function ComplexDesignIcon({ size = "lg", color = "text-primary", ...props }: IconProps) {
+export function ComplexDesignIcon({ size = "lg", color = "text-primary", className, ...props }: IconProps) {
   return (
     <svg
       width="39"
@@ -9,7 +9,7 @@ export function ComplexDesignIcon({ size = "lg", color = "text-primary", ...prop
       viewBox="0 0 39 37"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       {...props}
     >
       <path

@@ -21,7 +21,7 @@ export default function PopularCard({
   reviewsCount,
 }: popularCardProps) {
   return (
-    <div className="relative h-[360px] w-[320px] shrink-0">
+    <div className="relative h-[360px] w-[300px] shrink-0">
       {/* shape */}
       <Image src={popularCardShape} alt="" fill className="object-contain" />
 
@@ -52,7 +52,7 @@ export default function PopularCard({
         </div>
 
         {/* image */}
-        <div className="absolute top-25  h-[220px] w-[320px]">
+        <div className="absolute top-25  h-[220px] w-[300px]">
           <Image src={popularCardImage} alt="" fill className="object-contain" />
         </div>
 

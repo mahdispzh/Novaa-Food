@@ -8,7 +8,7 @@ export default function Container({
   return (
     <div
       className={cn(
-        "w-full px-4",
+        "w-full px-2",
         className
       )}
     >

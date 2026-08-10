@@ -1,7 +1,7 @@
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 import { IconProps } from "@/src/shared/types/IconTypes";
 
-export function TimeIcon({ size = "lg", color = "text-primary", ...props }: IconProps) {
+export function TimeIcon({ size = "lg", color = "text-primary", className, ...props }: IconProps) {
   return (
     <svg
       width="37"
@@ -9,7 +9,7 @@ export function TimeIcon({ size = "lg", color = "text-primary", ...props }: Icon
       viewBox="0 0 37 41"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       {...props}
     >
       <path

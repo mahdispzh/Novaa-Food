@@ -4,10 +4,11 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export function ExploreIcon({
   size = "lg",
   color = "text-primary",
+  className,
 }: IconProps) {
   return (
     <svg
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       fill="none"
       height="18"
       viewBox="0 0 18 18"

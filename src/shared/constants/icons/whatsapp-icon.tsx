@@ -4,10 +4,11 @@ import { ICON_SIZE_CLASS } from "../icon-sizes";
 export function WhatsappIcon({
   size = "lg",
   color = "text-primary",
+  className,
 }: IconProps) {
   return (
   <svg
-   className={`${ICON_SIZE_CLASS[size]} ${color}`}
+   className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
    width="25"
    height="25"
    viewBox="0 0 25 25"

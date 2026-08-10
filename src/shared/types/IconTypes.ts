@@ -5,4 +5,5 @@ export type IconSize = keyof typeof ICON_SIZE_CLASS;
 export interface IconProps {
   size?: IconSize;
   color?: string;
+   className?: string;
 }

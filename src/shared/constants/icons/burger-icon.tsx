@@ -1,7 +1,7 @@
 import { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function BurgerIcon({ size = "lg", color = "text-primary", ...props }: IconProps) {
+export function BurgerIcon({ size = "lg", color = "text-primary", className, ...props }: IconProps) {
   return (
     <svg
       width="32"
@@ -9,7 +9,7 @@ export function BurgerIcon({ size = "lg", color = "text-primary", ...props }: Ic
       viewBox="0 0 32 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${ICON_SIZE_CLASS[size]} ${color}`}
+      className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
       {...props}
     >
       <path
