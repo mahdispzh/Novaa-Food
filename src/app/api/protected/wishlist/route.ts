@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextResponse } from "next/server";
 
 // GET: دریافت لیست علاقه‌مندی‌ها
@@ -14,7 +14,7 @@ export const GET = withAuth(
         created_at: "desc",
       },
       include: {
-        products: { 
+        products: {
           include: {
             brands: true,
             categories: true,

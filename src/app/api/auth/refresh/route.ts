@@ -1,6 +1,6 @@
 import { prisma } from "@/prisma/prisma";
 
-import { signAccessToken, verifyToken } from "@/src/shared/auth/jwt";
+import { signAccessToken, verifyToken } from "@/src/shared/components/auth/jwt";
 
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";

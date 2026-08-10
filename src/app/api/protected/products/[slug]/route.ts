@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { notifyVariantStockChange } from "@/src/shared/notifications/notification.service";
 import { deleteImages } from "@/src/shared/services/delete-images";
 import { uploadImages } from "@/src/shared/services/upload-images";

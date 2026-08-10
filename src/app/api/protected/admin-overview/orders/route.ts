@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 
 import { getOrdersCharts } from "./_lib/chart";
 import { getOrdersReport } from "./_lib/report";

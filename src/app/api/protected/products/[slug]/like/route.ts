@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextResponse } from "next/server";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

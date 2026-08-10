@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/protected/orders/me/route.ts
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { notifyOrderCreated } from "@/src/shared/notifications/notification.service";
 import { NextResponse } from "next/server";
 

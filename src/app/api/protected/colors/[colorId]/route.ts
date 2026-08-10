@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma";
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextRequest, NextResponse } from "next/server";
 
 type Params = {

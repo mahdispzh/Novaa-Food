@@ -1,4 +1,4 @@
-import { withAuth } from "@/src/shared/auth/with-auth";
+import { withAuth } from "@/src/shared/components/auth/with-auth";
 import { NextResponse } from "next/server";
 import { getBlogsCharts } from "./_lib/chart";
 import { getBlogsReport } from "./_lib/report";

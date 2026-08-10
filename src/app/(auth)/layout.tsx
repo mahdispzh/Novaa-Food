@@ -1,5 +1,5 @@
 "use client";
-import { PublicAuthGuard } from "@/src/shared/auth/auth-guard";
+import { PublicAuthGuard } from "@/src/shared/components/auth/auth-guard";
 
 export default function SendOtpLayout({
   children,
