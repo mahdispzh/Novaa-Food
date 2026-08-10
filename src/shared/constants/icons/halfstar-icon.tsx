@@ -9,7 +9,7 @@ export function HalfstarIcon({
   return (
     <svg
       className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
-      fill="none"
+      fill="currentColor"
       height="18"
       viewBox="0 0 9 18"
       width="9"
