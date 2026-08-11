@@ -1,8 +1,8 @@
-import { Blogger } from "../_types/blogger.types";
+import nearByCardImage from "@/src/app/(landing)/(home)/_components/near-by-card/near-by-card-image.svg";
 import blogger1 from "@/src/shared/ui/blogger-card/blogger-card-1.svg";
 import blogger2 from "@/src/shared/ui/blogger-card/blogger-card-2.svg";
 import blogger3 from "@/src/shared/ui/blogger-card/blogger-card-3.svg";
-import nearByCardImage from "@/src/app/(landing)/(home)/_components/near-by-card/near-by-card-image.svg";
+import type { Blogger } from "../_types/blogger.types";
 
 const DEFAULT_BIO =
   "عاشق کشف کافه‌های دنج و رستوران‌های خاص، بیشتر از پنج سال تجربه بررسی کافه‌ها و رستوران‌های شیراز.";
@@ -31,22 +31,22 @@ export const MOCK_BLOGGERS: Blogger[] = [
     ],
     videos: [
       // Row 1 (2 cols)
-      { id: "v1", thumbnail: "/images/bloggers/ali-video-1.jpg", viewsCount: 1280 },
-      { id: "v2", thumbnail: "/images/bloggers/ali-video-2.jpg", viewsCount: 1190 },
+      { id: "v1", thumbnail: "/images/bloggers/1.png", viewsCount: 1280 },
+      { id: "v2", thumbnail: "/images/bloggers/2.png", viewsCount: 1190 },
       // Row 2 (3 cols)
-      { id: "v3", thumbnail: "/images/bloggers/ali-video-3.jpg", viewsCount: 1280 },
-      { id: "v4", thumbnail: "/images/bloggers/ali-video-4.jpg", viewsCount: 900 },
-      { id: "v5", thumbnail: "/images/bloggers/ali-video-5.jpg", viewsCount: 900 },
+      { id: "v3", thumbnail: "/images/bloggers/3.png", viewsCount: 1280 },
+      { id: "v4", thumbnail: "/images/bloggers/4.png", viewsCount: 900 },
+      { id: "v5", thumbnail: "/images/bloggers/5.png", viewsCount: 900 },
       // Row 3 (2 cols)
-      { id: "v6", thumbnail: "/images/bloggers/ali-video-6.jpg", viewsCount: 1280 },
-      { id: "v7", thumbnail: "/images/bloggers/ali-video-7.jpg", viewsCount: 900 },
+      { id: "v6", thumbnail: "/images/bloggers/1.png", viewsCount: 1280 },
+      { id: "v7", thumbnail: "/images/bloggers/2.png", viewsCount: 900 },
       // Row 4 (3 cols)
-      { id: "v8", thumbnail: "/images/bloggers/ali-video-8.jpg", viewsCount: 1280 },
-      { id: "v9", thumbnail: "/images/bloggers/ali-video-9.jpg", viewsCount: 900 },
-      { id: "v10", thumbnail: "/images/bloggers/ali-video-10.jpg", viewsCount: 900 },
+      { id: "v8", thumbnail: "/images/bloggers/3.png", viewsCount: 1280 },
+      { id: "v9", thumbnail: "/images/bloggers/4.png", viewsCount: 900 },
+      { id: "v10", thumbnail: "/images/bloggers/5.png", viewsCount: 900 },
       // Row 5 (2 cols)
-      { id: "v11", thumbnail: "/images/bloggers/ali-video-11.jpg", viewsCount: 1280 },
-      { id: "v12", thumbnail: "/images/bloggers/ali-video-12.jpg", viewsCount: 900 },
+      { id: "v11", thumbnail: "/images/bloggers/1.png", viewsCount: 1280 },
+      { id: "v12", thumbnail: "/images/bloggers/2.png", viewsCount: 900 },
     ],
     socialLinks: {
       instagram: "https://instagram.com/alihedarii",

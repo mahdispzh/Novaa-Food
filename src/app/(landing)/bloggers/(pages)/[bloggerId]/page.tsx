@@ -25,7 +25,8 @@ export default async function BloggerPage({ params }: BloggerPageProps) {
     <Main>
       <div className="flex flex-col gap-6 pb-6">
         <BloggerHero blogger={blogger} />
-        <div className="flex flex-col gap-4 px-4">
+        <div className="flex flex-col gap-6">
+          <div className="px-4">
           <FollowButtonWrapper initialIsFollowing={blogger.isFollowing} />
 
           <p className="text-[13px] leading-6 text-gray">{blogger.bio}</p>
@@ -34,15 +35,14 @@ export default async function BloggerPage({ params }: BloggerPageProps) {
 
           {blogger.recommendedPlaces.length > 0 && (
             <div className="flex flex-col gap-3">
-              <RecommendedPlacesCarousel
-                places={blogger.recommendedPlaces}
-              />
+              <RecommendedPlacesCarousel places={blogger.recommendedPlaces} />
             </div>
           )}
-
+          </div>
           <VideosSection videos={blogger.videos} />
-
+          <div className="px-4">
           <SocialSection links={blogger.socialLinks} />
+          </div>
         </div>
       </div>
     </Main>

@@ -1,4 +1,4 @@
-import { BloggerVideo } from "../../_types/blogger.types";
+import type { BloggerVideo } from "../../_types/blogger.types";
 import VideoThumbnail from "../video-thumbnail/video-thumbnail";
 
 interface VideosSectionProps {
@@ -35,32 +35,39 @@ export default function VideosSection({ videos }: VideosSectionProps) {
          native aspect ratio to preserve — the notch at the top stays a fixed
          proportion of whatever height the grid ends up needing) */}
       <svg
-        viewBox="0 0 390 726"
-        preserveAspectRatio="none"
-        className="absolute inset-0 h-full w-full"
+        height="83"
+        viewBox="0 0 390 83"
+        width="390"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M402 716C402 721.523 397.523 726 392 726H-3.00001C-8.52285 726 -13 721.523 -13 716V9.99999C-13 4.47715 -8.52285 0 -3 0H50.0935C52.7818 0 55.3569 1.08242 57.2379 3.0031L107.179 53.9971C109.06 55.9177 111.635 56.9999 114.323 57H276.509C279.234 57 281.842 55.8876 283.729 53.9199L332.459 3.0803C334.345 1.11259 336.952 0 339.678 0H392C397.523 0 402 4.47715 402 10V716Z"
+          d="M 0 0
+         H 54.5
+         L 106.9 52.7
+         C 108.9 54.7 109.8 56 113.0 56
+         H 277.0
+         C 280.2 56 281.1 54.7 283.1 52.7
+         L 335.5 0
+         H 390
+         V 83
+        H 0
+        Z"
           fill="#8E977D"
         />
       </svg>
 
-      <div className="relative flex flex-col gap-3 p-3">
-        <div className="pt-3 -translate-y-6 text-center">
+      <div className="relative flex flex-col gap-0 px-0 py-3">
+        <div className="-translate-y-22.5 pt-3 text-center">
           <h2 className="text-[20px] font-bold text-secondary">
             ویدیوهای معرفی
           </h2>
-          <p className="mt-1 text-[11px] text-white/80">
-            برای مشاهده ویدیوها روی هر مربع کلیک کنید.
-          </p>
         </div>
 
-        <div className="flex flex-col gap-1.5">
+        <div className="gap-0.2 flex flex-col">
           {rows.map((row, rowIndex) => (
             <div
               key={rowIndex}
-              className={`grid gap-1.5 ${
+              className={`gap-0.2 grid ${
                 row.length === 3 ? "grid-cols-3" : "grid-cols-2"
               }`}
             >
