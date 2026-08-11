@@ -22,10 +22,6 @@ interface BloggerPageProps {
 export default async function BloggerPage({ params }: BloggerPageProps) {
   const { bloggerId } = await params;
 
-  // Each section fetches only the data it needs. Running them with
-  // Promise.all means they all resolve in parallel instead of one big
-  // sequential blob — if these later become real API/DB calls, none of
-  // them block the others, and every section stays swappable on its own.
   const [profile, stats, recommendedPlaces, videos, socialLinks] =
     await Promise.all([
       getBloggerProfile(bloggerId),
