@@ -35,6 +35,7 @@ export default function VideosSection({ videos }: VideosSectionProps) {
          native aspect ratio to preserve — the notch at the top stays a fixed
          proportion of whatever height the grid ends up needing) */}
       <svg
+        className="block"
         height="83"
         viewBox="0 0 390 83"
         width="390"
@@ -56,13 +57,13 @@ export default function VideosSection({ videos }: VideosSectionProps) {
         />
       </svg>
 
-      <div className="relative flex flex-col gap-0 px-0 py-3">
-        <div className="-translate-y-22.5 pt-3 text-center">
-          <h2 className="text-[20px] font-bold text-secondary">
-            ویدیوهای معرفی
-          </h2>
-        </div>
+      <div className="absolute inset-x-0 top-3 text-center">
+        <h2 className="text-[20px] font-bold text-secondary">
+          ویدیوهای معرفی
+        </h2>
+      </div>
 
+      <div className="relative mt-0.2 flex flex-col gap-0 px-0">
         <div className="gap-0.2 flex flex-col">
           {rows.map((row, rowIndex) => (
             <div

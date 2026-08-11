@@ -28,16 +28,17 @@ export default function SocialSection({ links }: SocialSectionProps) {
           <path
             d="M357.5 7.32056V132.5H80C36.0934 132.5 0.500115 96.9068 0.5 53.0002V7.32056H357.5Z"
             stroke="#301F18"
+            fill="none"
           />
         </svg>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-[15px] font-bold text-white">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-right">
+          <div className="flex flex-col translate-x-6 gap-1">
+            <h2 className="text-[15px] font-bold text-secondary">
               شبکه‌های اجتماعی
             </h2>
             <p className="text-[11px] text-white/80">
-              برای اطلاع از جدیدترین معرفی‌ها و عکس‌ها همراه باشید
+              برای اطلاع از جدیدترین معرفی‌ها و عکس‌ها همراه باشید!
             </p>
           </div>
 
