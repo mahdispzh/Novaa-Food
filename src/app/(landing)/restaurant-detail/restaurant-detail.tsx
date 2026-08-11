@@ -9,6 +9,9 @@ import RestaurantIntroduction from "./tabs/introduction/restaurant-introduction"
 import { restaurantIntroductionData } from "./tabs/introduction/restaurant-introduction-constant";
 import RestaurantReview from "./tabs/review/restaurant-review";
 import { restaurantReviewData } from "./tabs/review/restaurant-review-constant";
+import RestaurantGallery from "./tabs/gallery/restaurant-gallery";
+import RestaurantBlogger from "./tabs/bloggers/blogger";
+import { RestaurantBloggerData } from "./tabs/bloggers/blogger-constant";
 
 const {
   starIcon: StarIcon,
@@ -68,7 +71,9 @@ export default function RestaurantDetail({
         <div className="h-px gap-0 bg-gray-200" />
       </div>
       {/* <RestaurantIntroduction {...restaurantIntroductionData} /> */}
-      <RestaurantReview {...restaurantReviewData}/>
+      {/* <RestaurantReview {...restaurantReviewData}/> */}
+      {/* <RestaurantGallery/> */}
+      <RestaurantBlogger {...RestaurantBloggerData} />
 
     </div>
   );

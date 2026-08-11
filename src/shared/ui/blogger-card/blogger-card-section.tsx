@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import { Button } from "@/src/shared/ui";
 import Container from "@/src/shared/ui/container/container";
@@ -20,20 +18,6 @@ const { sparkleIcon: SparkleIcon,
 export default function BloggerCardSection({data}:BloggerSectionProps) {
   return (
     <div className="mt-5 flex flex-col gap-3">
-      <Container>
-        <div className="flex items-center justify-between gap-2">
-          <SectionHeading
-            title="بلاگرها"
-            subtitle="انتخاب‌های واقعی, تجربه‌های واقعی"
-          />
-          <Link href="/bloggers" className="flex items-center">
-            <Button variant="link" size="sm">
-              <span>مشاهده همه</span>
-            </Button>
-            <ChevronLeftIcon size="sm" color="text-secondary" />
-          </Link>
-        </div>
-      </Container>
 
       <div
         className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"

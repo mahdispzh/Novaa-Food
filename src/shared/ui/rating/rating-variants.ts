@@ -5,7 +5,7 @@ export const ratingVariants = cva(
   [
     "flex",
     "items-center",
-    "gap-1",
+    "gap-0.5",
   ],
   {
     variants:{

@@ -21,7 +21,7 @@ export default function BloggerCard({
   reviewsCount,
 }: BloggerCardProps) {
   return (
-    <div className="relative w-[236px] h-[264px] mt-5">
+    <div className="relative w-[236px] h-[264px] mt-2">
       <Image src={bloggerCardShape} alt="" fill className="object-contain" />
       <div className="flex flex-col">
         <div className="absolute right-15 -top-2 h-30 w-30 overflow-hidden rounded-full border-4 border-white">
