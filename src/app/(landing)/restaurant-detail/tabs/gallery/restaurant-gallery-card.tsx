@@ -22,7 +22,7 @@ export default function GalleryCard({ image, discription }: GalleryCardProps) {
       >
         <Image src={image} alt="" fill className="object-cover" />
       </div>
-  <div className="absolute -bottom-1 right-1 w-[187px] rounded-[28px] bg-beige px-4 py-3">
+  <div className="absolute top-95 right-2 w-[189px] h-[80px] rounded-[28px] bg-beige px-4 py-3">
         <p className="text-[16px] font-normal text-primary font-morabba whitespace-pre-line text-center">
           {discription}
         </p>
