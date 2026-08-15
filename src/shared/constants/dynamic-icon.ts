@@ -52,6 +52,7 @@ import { ExploreFooter as explore } from "../components/footer/layout/explore-fo
 import { CorrectIcon as correctIcon } from "./icons/correct-icon";
 import { ChevronLeftIcon as chevronlefticon } from "./icons/chevronleft-icon";
 import { PlayIcon as playIcon } from "@/src/shared/constants/icons/play-icon";
+import { ArrowRightIcon as arrowRightIcon } from "@/src/shared/constants/icons/arrowRight-icon";
 
 export const ICONS = {
   buildingIcon,
@@ -63,6 +64,7 @@ export const ICONS = {
   map,
   explore,
   chevronDownIcon,
+  arrowRightIcon,
   playIcon,
   correctIcon,
   clockIcon,

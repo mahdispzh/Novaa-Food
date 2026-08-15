@@ -31,20 +31,33 @@ export default function RestaurantDetail({
   category,
   tabs,
 }: RestaurantDetailProps) {
-  const { activeTab, setActiveTab } = useReastaurantDetail();
-  return (
+
+  const { activeTab, setActiveTab, setshowReviewForm , showReviewForm } = useReastaurantDetail();
+
+return (
+  showReviewForm ? (
+    <ReviewForm {...ReviewFormData} />
+  ) : (
     <div className="flex flex-col">
-      <Image src={resturantDetailImage} alt="" className="h-auto w-full" />
+      <Image
+        src={resturantDetailImage}
+        alt=""
+        className="h-auto w-full"
+      />
 
       <div className="mt-5 flex justify-between">
         <div className="flex items-center gap-2">
-          <p className="text-[22px] font-medium text-secondary">{title}</p>
+          <p className="text-[22px] font-medium text-secondary">
+            {title}
+          </p>
 
           <div className="flex items-center gap-1">
             <Badge
               variant="ghost"
               badgeSize="xs"
-              leftIcon={<StarIcon size="xs" color="text-primary" />}
+              leftIcon={
+                <StarIcon size="xs" color="text-primary" />
+              }
             >
               {rating}
             </Badge>
@@ -54,14 +67,18 @@ export default function RestaurantDetail({
             </span>
           </div>
         </div>
+
         <div className="flex gap-2">
           <ShareIcon size="md" color="text-secondary" />
           <SaveIcon size="md" color="text-secondary" />
         </div>
       </div>
+
       <div className="flex items-center gap-1">
         <DotIcon size="2xs" color="text-primary" />
-        <p className="text-[12px] font-light text-primary">{category}</p>
+        <p className="text-[12px] font-light text-primary">
+          {category}
+        </p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-6">
@@ -75,29 +92,27 @@ export default function RestaurantDetail({
         ))}
       </div>
 
-      {/* divider */}
       <div className="w-full">
-        <div className="h-px gap-0 bg-gray-200" />
+        <div className="h-px bg-gray-200" />
       </div>
 
-      {/* Tabs */}
+      {activeTab === "introduction" && (
+        <RestaurantIntroduction {...restaurantIntroductionData} />
+      )}
 
-        {/* {activeTab === "introduction" && (
-          <RestaurantIntroduction {...restaurantIntroductionData} />
-        )}
+      {activeTab === "reviews" && (
+  <RestaurantReview
+    {...restaurantReviewData}
+    onReviewClick={() => setshowReviewForm(true)}
+  />
+      )}
 
-        {activeTab === "reviews" && (
-          <RestaurantReview {...restaurantReviewData} />
-        )}
+      {activeTab === "gallery" && <RestaurantGallery />}
 
-        {activeTab === "gallery" && <RestaurantGallery />}
-
-        {activeTab === "bloggers" && (
-          <RestaurantBlogger {...RestaurantBloggerData} />
-        )} */}
-
-        <ReviewForm {...ReviewFormData}/>
-
+      {activeTab === "bloggers" && (
+        <RestaurantBlogger {...RestaurantBloggerData} />
+      )}
     </div>
-  );
+  )
+);
 }

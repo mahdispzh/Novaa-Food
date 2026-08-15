@@ -1,5 +1,5 @@
 export interface ReviewFormProps{
-  restaurantName: "سام کافه",
+  restaurantName: string,
   image: string,
 
 }
