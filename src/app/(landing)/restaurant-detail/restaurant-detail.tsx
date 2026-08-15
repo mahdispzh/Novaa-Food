@@ -13,6 +13,8 @@ import { restaurantIntroductionData } from "./tabs/introduction/restaurant-intro
 import RestaurantReview from "./tabs/review/restaurant-review";
 import { restaurantReviewData } from "./tabs/review/restaurant-review-constant";
 import useReastaurantDetail from "./use-restaurant-detail";
+import ReviewForm from "./tabs/review/review-form/review-form";
+import { ReviewFormData } from "./tabs/review/review-form/review-form-constant";
 
 const {
   starIcon: StarIcon,
@@ -79,24 +81,23 @@ export default function RestaurantDetail({
       </div>
 
       {/* Tabs */}
-<div
-  key={activeTab}
-  className="animate-in fade-in slide-in-from-bottom-2 duration-300"
->
-  {activeTab === "introduction" && (
-    <RestaurantIntroduction {...restaurantIntroductionData} />
-  )}
 
-  {activeTab === "reviews" && (
-    <RestaurantReview {...restaurantReviewData} />
-  )}
+        {/* {activeTab === "introduction" && (
+          <RestaurantIntroduction {...restaurantIntroductionData} />
+        )}
 
-  {activeTab === "gallery" && <RestaurantGallery />}
+        {activeTab === "reviews" && (
+          <RestaurantReview {...restaurantReviewData} />
+        )}
 
-  {activeTab === "bloggers" && (
-    <RestaurantBlogger {...RestaurantBloggerData} />
-  )}
-</div>
+        {activeTab === "gallery" && <RestaurantGallery />}
+
+        {activeTab === "bloggers" && (
+          <RestaurantBlogger {...RestaurantBloggerData} />
+        )} */}
+
+        <ReviewForm {...ReviewFormData}/>
+
     </div>
   );
 }

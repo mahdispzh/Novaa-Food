@@ -19,6 +19,7 @@ export type ButtonRounded =
   | "auto"
   | "full"
   | "small"
+  | "Xsmall"
   | "medium"
   | "large";
 
