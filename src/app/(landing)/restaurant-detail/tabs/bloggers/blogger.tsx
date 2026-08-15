@@ -6,34 +6,35 @@ import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import BloggerRatingSection from "./blogger-rating/blogger-rating-section";
 import { RestaurantBloggerProps } from "./blogger-type";
 import { Button } from "@/src/shared/ui";
+import BloggerVideoSection from "./blogger-video/blogger-video-section";
 
 export default function RestaurantBlogger({
   discription,
   rating,
 }: RestaurantBloggerProps) {
-  console.log(discription);
+
   return (
-    <div className="flex flex-col px-3">
+    <div className="flex flex-col">
       <BloggerCardSection data={bloggerCards} />
       <SectionHeading
         title="ویدیو معرفی"
         subtitle="ویدیو معرفی کافه سام را مشاهده کنید."
+        className="mt-5"
       />
-      {/* <BloggerVideoSection /> */}
 
-      <div className="border border-beige p-3">
+      <BloggerVideoSection />
+
+      <div className="border border-beige p-3 mt-7">
         <p className="text-[13px] font-light text-primary">{discription}</p>
       </div>
+
       <BloggerRatingSection />
-      <Button
-        className="absolute top-52 right-4"
-        variant="primary"
-        size="sm"
-        width="medium"
-        rounded="full"
-      >
-        <span className="font-regular text-[12px]">مشاهده پروفایل</span>
-      </Button>
+
+      <div className="mt-7 flex justify-center">
+        <Button variant="primary" size="md" width="full" rounded="sm">
+          <span className="text-[13px] font-medium">مشاهده پروفایل بلاگر</span>
+        </Button>
+      </div>
     </div>
   );
 }

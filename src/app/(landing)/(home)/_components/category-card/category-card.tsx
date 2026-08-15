@@ -14,7 +14,7 @@ export default function CategoryCard({
 
   const Icon = ICONS[icon as keyof typeof ICONS];
   return (
-    <div className="relative w-[120px] h-[140px]">
+    <div className="relative flex-1 overflow-hidden h-[140px]">
 
       {/* Shape */}
       <Image
@@ -26,10 +26,10 @@ export default function CategoryCard({
 
 
       {/* Icon */}
-      <div className="absolute top-10 right-4">
+      <div className="absolute top-9 right-5">
         <Icon 
           color="text-beige"
-          size="2xl"
+          size="3xl"
         />
       </div>
 

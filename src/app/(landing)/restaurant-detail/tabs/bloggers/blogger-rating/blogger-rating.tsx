@@ -1,5 +1,6 @@
 "use client";
 
+import { StarIcon } from "@/src/shared/constants/icons/star-icon";
 import squares from "@/src/shared/ui/blogger-card/2square.svg";
 import Image from "next/image";
 import { BloggerRaitingProp } from "./blogger-rating-type";
@@ -12,26 +13,24 @@ export default function BloggerRatingCard({ data }: BloggerRatingCardProps) {
   const { icon: Icon, title, rating } = data;
 
   return (
-    <div className="relative mt-3 h-[164px] w-[136px]">
-      <Image
-        src={squares}
-        alt=""
-        width={150}
-        height={150}
-      />
+    <div className="relative mt-5 h-[164px] flex-1 overflow-hidden">
+      {/* Shape */}
+      <Image fill alt="" className="object-contain" src={squares} />
 
-      {/* icon */}
-      <div className="absolute left-1/2 top-8 -translate-x-1/2">
-        <Icon color="text-beige" size="2xl" />
+      {/* Icon */}
+      <div className="absolute top-[40px] right-[47px]">
+        <Icon color="text-beige" size="4xl" />
       </div>
 
-      {/* title */}
-      <div className="absolute left-1/2 top-18 w-full -translate-x-1/2 text-center">
-        <p className="text-[13px] font-light text-red-500">
-          {title}
-        </p>
+      {/* Title */}
+      <p className="font-regular absolute top-[85px] right-[5px] w-full text-center text-[13px] text-beige">
+        {title}
+      </p>
+      <div className="flex items-center gap-1 w-full absolute top-[108px] right-[52px]">
+        
+        <p className="text-[13px] text-beige font-medium">{rating}</p>
+        <StarIcon size="xs" color="text-beige" />
       </div>
-
     </div>
   );
 }

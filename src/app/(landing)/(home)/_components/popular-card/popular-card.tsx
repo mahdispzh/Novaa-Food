@@ -21,12 +21,12 @@ export default function PopularCard({
   reviewsCount,
 }: popularCardProps) {
   return (
-    <div className="relative h-[360px] w-[300px] shrink-0">
+    <div className="relative h-[360px] w-[250px] shrink-0">
       {/* shape */}
-      <Image src={popularCardShape} alt="" fill className="object-contain" />
+      <Image src={popularCardShape} alt="" className="object-contain" />
 
       <div className="flex flex-col">
-        <div className="absolute right-11 top-6 flex flex-col">
+        <div className="absolute right-5 top-4 flex flex-col">
           {/* title */}
           <p className="text-[12px] text-beige font-light">{title}</p>
 
@@ -46,18 +46,18 @@ export default function PopularCard({
          
         </div>
         {/* category */}
-        <div className="absolute right-59 top-4 z-20 flex flex-col items-center justify-center gap-1 text-white">
+        <div className="absolute right-48 top-4 z-20 flex flex-col items-center justify-center gap-1 text-white">
           <TypeIcon size="lg" color="text-white" />
           <span className="text-[10px] font-light">{category}</span>
         </div>
 
         {/* image */}
-        <div className="absolute top-25  h-[220px] w-[300px]">
+        <div className="absolute top-20 right-3 h-[220px] w-[225px]">
           <Image src={popularCardImage} alt="" fill className="object-contain" />
         </div>
 
         {/* location */}
-        <div className="absolute top-83 right-10 flex items-center gap-1">
+        <div className="absolute top-76 right-5 flex items-center gap-1">
           <LocationIcon size="xs" color="text-white" />
           <span className="text-[10px] text-beige font-light">{location}</span>
         </div>

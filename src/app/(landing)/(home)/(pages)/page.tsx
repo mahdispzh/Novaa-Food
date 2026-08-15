@@ -13,13 +13,13 @@ export default function HomePage() {
   return (
     <html dir="rtl" lang="fa">
       <body>
-        <Main>
+      
           <CategoryCardSection data={categories} />
           <EventCardSection data={eventCards} />
           <NearByCardSection data={nearByCards} />
           <PopularCardSection data={PopularCards} />
           <BloggerCardSection data={bloggerCards} />
-        </Main>
+       
       </body>
     </html>
   );

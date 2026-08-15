@@ -17,19 +17,19 @@ export const restaurantDetailData: RestaurantDetailProps = {
 
   tabs: [
     {
-      id: 1,
+      id: "introduction",
       title: "معرفی",
     },
     {
-      id: 2,
+      id: "reviews",
       title: "دیدگاه‌ها",
     },
     {
-      id: 3,
+      id: "gallery",
       title: "گالری تصاویر",
     },
     {
-      id: 4,
+      id: "bloggers",
       title: "بلاگرها",
     },
   ],

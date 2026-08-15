@@ -17,7 +17,7 @@ export default function SectionHeading({
       )}
       {...props}
     >
-      <div className="flex relative">
+      <div className="flex relative ">
         <div className="relative top-0">
           <CircleSvg />
         </div>

@@ -1,14 +1,16 @@
 import { BloggerVideo } from "./blogger-video-type";
+import bloggerVideoThumb from "./blogger-video.svg";
+import avatarImg from "@/src/shared/ui/blogger-card/blogger-card-avatar.svg";
 
 export const videos: BloggerVideo[] = [
   {
     id: 1,
     type: "video",
     url: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-    thumbnail: "/blogger-video.svg",
+    thumbnail: bloggerVideoThumb.src,
     user: {
-      username: "sam_cafe",
-      avatar: "/images/avatar.png",
+      username: "aliheidarii",
+      avatar: avatarImg.src,
     },
   },
 ];

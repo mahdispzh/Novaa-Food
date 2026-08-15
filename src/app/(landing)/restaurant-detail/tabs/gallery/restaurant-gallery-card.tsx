@@ -5,7 +5,7 @@ import { GalleryCardProps } from "./restaurant-gallery-card-type";
 
 export default function GalleryCard({ image, discription }: GalleryCardProps) {
   return (
-    <div className="relative h-[460px] w-[360px]">
+    <div className="relative h-[460px] w-[360px] mt-7">
       <Image src={galleryCardShape} alt="" fill className="object-contain" />
 <div
         className="absolute h-[460px] w-[360px]"

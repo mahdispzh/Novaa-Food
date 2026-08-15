@@ -3,7 +3,7 @@ import { BloggerRatingData } from "./blogger-rating-constant";
 
 export default function BloggerRatingSection() {
   return (
-    <div className="flex gap-4">
+    <div className="flex justify-center gap-5 ">
       {BloggerRatingData.map((item, index) => (
         <BloggerRatingCard key={index} data={item} />
       ))}

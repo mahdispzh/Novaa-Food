@@ -13,7 +13,7 @@ export default function RestaurantReview({
   reviews,
 }: RestaurantReviewProps) {
   return (
-    <div className="">
+    <div className="mt-5">
       <div className="flex gap-10 rounded-sm border border-primary p-3 shadow-sm">
         <div className="flex flex-col">
           {/* 4.5 از 5 */}

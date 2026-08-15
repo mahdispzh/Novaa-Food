@@ -8,7 +8,7 @@ export interface RestaurantDetailProps {
   reviewsCount: number;
 
   tabs: {
-    id: number;
+    id: string;
     title: string;
   }[];
   

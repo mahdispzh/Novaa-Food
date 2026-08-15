@@ -34,7 +34,7 @@ export default function NearByCardSection({data}:NearBySectionProps) {
 
 
       <div
-        className="scrollbar-hide flex gap-5 overflow-x-auto scroll-smooth px-4"
+        className="scrollbar-hide flex overflow-x-auto scroll-smooth px-4"
         style={{ scrollSnapType: "x mandatory" }}
       >
         {data.map((nearBy) => (

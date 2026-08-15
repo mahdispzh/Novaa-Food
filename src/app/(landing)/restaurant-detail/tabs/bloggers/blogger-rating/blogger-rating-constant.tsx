@@ -7,7 +7,7 @@ const {
 } = ICONS;
 
 export const BloggerRatingData = [
-  { icon: TasteIcon, title: "طعم غذا", rating: 4.1 },
-  { icon: BuildingIcon, title: "فضای رستوران", rating: 4.1 },
-  { icon: PersonelIcon, title: "برخورد پرسنل", rating: 4.2 },
+  { icon: TasteIcon, title: "طعم غذا", rating: "۴.۱" },
+  { icon: BuildingIcon, title: "فضای رستوران", rating: "۴.۱" },
+  { icon: PersonelIcon, title: "برخورد پرسنل", rating: "۴.۱" },
 ];

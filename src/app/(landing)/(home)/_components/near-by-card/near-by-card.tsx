@@ -19,14 +19,14 @@ export default function NearByCard({
   category,
 }: nearByCardProps) {
   return (
-    <div className="relative h-[320px] w-[300px]">
+    <div className="relative h-[320px] w-[300px] shrink-0">
       {/* Shape */}
-      <Image src={nearByCardShape} alt="" fill className="object-contain" />
+      <Image src={nearByCardShape} alt="" className="object-contain" />
 
       <div className="flex flex-col gap-3">
         {/* عکس کافه */}
 
-        <div className="absolute top-4 right-6 left-4 h-[170px] w-[250px]">
+        <div className="absolute top-4 left-11 left-4 h-[170px] w-[246px]">
           <Image
             src={image}
             alt={title}
@@ -35,13 +35,13 @@ export default function NearByCard({
           />
         </div>
 
-        <div className="absolute top-60 right-30 flex justify-between gap-5">
+        <div className="absolute top-60 right-28 flex justify-between gap-5">
           {/* title */}
 
           <h5 className="text-beige">{title}</h5>
 
           {/* Rating */}
-          <div className="absolute -left-25 flex gap-1 items-center">
+          <div className="absolute -left-21 flex gap-1 items-center">
             <Badge variant="secondary" badgeSize="sm">
               {rating}
             </Badge>
@@ -50,13 +50,13 @@ export default function NearByCard({
         </div>
 
         {/* category */}
-        <div className="absolute top-65 right-10 z-20 flex flex-col items-center justify-center gap-1 text-beige">
+        <div className="absolute top-62 right-7 z-20 flex flex-col items-center justify-center gap-1 text-beige">
           <TypeIcon size="xl" color="text-beige" />
           <span className="text-beige text-xs font-light">{category}</span>
         </div>
 
         {/* location */}
-        <div className="absolute text-beige top-70 right-30 flex items-center gap-1">
+        <div className="absolute text-beige top-68 right-27 flex items-center gap-1">
           <LocationIcon size="sm" color="text-beige" />
           <p className="text-sm font-light">{location}</p>
         </div>

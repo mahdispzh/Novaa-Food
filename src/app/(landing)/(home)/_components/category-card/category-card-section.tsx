@@ -15,6 +15,7 @@ export default function CategoryCardSection({data}:CatgorySectionProps) {
         <SectionHeading
           title="دسته‌بندی‌ها"
           subtitle="از کافه‌های دنج تا رستوران‌های خاص"
+          
         />
 
         <div className="flex gap-5">

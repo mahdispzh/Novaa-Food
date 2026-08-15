@@ -9,14 +9,12 @@ type BloggerVideoCardProps = {
   video: BloggerVideo;
 };
 
-export default function BloggerVideoCard({
-  video,
-}: BloggerVideoCardProps) {
+export default function BloggerVideoCard({ video }: BloggerVideoCardProps) {
   if (!video) return null;
 
   return (
-    <div className="relative h-[270px] w-[320px] overflow-hidden rounded-lg">
-
+    <div className="relative h-[270px] w-full overflow-hidden rounded-lg mt-7">
+      {/* Video */}
       <video
         src={video.url}
         poster={video.thumbnail}
@@ -25,27 +23,27 @@ export default function BloggerVideoCard({
         playsInline
       />
 
-      <div className="absolute left-4 top-4 flex items-center gap-2">
+      <div className="absolute top-4 left-4 flex items-center gap-2">
+        {/* User name */}
+        <span className="text-[13px] font-light text-black">{video.user.username}</span>
+
+        {/* Avatar */}
         {video.user.avatar && (
           <img
             src={video.user.avatar}
             alt={video.user.username}
-            className="h-8 w-8 rounded-full border border-white"
+            className="h-7 w-7 rounded-full border border-black"
           />
         )}
-
-        <span className="text-sm text-white">
-          {video.user.username}
-        </span>
       </div>
 
+      {/* PlayIcon */}
       <button
         type="button"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <PlayIcon />
+        <PlayIcon size="4xl" color="text-gray" />
       </button>
-
     </div>
   );
 }
