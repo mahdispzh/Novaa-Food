@@ -15,6 +15,7 @@ import { restaurantReviewData } from "./tabs/review/restaurant-review-constant";
 import ReviewForm from "./tabs/review/review-form/review-form";
 import { ReviewFormData } from "./tabs/review/review-form/review-form-constant";
 import useReastaurantDetail from "./use-restaurant-detail";
+import { AnimatePresence, motion } from "motion/react";
 
 const {
   starIcon: StarIcon,
