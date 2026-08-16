@@ -6,4 +6,5 @@ export interface IconProps {
   size?: IconSize;
   color?: string;
    className?: string;
+   onClick?: (event: React.MouseEvent<SVGSVGElement>) => void;
 }

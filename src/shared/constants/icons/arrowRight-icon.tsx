@@ -1,7 +1,7 @@
 import type { IconProps } from "@/src/shared/types/IconTypes";
 import { ICON_SIZE_CLASS } from "../icon-sizes";
 
-export function ArrowRightIcon({ size = "lg", color = "text-primary", className }: IconProps) {
+export function ArrowRightIcon({ size = "lg", color = "text-primary", className,onClick }: IconProps) {
   return (
     <svg
       className={`${ICON_SIZE_CLASS[size]} ${color} ${className ?? ""}`}
@@ -10,6 +10,7 @@ export function ArrowRightIcon({ size = "lg", color = "text-primary", className 
       viewBox="0 0 17 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={onClick}
     >
       <path
         d="M14.9334 5.56964H0.71117C0.522572 5.56964 0.341697 5.63484 0.208337 5.75088C0.0749779 5.86692 5.72205e-05 6.0243 5.72205e-05 6.18841C5.72205e-05 6.35251 0.0749779 6.5099 0.208337 6.62594C0.341697 6.74198 0.522572 6.80717 0.71117 6.80717H14.9334C15.122 6.80717 15.3029 6.74198 15.4363 6.62594C15.5696 6.5099 15.6445 6.35251 15.6445 6.18841C15.6445 6.0243 15.5696 5.86692 15.4363 5.75088C15.3029 5.63484 15.122 5.56964 14.9334 5.56964Z"

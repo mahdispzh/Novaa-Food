@@ -7,6 +7,7 @@ import { RestaurantReviewProps } from "./restaurant-review-type";
 import ReviewCard from "./review-card/review-card";
 import ReviewForm from "./review-form/review-form";
 import { ReviewFormData } from "./review-form/review-form-constant";
+import { AnimatePresence, motion } from "motion/react";
 
 const { messageIcon: MessageIcon } = ICONS;
 
@@ -17,11 +18,18 @@ export default function RestaurantReview({
   onReviewClick,
 }: RestaurantReviewProps) {
   const [showReviewForm, setShowReviewForm] = useState(false);
-  
+
   return (
-    <div className="mt-5">
+  <div className="mt-5">
+    <AnimatePresence mode="wait">
       {!showReviewForm ? (
-        <>
+        <motion.div
+      key="reviews"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.25 }}
+        >
           <div className="flex gap-10 rounded-sm border border-primary p-3 shadow-sm">
             <div className="flex flex-col">
               <p>
@@ -56,7 +64,7 @@ export default function RestaurantReview({
                 rightIcon={
                   <MessageIcon size="md" color="text-beige" />
                 }
-                onClick={onReviewClick}
+                onClick={() => setShowReviewForm(true)}
               >
                 <span className="font-regular text-[13px]">
                   ثبت دیدگاه
@@ -65,18 +73,28 @@ export default function RestaurantReview({
             </div>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <div className="mt-5 flex flex-col gap-5">
             {reviews.map((review) => (
               <ReviewCard key={review.id} {...review} />
             ))}
           </div>
-        </>
+        </motion.div>
       ) : (
-        <ReviewForm
-          restaurantName={ReviewFormData.restaurantName}
-          image={ReviewFormData.image}
-        />
+        <motion.div
+      key="review-form"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.25 }}
+        >
+          <ReviewForm
+            restaurantName={ReviewFormData.restaurantName}
+            image={ReviewFormData.image}
+            onBack={()=>setShowReviewForm(false)}
+          />
+        </motion.div>
       )}
-    </div>
-  );
+    </AnimatePresence>
+  </div>
+);
 }

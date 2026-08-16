@@ -4,14 +4,16 @@ import { Button } from "@/src/shared/ui";
 import Image from "next/image";
 import { ReviewFormProps } from "./review-form-type";
 
+
 const { arrowRightIcon: ArrowRightIcon, chevronDownIcon: ChevronDownIcon } = ICONS;
 
-export default function ReviewForm({ restaurantName, image }: ReviewFormProps) {
+export default function ReviewForm({ restaurantName, image,onBack }: ReviewFormProps) {
+
   return (
     <div className="flex flex-col ">
       {/* title and icon */}
       <div className="flex gap-2 p-5 items-center">
-        <ArrowRightIcon size="md" color="text-primary" />
+        <ArrowRightIcon size="md" color="text-primary" onClick={onBack} className="cursor-pointer"/>
         <p className="font-regular text-[16px] text-primary">ثبت دیدگاه</p>
       </div>
       {/* divider */}
