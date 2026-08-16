@@ -1,24 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import GalleryCard from "./restaurant-gallery-card";
 import { GalleryCardData } from "./restaurant-gallery-card-constant";
 import { SliderDots } from "@/src/shared/ui";
+import useGallerySwipe from "./use-restaurant-gallery";
 
 export default function RestaurantGallery() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const {
+    activeIndex,
+    setActiveIndex,
+    handleTouchStart,
+    handleTouchEnd,
+  } = useGallerySwipe();
 
   return (
     <div className="relative mb-10">
-      <GalleryCard {...GalleryCardData[activeIndex]} />
-      <div className="mt-5 justtify-center">
-      <SliderDots
-        total={GalleryCardData.length}
-        activeIndex={activeIndex}
-        onChange={setActiveIndex}
-      />
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <GalleryCard {...GalleryCardData[activeIndex]} />
       </div>
 
+      <div className="mt-5 flex justify-center">
+        <SliderDots
+          total={GalleryCardData.length}
+          activeIndex={activeIndex}
+          onChange={setActiveIndex}
+        />
+      </div>
     </div>
   );
 }

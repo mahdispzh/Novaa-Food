@@ -12,9 +12,9 @@ import RestaurantIntroduction from "./tabs/introduction/restaurant-introduction"
 import { restaurantIntroductionData } from "./tabs/introduction/restaurant-introduction-constant";
 import RestaurantReview from "./tabs/review/restaurant-review";
 import { restaurantReviewData } from "./tabs/review/restaurant-review-constant";
-import useReastaurantDetail from "./use-restaurant-detail";
 import ReviewForm from "./tabs/review/review-form/review-form";
 import { ReviewFormData } from "./tabs/review/review-form/review-form-constant";
+import useReastaurantDetail from "./use-restaurant-detail";
 
 const {
   starIcon: StarIcon,
@@ -31,33 +31,24 @@ export default function RestaurantDetail({
   category,
   tabs,
 }: RestaurantDetailProps) {
+  const { activeTab, setActiveTab, setshowReviewForm, showReviewForm } =
+    useReastaurantDetail();
 
-  const { activeTab, setActiveTab, setshowReviewForm , showReviewForm } = useReastaurantDetail();
-
-return (
-  showReviewForm ? (
+  return showReviewForm ? (
     <ReviewForm {...ReviewFormData} />
   ) : (
     <div className="flex flex-col">
-      <Image
-        src={resturantDetailImage}
-        alt=""
-        className="h-auto w-full"
-      />
+      <Image src={resturantDetailImage} alt="" className="h-auto w-full" />
 
       <div className="mt-5 flex justify-between">
         <div className="flex items-center gap-2">
-          <p className="text-[22px] font-medium text-secondary">
-            {title}
-          </p>
+          <p className="text-[22px] font-medium text-secondary">{title}</p>
 
           <div className="flex items-center gap-1">
             <Badge
               variant="ghost"
               badgeSize="xs"
-              leftIcon={
-                <StarIcon size="xs" color="text-primary" />
-              }
+              leftIcon={<StarIcon size="xs" color="text-primary" />}
             >
               {rating}
             </Badge>
@@ -76,9 +67,7 @@ return (
 
       <div className="flex items-center gap-1">
         <DotIcon size="2xs" color="text-primary" />
-        <p className="text-[12px] font-light text-primary">
-          {category}
-        </p>
+        <p className="text-[12px] font-light text-primary">{category}</p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-6">
@@ -101,10 +90,10 @@ return (
       )}
 
       {activeTab === "reviews" && (
-  <RestaurantReview
-    {...restaurantReviewData}
-    onReviewClick={() => setshowReviewForm(true)}
-  />
+        <RestaurantReview
+          {...restaurantReviewData}
+          onReviewClick={() => setshowReviewForm(true)}
+        />
       )}
 
       {activeTab === "gallery" && <RestaurantGallery />}
@@ -113,6 +102,5 @@ return (
         <RestaurantBlogger {...RestaurantBloggerData} />
       )}
     </div>
-  )
-);
+  );
 }
