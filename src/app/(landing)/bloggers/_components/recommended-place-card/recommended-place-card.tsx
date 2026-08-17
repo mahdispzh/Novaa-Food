@@ -14,7 +14,7 @@ export default function RecommendedPlaceCard({
       href={`/restaurants/${place.slug}`}
     >
       {/* frame: aspect matches the native SVG (370x203) */}
-      <div className="relative aspect-370/203 w-full overflow-hidden">
+      <div className="relative aspect-[1.82] w-full overflow-hidden">
         <svg
           className="absolute inset-0 h-full w-full"
           preserveAspectRatio="none"

@@ -12,9 +12,7 @@ export default function SocialSection({ links }: SocialSectionProps) {
   if (!hasAnyLink) return null;
 
   return (
-    <div className="relative">
-      {/* aspect matches the native SVG (366x133) */}
-      <div className="relative aspect-[366/133] w-full">
+      <div className="relative aspect-[2.75] w-full">
         <svg
           viewBox="0 0 366 133"
           preserveAspectRatio="none"
@@ -45,6 +43,5 @@ export default function SocialSection({ links }: SocialSectionProps) {
           <SocialLinks links={links} iconColor="text-white" />
         </div>
       </div>
-    </div>
   );
 }
