@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { inputVariants } from "./input-variants";
 import { InputProps } from "./input.types";
 
-export default function Input({
+export default function SearchInput({
   className,
   variant,
   inputSize,

@@ -21,7 +21,7 @@ export const inputVariants = cva(
       inputSize: {
         sm: "h-10 px-3 text-sm",
         md: "h-12 px-4 text-base",
-        lg: "h-14 px-5 text-lg",
+        lg: "h-12 px-5 text-lg",
       },
 
       rounded: {

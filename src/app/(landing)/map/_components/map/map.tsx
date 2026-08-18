@@ -1,5 +1,5 @@
 "use client";
-
+import "@neshan-maps-platform/ol/ol.css";
 import NeshanMap from "@neshan-maps-platform/react-openlayers";
 import { RestaurantMapProps } from "./map-types";
 
