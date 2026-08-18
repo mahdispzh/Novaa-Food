@@ -1,12 +1,14 @@
-import { MapCardData } from "../_components/map-cards/map-card-constants";
-import MapCards from "../_components/map-cards/map-cards";
+import Map from "./";
+import MapCardSection from "../_components/map-cards/map-cards-section";
 
-export default function MapPage() {
+export default function Page() {
   return (
-    <div className="flex gap-3 overflow-x-auto p-4">
-      {MapCardData.map((card) => (
-        <MapCards key={card.id} {...card} />
-      ))}
-    </div>
+    <main className="relative h-screen w-full">
+      <Map />
+
+      <div className="absolute bottom-4 w-full">
+        <MapCardSection />
+      </div>
+    </main>
   );
 }

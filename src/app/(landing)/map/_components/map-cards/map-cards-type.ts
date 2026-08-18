@@ -1,6 +1,6 @@
 
 export interface mapCardProps{
-rating:number;
+rating:string;
 title:string;
 location:string;
 image:string;

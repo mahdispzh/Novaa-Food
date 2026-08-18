@@ -22,6 +22,8 @@ export const badgeVariants = cva(
         outline: "border border-primary text-primary bg-transparent",
 
         ghost: "bg-transparent text-primary",
+
+        secondaryText :  "bg-transparent text-secondary",
       },
 
       badgeSize: {
