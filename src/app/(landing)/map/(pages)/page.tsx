@@ -6,12 +6,11 @@ export default function Page() {
   return (
     <main className="relative h-screen w-full">
       <Map />
-      <div className="absolute bottom-[780px]">
+      <div className="absolute  top-7 right-5">
         <SearchInput
           variant="outline"
-          inputSize="lg"
+          inputSize="mapSize"
           rounded="full"
-          className="bg-red-500"
         />
       </div>
       <div className="absolute bottom-4 w-full">
