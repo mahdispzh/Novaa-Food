@@ -1,5 +1,3 @@
-import { RestaurantIntroductionProps } from "./tabs/introduction/restaurant-introduction-type";
-
 export interface RestaurantDetailProps {
   title: string;
   category: string;
@@ -11,5 +9,5 @@ export interface RestaurantDetailProps {
     id: string;
     title: string;
   }[];
-  
 }
+

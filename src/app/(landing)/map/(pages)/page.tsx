@@ -1,12 +1,12 @@
-// src/app/(landing)/(home)/(pages)/[map]/page.tsx
-import Main from "@/src/shared/ui/main/main";
+import { MapCardData } from "../_components/map-cards/map-card-constants";
+import MapCards from "../_components/map-cards/map-cards";
 
 export default function MapPage() {
   return (
-    <html lang="fa" dir="rtl">
-      <body>
-        <Main />
-      </body>
-    </html>
+    <div className="flex gap-3 overflow-x-auto p-4">
+      {MapCardData.map((card) => (
+        <MapCards key={card.id} {...card} />
+      ))}
+    </div>
   );
 }

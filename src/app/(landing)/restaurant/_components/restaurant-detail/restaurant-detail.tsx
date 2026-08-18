@@ -4,8 +4,9 @@ import Badge from "@/src/shared/ui/Badge/Badge";
 import { Tab } from "@/src/shared/ui/tab/tab";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import resturantDetailImage from "./restaurant-detail-image.svg";
-import { RestaurantDetailProps } from "./restaurant-detail-type";
+import useReastaurantDetail from "../../_hooks/use-restaurant-detail";
+import { RestaurantDetailProps } from "../../_types/restaurant-detail-type";
+import resturantDetailImage from "@/src/app/(landing)/restaurant/_assets/restaurant-detail-image.svg";
 import RestaurantBlogger from "./tabs/bloggers/blogger";
 import { RestaurantBloggerData } from "./tabs/bloggers/blogger-constant";
 import RestaurantGallery from "./tabs/gallery/restaurant-gallery";
@@ -13,8 +14,6 @@ import RestaurantIntroduction from "./tabs/introduction/restaurant-introduction"
 import { restaurantIntroductionData } from "./tabs/introduction/restaurant-introduction-constant";
 import RestaurantReview from "./tabs/review/restaurant-review";
 import { restaurantReviewData } from "./tabs/review/restaurant-review-constant";
-import useReastaurantDetail from "./use-restaurant-detail";
-import Main from "@/src/shared/ui/main/main";
 
 const {
   starIcon: StarIcon,
@@ -34,10 +33,9 @@ export default function RestaurantDetail({
   const { activeTab, setActiveTab } = useReastaurantDetail();
 
   return (
-
-      <div className="flex flex-col">
-        <Image src={resturantDetailImage} alt="" className="h-auto w-full" />
-<div className="px-3">
+    <div className="flex flex-col">
+      <Image src={resturantDetailImage} alt="" className="h-auto w-full" />
+      <div className="px-3">
         <div className="mt-5 flex justify-between">
           <div className="flex items-center gap-2">
             <p className="text-[22px] font-medium text-secondary">{title}</p>
@@ -103,7 +101,6 @@ export default function RestaurantDetail({
           </motion.div>
         </AnimatePresence>
       </div>
-      </div>
-
+    </div>
   );
 }

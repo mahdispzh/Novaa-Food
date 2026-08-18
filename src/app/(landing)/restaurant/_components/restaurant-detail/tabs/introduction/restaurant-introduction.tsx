@@ -1,6 +1,6 @@
 "use client"
 
-import RestaurantDetailCardSection from "../../../detail-card/restaurant-detail-card-section"
+import RestaurantDetailCardSection from "../../detail-card/restaurant-detail-card-section"
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import { Button } from "@/src/shared/ui";
 import Badge from "@/src/shared/ui/Badge/Badge";

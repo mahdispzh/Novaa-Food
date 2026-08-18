@@ -1,4 +1,4 @@
-import { RestaurantDetailProps } from "./restaurant-detail-type";
+import { RestaurantDetailProps } from "../_types/restaurant-detail-type";
 
 export const restaurantDetailData: RestaurantDetailProps = {
   title: "سام کافه",
@@ -13,7 +13,8 @@ export const restaurantDetailData: RestaurantDetailProps = {
   address: "شیراز، بلوار صنایع، شهرک آرین، پارک علم و فناوری",
   workingHours: "همه روز ۸:۰۰ تا ۲۳:۳۰",
   instagram: "@saamcafe",
-  contactDescription: "برای رزرو، هماهنگی یا دریافت اطلاعات بیشتر، از طریق راه‌های زیر با ما در ارتباط باشید.",
+  contactDescription:
+    "برای رزرو، هماهنگی یا دریافت اطلاعات بیشتر، از طریق راه‌های زیر با ما در ارتباط باشید.",
 
   tabs: [
     {
