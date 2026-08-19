@@ -1,7 +1,5 @@
 import type { Event } from "../_types/event.types";
 
-// TODO: swap these for real event photos once they're available — reusing
-// existing images here just so the cards render with something valid.
 const e1 = "/images/bloggers/1.png";
 const e2 = "/images/bloggers/2.png";
 
