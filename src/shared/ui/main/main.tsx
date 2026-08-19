@@ -9,7 +9,10 @@ export default function Main({ children, className }: MainProps) {
   return (
     <main
       className={[
-        "pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-[calc(6.5rem+env(safe-area-inset-bottom))]",
+        "px-3",
+        "pb-[calc(5.25rem+env(safe-area-inset-bottom))]",
+        "sm:pb-[calc(6rem+env(safe-area-inset-bottom))]",
+        "md:pb-[calc(6.5rem+env(safe-area-inset-bottom))]",
         className,
       ]
         .filter(Boolean)

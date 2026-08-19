@@ -12,7 +12,7 @@ export default function ReviewForm({ restaurantName, image,onBack }: ReviewFormP
   return (
     <div className="flex flex-col ">
       {/* title and icon */}
-      <div className="flex gap-2 p-5 items-center">
+      <div className="flex gap-2 p-5 items-center mx-3">
         <ArrowRightIcon size="md" color="text-primary" onClick={onBack} className="cursor-pointer"/>
         <p className="font-regular text-[16px] text-primary">ثبت دیدگاه</p>
       </div>
@@ -22,7 +22,7 @@ export default function ReviewForm({ restaurantName, image,onBack }: ReviewFormP
       </div>
 
       {/* image and restaurantName */}
-      <div className="mt-7 flex gap-1">
+      <div className="mt-7 flex gap-1 mx-3">
         <Image src={image} alt="" className="h-35 w-40" />
         <p className="font-regular text-[16px] text-primary">
           {restaurantName}
@@ -34,7 +34,7 @@ export default function ReviewForm({ restaurantName, image,onBack }: ReviewFormP
         <div className="mx-[25px] h-px bg-beige" />
       </div>
 
-      <p className="font-regular my-5 text-[16px] text-primary">متن دیدگاه:</p>
+      <p className="font-regular my-5 text-[16px] text-primary mx-6">متن دیدگاه:</p>
       <div className="m-5 flex flex-col rounded-sm border border-beige">
         <p className="mt-5 pr-3 text-[12px] font-light text-primary">
           نظر خود را با دیگران به اشتراک بگذارید.
@@ -63,7 +63,8 @@ export default function ReviewForm({ restaurantName, image,onBack }: ReviewFormP
       <div className="mt-70 w-full">
         <div className="h-px gap-0 bg-beige" />
       </div>
-      <div className="mb-3 flex">
+      {/* button */}
+      <div className="mb-3 flex mx-3">
         <Button variant="primary" size="lg" rounded="sm" width="full">
           <span className="font-regular text-[13px] text-beige">
             ثبت دیدگاه

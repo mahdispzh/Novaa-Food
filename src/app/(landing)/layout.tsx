@@ -1,16 +1,11 @@
-// src/app/layout.tsx
-
-
-export default function LandingLayout({
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <>
-      {/* <NavbarLanding /> */}
-      {children}
-      {/* <Footer /> */}
-    </>
+    <html dir="rtl" lang="fa">
+      <body>{children}</body>
+    </html>
   );
 }

@@ -23,7 +23,7 @@ export default function EventCards({
   remainingTime,
 }: EventCardProps) {
   return (
-    <div className="relative h-[350px] w-[430px] ">
+    <div className="relative h-[350px] w-[430px] mr-4">
       <Image src={eventCardShape} alt="" className="object-contain" />
       <div className="flex flex-col">
         <p className="font-semibold font-morabba absolute top-8 right-5  text-[28px] text-beige">

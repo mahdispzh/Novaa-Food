@@ -1,4 +1,3 @@
-// src/app/(landing)/(home)/page.tsx
 import BloggerCardSection from "@/src/shared/ui/blogger-card/blogger-card-section";
 import Main from "@/src/shared/ui/main/main";
 import CategoryCardSection from "../_components/category-card/category-card-section";
@@ -8,19 +7,21 @@ import PopularCardSection from "../_components/popular-card/popular-card-section
 import useHome from "../_hooks/useHome";
 
 export default function HomePage() {
-  const { categories, eventCards, nearByCards, PopularCards, bloggerCards } =
-    useHome();
+  const {
+    categories,
+    eventCards,
+    nearByCards,
+    PopularCards,
+    bloggerCards,
+  } = useHome();
+
   return (
-    <html dir="rtl" lang="fa">
-      <body>
-      
-          <CategoryCardSection data={categories} />
-          <EventCardSection data={eventCards} />
-          <NearByCardSection data={nearByCards} />
-          <PopularCardSection data={PopularCards} />
-          <BloggerCardSection data={bloggerCards} />
-       
-      </body>
-    </html>
+    <Main>
+      <CategoryCardSection data={categories} />
+      <EventCardSection data={eventCards} />
+      <NearByCardSection data={nearByCards} />
+      <PopularCardSection data={PopularCards} />
+      <BloggerCardSection data={bloggerCards} />
+    </Main>
   );
 }
