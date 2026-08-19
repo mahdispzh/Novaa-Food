@@ -24,7 +24,7 @@ export function EventCard({ event }: EventCardProps) {
           sizes="(max-width: 768px) 100vw, 700px"
           src={event.image}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/45 via-black/5 to-transparent" />
 
         <button
           aria-label={isSaved ? "حذف از نشان‌شده‌ها" : "ذخیره رویداد"}
