@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export function EventCard({ event }: EventCardProps) {
 
   return (
     <Link
-      className="relative block aspect-[358/328] w-full"
+      className="relative block aspect-358/328 w-full"
       href={`/events/${event.slug}`}
     >
       {/* The frame — untouched, drives the entire card's visual */}
