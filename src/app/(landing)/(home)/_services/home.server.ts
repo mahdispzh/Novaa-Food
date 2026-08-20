@@ -1,3 +1,5 @@
+"use server";
+
 // src/app/(landing)/_services/home.api.ts
 
 import { prisma } from "@/prisma/prisma";
@@ -5,6 +7,32 @@ import type {
   GetCategoriesParams,
   GetPublicProductsParams,
 } from "../_types/landing.types";
+
+export async function getLandingHome() {
+  const [restaurantCategories, featuredEvents, nearbyRestaurants, popularRestaurants, bloggers] = await Promise.all([
+    prisma.restaurant_categories.findMany({ where: { parent_id: null, is_active: true, deleted_at: null }, orderBy: { sort_order: "asc" }, take: 12, select: { id: true, name: true, slug: true, icon: true } }),
+    prisma.events.findMany({ where: { status: 1, deleted_at: null, ends_at: { gte: new Date() } }, orderBy: [{ is_featured: "desc" }, { starts_at: "asc" }], take: 8, include: { restaurant: { select: { id: true, slug: true, name: true } } } }),
+    prisma.restaurants.findMany({ where: { is_active: true, deleted_at: null, latitude: { not: null }, longitude: { not: null } }, orderBy: { created_at: "desc" }, take: 8, include: { categories: { include: { category: true } } } }),
+    prisma.restaurants.findMany({ where: { is_active: true, deleted_at: null }, orderBy: [{ is_featured: "desc" }, { average_rating: "desc" }, { reviews_count: "desc" }], take: 8, include: { categories: { include: { category: true } } } }),
+    prisma.blogger_profiles.findMany({ where: { is_active: true, deleted_at: null }, orderBy: [{ is_verified: "desc" }, { visitors_count: "desc" }], take: 8, select: { id: true, username: true, display_name: true, title: true, cover_image: true, _count: { select: { followers: true } } } }),
+  ]);
+
+  const mapRestaurant = (restaurant: (typeof nearbyRestaurants)[number]) => ({
+    ...restaurant,
+    latitude: restaurant.latitude === null ? null : Number(restaurant.latitude),
+    longitude: restaurant.longitude === null ? null : Number(restaurant.longitude),
+    average_rating: Number(restaurant.average_rating),
+    categories: restaurant.categories.map(({ category }) => category),
+  });
+
+  return {
+    categories: restaurantCategories,
+    events: featuredEvents.map((event) => ({ ...event, latitude: event.latitude === null ? null : Number(event.latitude), longitude: event.longitude === null ? null : Number(event.longitude) })),
+    nearbyRestaurants: nearbyRestaurants.map(mapRestaurant),
+    popularRestaurants: popularRestaurants.map(mapRestaurant),
+    bloggers: bloggers.map((blogger) => ({ id: blogger.id, username: blogger.username, display_name: blogger.display_name, title: blogger.title, cover_image: blogger.cover_image, followers_count: blogger._count.followers })),
+  };
+}
 export async function getCategories({
   page = 1,
   limit = 10,

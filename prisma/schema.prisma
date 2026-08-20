@@ -332,32 +332,37 @@ model user_addresses {
 }
 
 model users {
-  name            String?          @db.VarChar(255)
-  mail            String?          @db.VarChar(255)
-  phone           String?          @unique(map: "unique_phone") @db.VarChar(20)
-  created_at      DateTime?        @default(now()) @db.Timestamptz(6)
-  updated_at      DateTime?        @db.Timestamptz(6)
-  id              Int              @id @unique(map: "unique_user_id") @default(autoincrement())
-  role            Int
-  recently_search String[]
-  recently_viewed Int[]
-  recently_blogs  Int[]
-  image_id        Int              @default(0)
-  bank_id         Int?
-  card_number     String?
-  account_number  String?
-  sheba_number    String?
-  auth_sessions   auth_sessions[]
-  blogs           blogs[]
-  carts           carts[]
-  comments        comments[]
-  liked_blogs     liked_blogs[]
-  likes           likes[]
-  notifications   notifications[]
-  orders          orders[]
-  ratings         ratings[]
-  saved_blogs     saved_blogs[]
-  user_addresses  user_addresses[]
+  name               String?              @db.VarChar(255)
+  mail               String?              @db.VarChar(255)
+  phone              String?              @unique(map: "unique_phone") @db.VarChar(20)
+  created_at         DateTime?            @default(now()) @db.Timestamptz(6)
+  updated_at         DateTime?            @db.Timestamptz(6)
+  id                 Int                  @id @unique(map: "unique_user_id") @default(autoincrement())
+  role               Int
+  recently_search    String[]
+  recently_viewed    Int[]
+  recently_blogs     Int[]
+  image_id           Int                  @default(0)
+  bank_id            Int?
+  card_number        String?
+  account_number     String?
+  sheba_number       String?
+  auth_sessions      auth_sessions[]
+  blogs              blogs[]
+  carts              carts[]
+  comments           comments[]
+  liked_blogs        liked_blogs[]
+  likes              likes[]
+  notifications      notifications[]
+  orders             orders[]
+  ratings            ratings[]
+  saved_blogs        saved_blogs[]
+  user_addresses     user_addresses[]
+  blogger_profile    blogger_profiles?
+  blogger_follows    blogger_follows[]
+  event_attendees    event_attendees[]
+  restaurant_reviews restaurant_reviews[]
+  saved_restaurants  saved_restaurants[]
 }
 
 model notifications {
@@ -372,4 +377,304 @@ model notifications {
   users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "users_fkey")
 
   @@index([user_id, is_read, created_at])
+}
+
+// Landing domain -----------------------------------------------------------
+// Primary records use soft deletion. Database cascades are still configured
+// for dependent records, so an intentional hard-delete cannot leave orphans.
+
+model restaurant_categories {
+  id          Int                         @id @default(autoincrement())
+  parent_id   Int?
+  name        String                      @db.VarChar(120)
+  slug        String                      @unique @db.VarChar(140)
+  icon        String?                     @db.VarChar(100)
+  description String?
+  sort_order  Int                         @default(0)
+  is_active   Boolean                     @default(true)
+  created_at  DateTime                    @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime                    @updatedAt @db.Timestamptz(6)
+  deleted_at  DateTime?                   @db.Timestamptz(6)
+  parent      restaurant_categories?      @relation("restaurant_category_tree", fields: [parent_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  children    restaurant_categories[]     @relation("restaurant_category_tree")
+  restaurants restaurant_category_links[]
+
+  @@index([parent_id])
+  @@index([is_active, deleted_at, sort_order])
+}
+
+model restaurants {
+  id                  Int                         @id @default(autoincrement())
+  slug                String                      @unique @db.VarChar(180)
+  name                String                      @db.VarChar(180)
+  short_description   String?
+  description         String?
+  cover_image         String?
+  phone_primary       String?                     @db.VarChar(30)
+  phone_secondary     String?                     @db.VarChar(30)
+  address             String?
+  city                String?                     @db.VarChar(100)
+  province            String?                     @db.VarChar(100)
+  latitude            Decimal?                    @db.Decimal(9, 6)
+  longitude           Decimal?                    @db.Decimal(9, 6)
+  instagram           String?
+  website             String?
+  contact_description String?
+  average_rating      Decimal                     @default(0) @db.Decimal(3, 2)
+  reviews_count       Int                         @default(0)
+  views_count         Int                         @default(0)
+  is_featured         Boolean                     @default(false)
+  is_active           Boolean                     @default(true)
+  created_at          DateTime                    @default(now()) @db.Timestamptz(6)
+  updated_at          DateTime                    @updatedAt @db.Timestamptz(6)
+  deleted_at          DateTime?                   @db.Timestamptz(6)
+  amenities           restaurant_amenity_links[]
+  categories          restaurant_category_links[]
+  events              events[]
+  hours               restaurant_hours[]
+  images              restaurant_images[]
+  menu_items          restaurant_menu_items[]
+  recommendations     blogger_recommendations[]
+  reviews             restaurant_reviews[]
+  saved_by            saved_restaurants[]
+
+  @@index([is_active, deleted_at, is_featured])
+  @@index([city, deleted_at])
+  @@index([latitude, longitude])
+}
+
+model restaurant_category_links {
+  id            Int                   @id @default(autoincrement())
+  restaurant_id Int
+  category_id   Int
+  created_at    DateTime              @default(now()) @db.Timestamptz(6)
+  restaurant    restaurants           @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  category      restaurant_categories @relation(fields: [category_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([restaurant_id, category_id])
+  @@index([category_id])
+}
+
+model restaurant_amenities {
+  id          Int                        @id @default(autoincrement())
+  name        String                     @db.VarChar(120)
+  slug        String                     @unique @db.VarChar(140)
+  icon        String?                    @db.VarChar(100)
+  created_at  DateTime                   @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime                   @updatedAt @db.Timestamptz(6)
+  deleted_at  DateTime?                  @db.Timestamptz(6)
+  restaurants restaurant_amenity_links[]
+}
+
+model restaurant_amenity_links {
+  id            Int                  @id @default(autoincrement())
+  restaurant_id Int
+  amenity_id    Int
+  created_at    DateTime             @default(now()) @db.Timestamptz(6)
+  restaurant    restaurants          @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  amenity       restaurant_amenities @relation(fields: [amenity_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([restaurant_id, amenity_id])
+  @@index([amenity_id])
+}
+
+model restaurant_hours {
+  id            Int         @id @default(autoincrement())
+  restaurant_id Int
+  weekday       Int
+  opens_at      DateTime?   @db.Time(0)
+  closes_at     DateTime?   @db.Time(0)
+  is_closed     Boolean     @default(false)
+  created_at    DateTime    @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime    @updatedAt @db.Timestamptz(6)
+  restaurant    restaurants @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([restaurant_id, weekday])
+  @@index([restaurant_id])
+}
+
+model restaurant_images {
+  id            Int         @id @default(autoincrement())
+  restaurant_id Int
+  url           String
+  alt           String?
+  sort_order    Int         @default(0)
+  created_at    DateTime    @default(now()) @db.Timestamptz(6)
+  deleted_at    DateTime?   @db.Timestamptz(6)
+  restaurant    restaurants @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([restaurant_id, deleted_at, sort_order])
+}
+
+model restaurant_menu_items {
+  id            Int         @id @default(autoincrement())
+  restaurant_id Int
+  name          String      @db.VarChar(180)
+  description   String?
+  image         String?
+  price         Int?
+  sort_order    Int         @default(0)
+  is_available  Boolean     @default(true)
+  created_at    DateTime    @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime    @updatedAt @db.Timestamptz(6)
+  deleted_at    DateTime?   @db.Timestamptz(6)
+  restaurant    restaurants @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([restaurant_id, is_available, deleted_at, sort_order])
+}
+
+model restaurant_reviews {
+  id            Int                  @id @default(autoincrement())
+  restaurant_id Int
+  user_id       Int
+  parent_id     Int?
+  rating        Int
+  comment       String
+  status        Int                  @default(0)
+  created_at    DateTime             @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime             @updatedAt @db.Timestamptz(6)
+  deleted_at    DateTime?            @db.Timestamptz(6)
+  restaurant    restaurants          @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  user          users                @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  parent        restaurant_reviews?  @relation("restaurant_review_replies", fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  replies       restaurant_reviews[] @relation("restaurant_review_replies")
+
+  @@unique([restaurant_id, user_id, parent_id])
+  @@index([restaurant_id, status, deleted_at, created_at])
+  @@index([user_id])
+}
+
+model saved_restaurants {
+  id            Int         @id @default(autoincrement())
+  restaurant_id Int
+  user_id       Int
+  created_at    DateTime    @default(now()) @db.Timestamptz(6)
+  restaurant    restaurants @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  user          users       @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([restaurant_id, user_id])
+  @@index([user_id])
+}
+
+model events {
+  id                    Int               @id @default(autoincrement())
+  restaurant_id         Int?
+  slug                  String            @unique @db.VarChar(180)
+  title                 String            @db.VarChar(200)
+  description           String?
+  cover_image           String?
+  location_name         String?
+  address               String?
+  latitude              Decimal?          @db.Decimal(9, 6)
+  longitude             Decimal?          @db.Decimal(9, 6)
+  starts_at             DateTime          @db.Timestamptz(6)
+  ends_at               DateTime          @db.Timestamptz(6)
+  registration_deadline DateTime?         @db.Timestamptz(6)
+  capacity              Int?
+  status                Int               @default(0)
+  is_featured           Boolean           @default(false)
+  created_at            DateTime          @default(now()) @db.Timestamptz(6)
+  updated_at            DateTime          @updatedAt @db.Timestamptz(6)
+  deleted_at            DateTime?         @db.Timestamptz(6)
+  restaurant            restaurants?      @relation(fields: [restaurant_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  attendees             event_attendees[]
+
+  @@index([status, deleted_at, starts_at])
+  @@index([restaurant_id])
+}
+
+model event_attendees {
+  id         Int       @id @default(autoincrement())
+  event_id   Int
+  user_id    Int
+  status     Int       @default(0)
+  created_at DateTime  @default(now()) @db.Timestamptz(6)
+  deleted_at DateTime? @db.Timestamptz(6)
+  event      events    @relation(fields: [event_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  user       users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([event_id, user_id])
+  @@index([user_id, deleted_at])
+}
+
+model blogger_profiles {
+  id              Int                       @id @default(autoincrement())
+  user_id         Int?                      @unique
+  username        String                    @unique @db.VarChar(80)
+  display_name    String                    @db.VarChar(180)
+  title           String?                   @db.VarChar(180)
+  bio             String?
+  cover_image     String?
+  visitors_count  Int                       @default(0)
+  is_verified     Boolean                   @default(false)
+  is_active       Boolean                   @default(true)
+  created_at      DateTime                  @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime                  @updatedAt @db.Timestamptz(6)
+  deleted_at      DateTime?                 @db.Timestamptz(6)
+  user            users?                    @relation(fields: [user_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  followers       blogger_follows[]
+  recommendations blogger_recommendations[]
+  social_links    blogger_social_links[]
+  videos          blogger_videos[]
+
+  @@index([is_active, deleted_at])
+}
+
+model blogger_follows {
+  id         Int              @id @default(autoincrement())
+  blogger_id Int
+  user_id    Int
+  created_at DateTime         @default(now()) @db.Timestamptz(6)
+  blogger    blogger_profiles @relation(fields: [blogger_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  user       users            @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([blogger_id, user_id])
+  @@index([user_id])
+}
+
+model blogger_social_links {
+  id         Int              @id @default(autoincrement())
+  blogger_id Int
+  platform   String           @db.VarChar(40)
+  url        String
+  sort_order Int              @default(0)
+  created_at DateTime         @default(now()) @db.Timestamptz(6)
+  updated_at DateTime         @updatedAt @db.Timestamptz(6)
+  deleted_at DateTime?        @db.Timestamptz(6)
+  blogger    blogger_profiles @relation(fields: [blogger_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([blogger_id, platform])
+  @@index([blogger_id, deleted_at, sort_order])
+}
+
+model blogger_videos {
+  id          Int              @id @default(autoincrement())
+  blogger_id  Int
+  title       String?
+  thumbnail   String
+  video_url   String?
+  views_count Int              @default(0)
+  sort_order  Int              @default(0)
+  created_at  DateTime         @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime         @updatedAt @db.Timestamptz(6)
+  deleted_at  DateTime?        @db.Timestamptz(6)
+  blogger     blogger_profiles @relation(fields: [blogger_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([blogger_id, deleted_at, sort_order])
+}
+
+model blogger_recommendations {
+  id            Int              @id @default(autoincrement())
+  blogger_id    Int
+  restaurant_id Int
+  caption       String?
+  sort_order    Int              @default(0)
+  created_at    DateTime         @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime         @updatedAt @db.Timestamptz(6)
+  deleted_at    DateTime?        @db.Timestamptz(6)
+  blogger       blogger_profiles @relation(fields: [blogger_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  restaurant    restaurants      @relation(fields: [restaurant_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([blogger_id, restaurant_id])
+  @@index([restaurant_id, deleted_at])
 }
