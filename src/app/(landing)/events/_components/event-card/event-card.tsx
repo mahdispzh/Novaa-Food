@@ -8,11 +8,6 @@ import { Bookmark, CalendarDays, MapPin } from "lucide-react";
 import { useSaveEvent } from "../../_hooks/use-save-event";
 import type { EventCardProps } from "./event-card.types";
 
-// Traces the same top-left "notch" the photo is carved into so the
-// bookmark button reads as a cutout of the card's own cream background,
-// with the card's outer top-right corner rounded to match.
-// Coordinates are objectBoundingBox fractions (0–1), derived from the
-// original 358×191.3 design so the shape scales with the card's width.
 const NOTCH_PATH =
   "M 0.069701 0 H 0.929341 C 0.947827 0 0.965556 0.013742 0.978628 0.038203 " +
   "C 0.991698 0.062665 0.999042 0.095841 0.999042 0.130435 V 1 H 0 V 0.478261 " +
@@ -44,7 +39,7 @@ export function EventCard({ event }: EventCardProps) {
       {/* Photo bleeds edge to edge; clipped into the top-left notch and
           rounded top-right corner instead of a plain rectangle. */}
       <div
-        className="relative h-[190px] w-full overflow-hidden"
+        className="relative h-47.5 w-full overflow-hidden"
         style={{ clipPath: `url(#${clipId})` }}
       >
         <Image
@@ -76,32 +71,32 @@ export function EventCard({ event }: EventCardProps) {
         />
       </button>
 
-      <div className="relative px-[18px] pb-[18px] pt-[30px]">
-        <div className="absolute -top-[38px] left-[18px] flex h-[66px] w-[66px] flex-col items-center justify-center rounded-[14px] bg-[#8E977D] text-white shadow-[0_2px_6px_rgba(60,45,30,0.12)]">
+      <div className="relative pb-4.5 pt-7.5 rounded-b-[26px] border border-gray-600 bg-white">
+        <div className="absolute -top-9.5 left-4.5 flex h-16.5 w-16.5 flex-col items-center justify-center rounded-[14px] bg-primary text-white shadow-[0_2px_6px_rgba(60,45,30,0.12)]">
           <span className="text-[16px] font-bold leading-none">
             {event.day}
           </span>
           <span className="mt-1 text-[10px] leading-none">{event.month}</span>
         </div>
 
-        <div className="flex flex-col gap-2 pr-[84px] text-right" dir="rtl">
-          <h3 className="text-[17px] font-bold text-[#362419]">
+        <div className="flex flex-col gap-2 pr-4 text-right" dir="rtl">
+          <h3 className="text-17 font-bold text-secondary">
             {event.title}
           </h3>
-          <p className="text-[13px] text-[#8A8A8A]">{event.description}</p>
+          <p className="text-13 text-secondary">{event.description}</p>
         </div>
 
         <div
-          className="mt-3 flex flex-col gap-2 text-[12.5px] text-[#9A9A9A]"
+          className="mt-3 flex flex-col gap-2 text-12.5 text-gray"
           dir="rtl"
         >
-          <div className="flex items-center justify-end gap-2">
+          <div className="flex items-right px-4 gap-2">
+            <CalendarDays size={16} />
             <span>{event.timeRange}</span>
-            <CalendarDays size={15} />
           </div>
-          <div className="flex items-center justify-end gap-2">
-            <span>{event.location}</span>
+          <div className="flex items-center px-4 gap-2">
             <MapPin size={15} />
+            <span>{event.location}</span>
           </div>
         </div>
       </div>
