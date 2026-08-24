@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 
 export function WeeklyEvent(){
-  return <div className="relative translate-y-2 mx-auto aspect-358/100 w-full max-w-89.5" dir="rtl">
+  return <div className="relative mx-auto aspect-358/100 w-full max-w-89.5" dir="rtl">
         <Image
           fill
           priority
