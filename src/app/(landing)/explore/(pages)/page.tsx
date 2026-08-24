@@ -1,17 +1,9 @@
-// src/app/layout.tsx
-import AppFooter from "@/src/shared/components/footer/AppFooter";
+import ExploreCardsSection from "../_compoents/explore-cards/explore-cards-section";
 
-export default function ExplorePage({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Page() {
   return (
-    <html lang="fa" dir="rtl">
-      <body>
-        {children}
-        <AppFooter />
-      </body>
-    </html>
+    <main className="">
+      <ExploreCardsSection  />
+    </main>
   );
 }

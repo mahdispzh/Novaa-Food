@@ -1,0 +1,12 @@
+:root {
+  --chat--header--background: var(--color-primary) !important;
+  --chat--color-primary: var(--color-primary) !important;
+  --chat--toggle--background: var(--color-primary) !important;
+
+  --chat--toggle--size: 56px;
+}
+
+#n8n-chat {
+  bottom: 90px !important;
+  z-index: 40 !important;
+}
