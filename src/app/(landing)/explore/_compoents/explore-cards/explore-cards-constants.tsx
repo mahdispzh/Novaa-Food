@@ -20,4 +20,13 @@ export const exploreCardsData: exploreCardsProps[] = [
     image: exploreCardImage,
     features: ["فضای باز", "مناسب جلسات کاری"],
   },
+    {
+    id: 3,
+    title: "سام کافه",
+    location: "ارم(۲.۱ km)",
+    rating: "۴.۸",
+    reviewsCount: 234,
+    image: exploreCardImage,
+    features: ["فضای باز", "مناسب جلسات کاری"],
+  },
 ];

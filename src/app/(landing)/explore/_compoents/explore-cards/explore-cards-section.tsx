@@ -3,7 +3,7 @@ import { exploreCardsData } from './explore-cards-constants';
 
 export default function ExploreCardsSection() {
   return (
-    <div className="flex flex-col divide-y divide-beige">
+    <div className="flex flex-col">
       {exploreCardsData.map((exploreCard) => (
         <ExploreCards key={exploreCard.id} {...exploreCard} />
       ))}

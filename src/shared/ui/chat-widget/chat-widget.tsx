@@ -8,7 +8,7 @@ import '@n8n/chat/style.css';
 export default function ChatWidget(){
     useEffect(()=>{
         createChat({
-                webhookUrl: 'https://mahhhdis.app.n8n.cloud/webhook/YOUR_WEBHOOK_ID/chat',
+                webhookUrl: 'https://mahhhdis.app.n8n.cloud/webhook/da2a90ab-fef7-4b0b-823a-1e0b5113a80a/chat',
       initialMessages: [
         'سلام! 👋',
         'چطور می‌تونم کمکتون کنم؟',

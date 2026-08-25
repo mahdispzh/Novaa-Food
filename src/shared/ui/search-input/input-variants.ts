@@ -13,7 +13,7 @@ export const inputVariants = cva(
     variants: {
       variant: {
         outline:
-          "border border-primary bg-white focus-within:border-primary",
+          "border border-primary bg-transparent focus-within:border-primary",
         filled:
           "bg-gray-100 border border-transparent focus-within:border-primary",
       },
