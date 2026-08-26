@@ -51,6 +51,7 @@ import { MapFooter as map } from "../components/footer/layout/map-footer";
 import { ExploreFooter as explore } from "../components/footer/layout/explore-footer";
 import { CorrectIcon as correctIcon } from "./icons/correct-icon";
 import { ChevronLeftIcon as chevronlefticon } from "./icons/chevronleft-icon";
+import { CalendarIcon as Calendar} from "./icons/calendar-icon"
 
 export const ICONS = {
   buildingIcon,
@@ -58,6 +59,7 @@ export const ICONS = {
   checkbox,
   settings,
   chevronlefticon,
+  Calendar,
   events,
   map,
   explore,

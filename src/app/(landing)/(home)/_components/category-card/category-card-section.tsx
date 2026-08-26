@@ -1,8 +1,6 @@
 "use client";
 
 import CategoryCard from "@/src/app/(landing)/(home)/_components/category-card/category-card";
-import { categories } from "@/src/app/(landing)/(home)/_components/category-card/category-card-constants";
-import Container from "@/src/shared/ui/container/container";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 
 type CatgorySectionProps = {
