@@ -19,6 +19,7 @@ export interface BloggerVideo {
   id: string;
   thumbnail: string;
   videoUrl?: string;
+  viewsCount: number;
 }
 
 export interface BloggerSocialLinks {

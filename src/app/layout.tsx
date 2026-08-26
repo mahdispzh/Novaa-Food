@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`h-full antialiased`} dir="rtl" lang="fa">
-      <body className="bg-white">
+      <body className="bg-biege">
         <ReactQueryProvider>
           <AuthBootstrap />
           <HeaderController />

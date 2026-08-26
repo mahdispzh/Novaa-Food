@@ -18,7 +18,25 @@ export default function RecommendedPlacesCarousel({
   function handleScroll() {
     const scroller = scrollerRef.current;
     if (!scroller) return;
-    const index = Math.round(scroller.scrollLeft / scroller.clientWidth);
+    const firstCard = scroller.firstElementChild as HTMLElement | null;
+    if (!firstCard) return;
+
+    const gap = 12; // matches gap-3 (0.75rem)
+    const cardWidth = firstCard.getBoundingClientRect().width + gap;
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+
+    // scrollLeft is inconsistent across browsers in RTL layouts:
+    // Chrome/Safari report it as 0 → -maxScroll, Firefox reports it as
+    // maxScroll → 0. Normalize both to a plain 0 → maxScroll "distance
+    // scrolled from the start" value before dividing by card width.
+    const isRTL = getComputedStyle(scroller).direction === "rtl";
+    let distanceScrolled = scroller.scrollLeft;
+    if (isRTL) {
+      distanceScrolled =
+        distanceScrolled < 0 ? -distanceScrolled : maxScroll - distanceScrolled;
+    }
+
+    const index = Math.round(distanceScrolled / cardWidth);
     setActiveIndex(index);
   }
 
@@ -33,7 +51,7 @@ export default function RecommendedPlacesCarousel({
       <div
         ref={scrollerRef}
         onScroll={handleScroll}
-        className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1"
+        className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {places.map((place) => (
           <RecommendedPlaceCard key={place.id} place={place} />

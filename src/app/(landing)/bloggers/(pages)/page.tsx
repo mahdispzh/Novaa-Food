@@ -1,6 +1,6 @@
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import Main from "@/src/shared/ui/main/main";
-import BloggerCard from "../_components/blogger-card/blogger-card";
+import { BloggerCard } from "../_components/blogger-card/blogger-card";
 import { getBloggers } from "../_services/bloggers.service";
 
 export default async function BloggersPage() {

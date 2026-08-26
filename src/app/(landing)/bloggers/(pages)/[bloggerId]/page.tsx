@@ -7,7 +7,13 @@ import FollowButtonWrapper from "../../_components/follow-button-wrapper/follow-
 import RecommendedPlacesCarousel from "../../_components/recommended-places-carousel/recommended-places-carousel";
 import SocialSection from "../../_components/social-section/social-section";
 import VideosSection from "../../_components/videos-section/videos-section";
-import { getBloggerById } from "../../_services/bloggers.service";
+import {
+  getBloggerProfile,
+  getBloggerRecommendedPlaces,
+  getBloggerSocialLinks,
+  getBloggerStats,
+  getBloggerVideos,
+} from "../../_services/bloggers.service";
 
 interface BloggerPageProps {
   params: Promise<{ bloggerId: string }>;
@@ -15,34 +21,39 @@ interface BloggerPageProps {
 
 export default async function BloggerPage({ params }: BloggerPageProps) {
   const { bloggerId } = await params;
-  const blogger = await getBloggerById(bloggerId);
 
-  if (!blogger) {
+  const [profile, stats, recommendedPlaces, videos, socialLinks] =
+    await Promise.all([
+      getBloggerProfile(bloggerId),
+      getBloggerStats(bloggerId),
+      getBloggerRecommendedPlaces(bloggerId),
+      getBloggerVideos(bloggerId),
+      getBloggerSocialLinks(bloggerId),
+    ]);
+
+  if (!profile || !stats) {
     notFound();
   }
 
   return (
     <Main>
       <div className="flex flex-col gap-6 pb-6">
-        <BloggerHero blogger={blogger} />
-        <div className="flex flex-col gap-4 px-4">
-          <FollowButtonWrapper initialIsFollowing={blogger.isFollowing} />
+        <BloggerHero blogger={profile} />
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 px-4">
+            <FollowButtonWrapper initialIsFollowing={profile.isFollowing} />
 
-          <p className="text-[13px] leading-6 text-gray">{blogger.bio}</p>
+            <p className="text-[13px] leading-6 text-gray">{profile.bio}</p>
 
-          <BloggerStatsRow stats={blogger.stats} />
+            <BloggerStatsRow stats={stats} />
 
-          {blogger.recommendedPlaces.length > 0 && (
-            <div className="flex flex-col gap-3">
-              <RecommendedPlacesCarousel
-                places={blogger.recommendedPlaces}
-              />
-            </div>
-          )}
+            {recommendedPlaces.length > 0 && (
+              <RecommendedPlacesCarousel places={recommendedPlaces} />
+            )}
 
-          <VideosSection videos={blogger.videos} />
-
-          <SocialSection links={blogger.socialLinks} />
+            <SocialSection links={socialLinks} />
+          </div>
+          <VideosSection videos={videos} />
         </div>
       </div>
     </Main>

@@ -9,7 +9,7 @@ import { BloggerHeroProps } from "./blogger-hero.types";
 export default function BloggerHero({ blogger }: BloggerHeroProps) {
   return (
     <div className="px-4 pt-4">
-      <div className="relative aspect-[369/491] w-full">
+      <div className="relative aspect-[0.75] w-full">
         <div
           className="absolute inset-0 overflow-hidden"
           style={frameMaskStyle(profileFrame)}

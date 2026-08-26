@@ -17,7 +17,7 @@ export default function FollowButtonWrapper({
   return (
     <Button
       aria-pressed={isFollowing}
-      className="border-primary bg-white text-[13px] text-primary"
+      className="border-primary bg-biege text-[13px] text-primary"
       size="md"
       type="button"
       variant="outline"
