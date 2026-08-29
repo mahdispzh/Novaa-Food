@@ -1,10 +1,5 @@
 export type BloggerVideo = {
-  id: number;
-  type: "video";
-  url: string;
+  id: string;
   thumbnail: string;
-  user: {
-    username: string;
-    avatar?: string;
-  };
+  viewsCount: number | string;
 };

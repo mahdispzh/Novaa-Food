@@ -1,9 +1,9 @@
-"use client";
+import Image from "next/image";
 
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import { BloggerVideo } from "./blogger-video-type";
 
-const { playIcon: PlayIcon } = ICONS;
+const { eyeIcon: EyeIcon } = ICONS;
 
 type BloggerVideoCardProps = {
   video: BloggerVideo;
@@ -13,37 +13,25 @@ export default function BloggerVideoCard({ video }: BloggerVideoCardProps) {
   if (!video) return null;
 
   return (
-    <div className="relative h-[270px] w-full overflow-hidden rounded-lg mt-7">
-      {/* Video */}
-      <video
-        src={video.url}
-        poster={video.thumbnail}
-        className="h-full w-full object-cover"
-        muted
-        playsInline
+    <div className="relative aspect-square w-full overflow-hidden border border-beige">
+      <Image
+        fill
+        alt={video.id}
+        className="object-cover"
+        sizes="(max-width: 768px) 33vw, 200px"
+        src={video.thumbnail}
       />
 
-      <div className="absolute top-4 left-4 flex items-center gap-2">
-        {/* User name */}
-        <span className="text-[13px] font-light text-black">{video.user.username}</span>
+      {/* Gradient overlay for readable view count */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
 
-        {/* Avatar */}
-        {video.user.avatar && (
-          <img
-            src={video.user.avatar}
-            alt={video.user.username}
-            className="h-7 w-7 rounded-full border border-black"
-          />
-        )}
+      {/* Views count */}
+      <div className="absolute bottom-1.5 left-1.5 flex items-center gap-1 text-white">
+        <EyeIcon color="text-white" size="sm" />
+        <span className="text-[11px] font-medium leading-none" dir="ltr">
+          {video.viewsCount}
+        </span>
       </div>
-
-      {/* PlayIcon */}
-      <button
-        type="button"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        <PlayIcon size="4xl" color="text-gray" />
-      </button>
     </div>
   );
 }

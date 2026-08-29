@@ -16,13 +16,11 @@ export default function RestaurantBlogger({
   return (
     <div className="flex flex-col">
       <BloggerCardSection data={bloggerCards} />
-      <SectionHeading
+      {/* <SectionHeading
         title="ویدیو معرفی"
         subtitle="ویدیو معرفی کافه سام را مشاهده کنید."
         className="mt-5"
-      />
-
-      <BloggerVideoSection />
+      /> */}
 
       <div className="border border-beige p-3 mt-7">
         <p className="text-[13px] font-light text-primary">{discription}</p>
@@ -30,11 +28,17 @@ export default function RestaurantBlogger({
 
       <BloggerRatingSection />
 
+
+      <BloggerVideoSection />
+
+      
       <div className="mt-7 flex justify-center">
         <Button variant="primary" size="md" width="full" rounded="sm">
           <span className="text-[13px] font-medium">مشاهده پروفایل بلاگر</span>
         </Button>
       </div>
+
+
     </div>
   );
 }
