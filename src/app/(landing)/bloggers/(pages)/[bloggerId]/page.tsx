@@ -13,7 +13,7 @@ import {
   getBloggerSocialLinks,
   getBloggerStats,
   getBloggerVideos,
-} from "../../_services/bloggers.service";
+} from "../../_services/bloggers.server";
 
 interface BloggerPageProps {
   params: Promise<{ bloggerId: string }>;

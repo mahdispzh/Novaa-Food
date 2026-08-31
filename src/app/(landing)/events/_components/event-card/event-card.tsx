@@ -1,11 +1,11 @@
 "use client";
 
+import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import Image from "next/image";
 import Link from "next/link";
 import { useId } from "react";
-import { Bookmark, CalendarDays, MapPin } from "lucide-react";
 
-import { useSaveEvent } from "../../_hooks/use-save-event";
+import { useSaveEvent } from "../../_hooks/useSaveEvent";
 import type { EventCardProps } from "./event-card.types";
 
 const NOTCH_PATH =
@@ -53,49 +53,45 @@ export function EventCard({ event }: EventCardProps) {
       </div>
       <button
         aria-label={isSaved ? "حذف از نشان‌شده‌ها" : "ذخیره رویداد"}
-          className={`absolute left-1 top-1 flex h-14 w-14 items-center justify-center rounded-2xl border-1 transition-colors ${
+        className={`absolute top-1 left-px flex h-14 w-14 items-center justify-center rounded-2xl border-1 transition-colors ${
           isSaved
-            ? "bg-secondary border-secondary"
-            : "bg-light-beige border-secondary"
-          }`}
+            ? "border-secondary bg-secondary"
+            : "border-secondary bg-light-beige"
+        }`}
         type="button"
         onClick={(e) => {
           e.preventDefault();
           toggleSave();
-        }}>
-        <Bookmark
+        }}
+      >
+        <ICONS.saveIcon
           className={isSaved ? "text-light-beige" : "text-secondary"}
           fill={isSaved ? "currentColor" : "none"}
-          size={20}
+          size="md"
           strokeWidth={1}
         />
       </button>
 
-      <div className="relative pb-4.5 pt-7.5 rounded-b-[26px] border border-gray-600 bg-white">
+      <div className="relative rounded-b-[26px] border border-gray-600 bg-white pt-7.5 pb-4.5">
         <div className="absolute -top-9.5 left-4.5 flex h-16.5 w-16.5 flex-col items-center justify-center rounded-[14px] bg-primary text-white shadow-[0_2px_6px_rgba(60,45,30,0.12)]">
-          <span className="text-[16px] font-bold leading-none">
+          <span className="text-[16px] leading-none font-bold">
             {event.day}
           </span>
           <span className="mt-1 text-[10px] leading-none">{event.month}</span>
         </div>
 
         <div className="flex flex-col gap-2 pr-4 text-right" dir="rtl">
-          <h3 className="text-17 font-bold text-secondary">
-            {event.title}
-          </h3>
+          <h3 className="text-17 font-bold text-secondary">{event.title}</h3>
           <p className="text-13 text-secondary">{event.description}</p>
         </div>
 
-        <div
-          className="mt-3 flex flex-col gap-2 text-12.5 text-gray"
-          dir="rtl"
-        >
-          <div className="flex items-right px-4 gap-2">
-            <CalendarDays size={16} />
+        <div className="text-12.5 mt-3 flex flex-col gap-2 text-gray" dir="rtl">
+          <div className="items-right flex gap-2 px-4">
+            <ICONS.eventIcon size="md" />
             <span>{event.timeRange}</span>
           </div>
-          <div className="flex items-center px-4 gap-2">
-            <MapPin size={15} />
+          <div className="flex items-center gap-2 px-4">
+            <ICONS.locationIcon size="md" />
             <span>{event.location}</span>
           </div>
         </div>

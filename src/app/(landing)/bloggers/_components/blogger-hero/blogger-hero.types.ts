@@ -1,4 +1,4 @@
-import type { BloggerProfile } from "../../_services/bloggers.service";
+import type { BloggerProfile } from "../../_services/bloggers.server";
 
 export interface BloggerHeroProps {
   blogger: BloggerProfile;

@@ -32,7 +32,7 @@ const icons = [
   { name: "ProfileIcon", Component: ICONS.profileIcon },
   { name: "RoundedSquareIcon", Component: ICONS.roundedSquareIcon },
   { name: "SaveIcon", Component: ICONS.saveIcon },
-  { name: "SearchIcon", Component: ICONS.exploreIcon },
+  { name: "SearchIcon", Component: ICONS.searchIcon },
   { name: "ShareIcon", Component: ICONS.shareIcon },
   { name: "SortDescendingIcon", Component: ICONS.sortDescendingIcon },
   { name: "LikeIcon", Component: ICONS.likeIcon },
@@ -46,8 +46,12 @@ const icons = [
   { name: "BurgerIcon", Component: ICONS.burgerIcon },
   { name: "WhatsappIcon", Component: ICONS.whatsappIcon },
   { name: "CorrectIcon", Component: ICONS.correctIcon },
-  { name: "ChevronLeftIcon", Component: ICONS.chevronlefticon},
-  { name: "Calendar", Component: ICONS.Calendar},
+  { name: "ChevronLeftIcon", Component: ICONS.chevronlefticon },
+  { name: "DotIcon", Component: ICONS.dotIcon },
+  { name: "ArrowRightIcon", Component: ICONS.arrowRightIcon },
+  { name: "PlayIcon", Component: ICONS.playIcon },
+  { name: "PlusIcon", Component: ICONS.plusIcon },
+  { name: "ExploreIcon", Component: ICONS.exploreIcon },
 ] as const;
 
 export default function Page() {

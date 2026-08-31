@@ -12,7 +12,7 @@ export function WeeklyEvent(){
           className="object-contain"
           src={headingFrame}
         />
-        <h1 className="absolute right-3 top-1 text-16 text-[#8e977d]">
+        <h1 className="absolute right-2 top-1 text-16 text-[#8e977d]">
           رویدادهای هفته
         </h1>
         <p className="absolute bottom-8 left-[8%] right-15 text-right text-[13px] leading-7 text-white">
