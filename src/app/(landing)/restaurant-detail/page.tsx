@@ -1,4 +1,4 @@
-import RestaurantDetail from "./restaurant-detail";
+import RestaurantDetail from "../restaurant/_components/restaurant-detail/restaurant-detail";
 import { getRestaurantDetail } from "./_services/restaurant-detail.server";
 import { notFound } from "next/navigation";
 
