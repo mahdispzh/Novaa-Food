@@ -1,6 +1,6 @@
 // src/.../_utils/restaurant-detail-transformer.ts
 
-export function restaurantDetailTransformer(raw: any) {
+export function toRestaurantDetailProps(raw: any) {
   return {
     title: raw.name,
     image: raw.cover_image,
