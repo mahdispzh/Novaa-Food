@@ -1,7 +1,7 @@
 "use client";
 
-import type { ComponentType, CSSProperties } from "react";
 import Link from "next/link";
+import type { ComponentType, CSSProperties } from "react";
 
 import type { IconProps } from "@/src/shared/types/IconTypes";
 import { cn } from "@/src/shared/utils/cn";
@@ -61,7 +61,12 @@ export default function BaseFooter({
       >
         <div className="w-full pb-[env(safe-area-inset-bottom)]">
           <div className="relative flex w-full items-center justify-center overflow-hidden">
-            <div className={cn("flex w-full items-center justify-center", iconClassName)}>
+            <div
+              className={cn(
+                "flex w-full items-center justify-center",
+                iconClassName,
+              )}
+            >
               <Icon {...iconProps} />
             </div>
 

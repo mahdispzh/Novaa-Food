@@ -1,11 +1,11 @@
+import { CalendarIcon, StoreIcon } from "@/src/shared/constants/icons";
 import { Caption, StatusBadge, Text } from "@/src/shared/ui";
 import { RatingStars } from "@/src/shared/utils/rating-stars";
 import Image from "next/image";
 import Link from "next/link";
-import { COMMENT_STATUS_MAP } from "../constants/comment-status.constants";
-import { toJalaliDate } from "../_utils/date.utils";
-import { CalendarIcon, StoreIcon } from "@/src/shared/constants/icons";
 import storeinformation from "../../../../shared/constants/texts/store-information.json";
+import { toJalaliDate } from "../_utils/date.utils";
+import { COMMENT_STATUS_MAP } from "../constants/comment-status.constants";
 
 type CommentCardProps = {
   productName: string;
@@ -48,9 +48,8 @@ export function CommentCard({
           {/* بخش بالایی: نام محصول، امتیاز و کامنت */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-10">
-                      <Link href={`/products/${productSlug}`}>
-
-              <Text text={productName} size="md" weight="medium" />
+              <Link href={`/products/${productSlug}`}>
+                <Text text={productName} size="md" weight="medium" />
               </Link>
               <RatingStars rating={rating} size="sm" />
             </div>

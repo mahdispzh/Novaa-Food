@@ -39,7 +39,7 @@ export default function UtilsTestPage() {
     <div className="space-y-10 p-10 text-sm">
       {/* Digits */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Digits</h2>
+        <h2 className="text-xl font-bold">Digits</h2>
 
         <div>Persian Digits: {toPersianDigits(123456)}</div>
 
@@ -48,7 +48,7 @@ export default function UtilsTestPage() {
 
       {/* Numbers */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Numbers</h2>
+        <h2 className="text-xl font-bold">Numbers</h2>
 
         <div>{formatNumber(2500000)}</div>
 
@@ -59,7 +59,7 @@ export default function UtilsTestPage() {
 
       {/* Text */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Text</h2>
+        <h2 className="text-xl font-bold">Text</h2>
 
         <div>
           {truncate(
@@ -73,7 +73,7 @@ export default function UtilsTestPage() {
 
       {/* Date */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Date</h2>
+        <h2 className="text-xl font-bold">Date</h2>
 
         <div>{formatShamsiDate(new Date())}</div>
 
@@ -84,28 +84,28 @@ export default function UtilsTestPage() {
 
       {/* Files */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Files</h2>
+        <h2 className="text-xl font-bold">Files</h2>
 
         <div>{formatFileSize(1024 * 1024 * 5)}</div>
       </section>
 
       {/* Rating */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Rating</h2>
+        <h2 className="text-xl font-bold">Rating</h2>
 
         <div>{calculateRating(4.8, 125)}</div>
       </section>
 
       {/* Generate ID */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Generate ID</h2>
+        <h2 className="text-xl font-bold">Generate ID</h2>
 
         <div>{generateId()}</div>
       </section>
 
       {/* Sort */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Sort Products</h2>
+        <h2 className="text-xl font-bold">Sort Products</h2>
 
         <pre className="overflow-auto rounded-xl bg-gray-100 p-4">
           {JSON.stringify(sortProducts(products, "price-high"), null, 2)}
@@ -114,7 +114,7 @@ export default function UtilsTestPage() {
 
       {/* Filter */}
       <section className="space-y-2">
-        <h2 className="font-bold text-xl">Filter Products</h2>
+        <h2 className="text-xl font-bold">Filter Products</h2>
 
         <pre className="overflow-auto rounded-xl bg-gray-100 p-4">
           {JSON.stringify(filterProducts(products, "iphone"), null, 2)}
