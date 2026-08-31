@@ -26,10 +26,10 @@ export default function CategoryCard({
 
 
       {/* Icon */}
-      <div className="absolute top-9 right-5">
+      <div className="absolute top-11 right-3">
         <Icon 
           color="text-beige"
-          size="3xl"
+          size="2xl"
         />
       </div>
 

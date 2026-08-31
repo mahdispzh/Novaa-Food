@@ -5,7 +5,7 @@ export interface BloggerCardProps {
   name: string;
   username?: string;
   avatar: StaticImageData | string;
-  isVerified?: boolean;
+  // isVerified?: boolean;
   role: string;
   reviewsCount: number;
 }

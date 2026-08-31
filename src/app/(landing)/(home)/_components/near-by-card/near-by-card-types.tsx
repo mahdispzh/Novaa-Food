@@ -5,7 +5,7 @@ export interface nearByCardProps {
   title: string;
   location: string;
   rating: string;
-  image: StaticImageData;
+  image: string;
   category: string;
 
 }

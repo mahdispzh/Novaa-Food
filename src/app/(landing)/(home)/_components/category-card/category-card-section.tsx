@@ -1,7 +1,6 @@
 "use client";
 
 import CategoryCard from "@/src/app/(landing)/(home)/_components/category-card/category-card";
-import { categories } from "@/src/app/(landing)/(home)/_components/category-card/category-card-constants";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 
 type CatgorySectionProps = {
@@ -18,11 +17,11 @@ export default function CategoryCardSection({data}:CatgorySectionProps) {
           
         />
 
-        <div className="flex gap-5">
+        <div className="scrollbar-hide flex overflow-x-auto scroll-smooth gap-5">
           {data.map((category) => (
             <CategoryCard
               key={category.id}
-              title={category.title}
+              title={category.name}
               icon={category.icon}
             />
           ))}

@@ -42,7 +42,7 @@ export default function EventCards({
           {/* location */}
           <div className="absolute top-33 right-5 flex flex-col items-center gap-2">
             <LocationIcon size="xl" color="text-beige" />
-            <p className="text-[12px] text-beige font-light whitespace-pre-line">
+            <p className="text-[12px] text-beige font-light whitespace-pre-line  w-20">
               {location}{" "}
             </p>
           </div>

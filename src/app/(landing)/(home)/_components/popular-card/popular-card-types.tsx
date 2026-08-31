@@ -5,7 +5,7 @@ export interface popularCardProps {
   title: string;
   location: string;
   rating: number;
-  image: StaticImageData;
+  image: string ;
   category: string;
   reviewsCount: number,
 

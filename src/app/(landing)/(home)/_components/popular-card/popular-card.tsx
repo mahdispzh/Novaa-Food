@@ -46,7 +46,7 @@ export default function PopularCard({
          
         </div>
         {/* category */}
-        <div className="absolute right-48 top-4 z-20 flex flex-col items-center justify-center gap-1 text-white">
+        <div className="absolute right-50 top-4 z-20 flex flex-col items-center justify-center gap-1 text-white">
           <TypeIcon size="lg" color="text-white" />
           <span className="text-[10px] font-light">{category}</span>
         </div>
