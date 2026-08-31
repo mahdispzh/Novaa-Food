@@ -5,11 +5,12 @@ import CategoryCardSection from "../_components/category-card/category-card-sect
 import EventCardSection from "../_components/event-card/event-card-section";
 import NearByCardSection from "../_components/near-by-card/near-by-card-section";
 import PopularCardSection from "../_components/popular-card/popular-card-section";
-import useHome from "../_hooks/useHome";
+import { getLandingHome } from "../_services/home.server";
+import getHomeViewData from "../_hooks/useHome";
 
-export default function HomePage() {
+export default async function HomePage() {
   const { categories, eventCards, nearByCards, PopularCards, bloggerCards } =
-    useHome();
+    getHomeViewData(await getLandingHome());
   return (
     <html dir="rtl" lang="fa">
       <body>
