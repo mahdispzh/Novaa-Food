@@ -4,6 +4,7 @@
 // import { nearByCards } from "../_components/near-by-card/near-by-card-constants";
 // import { PopularCards } from "../_components/popular-card/popular-card-constants";
 
+type LandingHomeData = Awaited<ReturnType<typeof getLandingHome>>;
 
 
 // export default function useHome() {

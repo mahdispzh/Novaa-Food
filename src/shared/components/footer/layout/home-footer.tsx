@@ -10,8 +10,8 @@ export function HomeFooter({ size = "lg", color = "text-primary" }: IconProps) {
       viewBox="0 0 375 108"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M375 25C375 22.2386 372.761 20 370 20H5C2.23859 20 0 22.2386 0 25V78C0 94.5685 13.4315 108 30 108H345C361.569 108 375 94.5685 375 78V25Z"
+      <path 
+        d="M375 25C375 22.2386 372.761 20 370 20H5C2.23859 20 0 22.2386 0 25V108H375V25Z" 
         fill="#301F18"
       />
       <path

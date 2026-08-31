@@ -62,6 +62,7 @@ export const ICONS = {
   checkbox,
   settings,
   chevronlefticon,
+  calendar,
   events,
   map,
   searchIcon,
