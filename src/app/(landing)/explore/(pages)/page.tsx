@@ -4,7 +4,6 @@ import ExploreCardsSection from "../_compoents/explore-cards/explore-cards-secti
 export default function Page() {
   return (
     <main className="">
-
       <ExplorePage/>
     </main>
   );
