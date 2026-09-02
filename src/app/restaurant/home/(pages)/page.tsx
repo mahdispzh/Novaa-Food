@@ -1,12 +1,11 @@
-// src/app/profile/home/(pages)/page.tsx
-import { HomeBody } from "@/src/app/profile/home/_components/home-body";
-import { OrderSummary } from "@/src/app/profile/home/_components/order-summary";
+import Main from "@/src/shared/ui/main/main";
 
 export default function Page() {
   return (
-    <>
-      <OrderSummary />
-      <HomeBody />
-    </>
+    <Main>
+      <div>
+        <p>restuarant</p>
+      </div>
+    </Main>
   );
 }

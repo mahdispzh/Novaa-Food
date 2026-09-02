@@ -55,7 +55,7 @@ export default function BaseFooter({
       <footer
         aria-label={label}
         className={cn(
-          "fixed inset-x-0 right-0 bottom-0 left-0 60 mx-0 w-full max-w-none bg-transparent px-0 py-0",
+          "fixed inset-x-0 right-0 bottom-0 left-0 z-[9999] mx-0 w-full max-w-none bg-transparent px-0 py-0",
           className,
         )}
       >

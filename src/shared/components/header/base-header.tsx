@@ -1,7 +1,12 @@
+"use client";
+
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function BaseHeader() {
+  const router = useRouter();
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-beige bg-light-beige">
@@ -19,6 +24,7 @@ export function BaseHeader() {
               aria-label="پروفایل"
               className="flex h-11 w-11 items-center justify-center text-primary transition hover:border-primary hover:text-primary hover:bg-light-beige"
               type="button"
+              onClick={() => router.push("/restaurant/home")}
             >
               <ICONS.userIcon color="text-secondary" size="2xl" />
             </button>
