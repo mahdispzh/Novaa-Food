@@ -1,4 +1,5 @@
 export * from "./button/Button";
+export * from "./button/default-button";
 export * from "./Badge/Badge";
 export * from "./breadcrumb/breadcrumb";
 export * from "./filter-chip/filter-chip";
@@ -6,3 +7,6 @@ export * from "./search-input/Input";
 export * from "./rating/rating";
 export * from "./section-heading/section-heading";
 export * from "./slider-dots/slider-dots";
+export * from "./text/text";
+export * from "./text/subtitle";
+export * from "./otp-input/otp-input";

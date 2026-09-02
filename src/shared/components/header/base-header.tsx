@@ -24,7 +24,7 @@ export function BaseHeader() {
               aria-label="پروفایل"
               className="flex h-11 w-11 items-center justify-center text-primary transition hover:border-primary hover:text-primary hover:bg-light-beige"
               type="button"
-              onClick={() => router.push("/restaurant/home")}
+              onClick={() => router.push("/send-otp")}
             >
               <ICONS.userIcon color="text-secondary" size="2xl" />
             </button>

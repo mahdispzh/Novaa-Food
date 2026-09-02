@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-import { apiClient } from "../../api/client";
 import { setupInterceptors } from "../../api/interceptors";
 import { useAuthStore } from "../../store/store";
 
@@ -18,21 +17,13 @@ export function AuthBootstrap() {
 
     initialized.current = true;
 
-    const init = async () => {
-      try {
-        const { data } = await apiClient.post("/auth/refresh");
-
-        useAuthStore.getState().setToken(data.accessToken);
-        useAuthStore.getState().setUser(data.user);
-      } catch {
-        useAuthStore.getState().setToken(null);
-        useAuthStore.getState().setUser(null);
-      } finally {
-        useAuthStore.getState().setHydrated(true);
-      }
-    };
-
-    init();
+    // Auto-login on load disabled on purpose: previously this called
+    // /auth/refresh using the refreshToken cookie and silently logged the
+    // user back in on every page load / dev server restart. Now the app
+    // always starts logged out.
+    useAuthStore.getState().setToken(null);
+    useAuthStore.getState().setUser(null);
+    useAuthStore.getState().setHydrated(true);
   }, []);
 
   return null;
