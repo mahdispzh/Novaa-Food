@@ -1,9 +1,13 @@
 "use client";
 
+import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import text from "@/src/shared/constants/texts/texts.json";
-import { DefaultButton, OtpInput, Subtitle, Text } from "@/src/shared/ui";
-import Image from "next/image";
+import { DefaultButton, OtpInput, Text } from "@/src/shared/ui";
 import { useRouter } from "next/navigation";
+import { AuthHeroPanel } from "@/src/shared/components/auth/auth-hero-panel";
+import { AuthCard } from "@/src/shared/components/auth/auth-card";
+
+const OTP_LENGTH = 4;
 
 interface VerifyFormProps {
   code: string;
@@ -29,95 +33,93 @@ export default function VerifyForm({
   isLoading,
 }: VerifyFormProps) {
   const router = useRouter();
-  const isComplete = code.length === 4;
+  const canSubmit = code.length === OTP_LENGTH && !isLoading;
 
   return (
-    <div className="flex w-[30vw] flex-col rounded-lg bg-white p-[2.5vw] pb-[2vw] shadow-danger">
-      <div className="flex flex-col items-center gap-[10vh]">
-        <Image
-          alt=""
-          className="h-auto w-[18vw]"
-          height={80}
-          src="/images/logo.svg"
-          width={80}
-        />{" "}
-        <div className="flex w-full flex-col gap-[2vh] px-[2vw]">
-          <div className="flex flex-col gap-[2vh] pb-[1vw]">
-            <Text
-              color="primary"
-              size="lg"
-              text={text.dashboard.login.verifyCode}
-              weight="bold"
+    <main className="flex min-h-dvh justify-center bg-beige">
+      <div className="w-full max-w-sm">
+        <AuthHeroPanel
+          icon={<ICONS.checkbox color="text-white" size="md" />}
+          title={text.dashboard.login.verifyCode}
+          description={
+            <>
+              {text.dashboard.login.codeSent}{" "}
+              <bdi dir="ltr">{phoneNumber}</bdi>{" "}
+              {text.dashboard.login.sent}
+            </>
+          }
+        />
+
+        <AuthCard>
+          <div className="flex flex-col items-center gap-6">
+            <OtpInput
+              length={OTP_LENGTH}
+              value={code}
+              onChange={onChangeCode}
+              status={inputStatus}
+              onEnter={() => canSubmit && verifyOtpAction()}
             />
-            <Text
-              color="secondary"
-              size="sm"
-              text={`${text.dashboard.login.codeSent} ${phoneNumber} ${text.dashboard.login.sent}`}
-              weight="bold"
-            />
-            <div className="flex justify-center">
-              <OtpInput
-                length={4}
-                value={code}
-                onChange={onChangeCode}
-                status={inputStatus}
-                onEnter={() => {
-                  if (isComplete && !isLoading) {
-                    verifyOtpAction();
-                  }
-                }}
-              />
-            </div>
-          </div>
-          <div className="flex justify-center">
-            {isExpired ? (
-              <button className="cursor-pointer" onClick={resetTimer}>
+
+            <div className="flex flex-col items-center gap-2">
+              {!isExpired && (
                 <Text
                   color="secondary"
-                  size="lg"
-                  text={text.dashboard.login.resendCode}
-                  weight="regular"
-                />
-              </button>
-            ) : (
-              <div className="flex flex-row gap-[0.3vw]">
-                <Text
-                  text={remainingTime}
-                  size="lg"
-                  weight="bold"
-                  color="secondary"
-                />
-                <Text
-                  color="secondary"
-                  size="lg"
+                  size="xs"
                   text={text.dashboard.login.remainingTime}
                   weight="regular"
                 />
-              </div>
-            )}
+              )}
+
+              {isExpired ? (
+                <button
+                  type="button"
+                  className="cursor-pointer"
+                  onClick={resetTimer}
+                >
+                  <Text
+                    className="underline"
+                    color="secondary"
+                    size="md"
+                    text={text.dashboard.login.resendCode}
+                    weight="medium"
+                  />
+                </button>
+              ) : (
+                <Text
+                  color="secondary"
+                  size="lg"
+                  text={remainingTime}
+                  weight="bold"
+                />
+              )}
+            </div>
           </div>
-          <div className="flex justify-center pt-[1.5vh]">
-            
-              <DefaultButton
-                type="primary" 
-                style="fill"
-                label={text.dashboard.login.submit}
-                action={verifyOtpAction}
-              />
-          </div>
-          <div
-            className="flex w-full cursor-pointer items-center justify-center pt-[1vw]"
-            onClick={() => router.push("/send-otp")}
-          >
-            <Text
-              color="secondary"
-              size="md"
-              text="تغییر شماره و دریافت مجدد کد"
-              weight="regular"
+
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <DefaultButton
+              action={verifyOtpAction}
+              disabled={!canSubmit}
+              label={text.dashboard.login.submit}
+              style="fill"
+              type="primary"
+              width="full"
             />
+
+            <button
+              type="button"
+              className="cursor-pointer"
+              onClick={() => router.push("/send-otp")}
+            >
+              <Text
+                color="secondary"
+                size="sm"
+                text="تغییر شماره و دریافت مجدد کد"
+                weight="regular"
+              />
+            </button>
           </div>
-        </div>
+        </AuthCard>
       </div>
-    </div>
+    </main>
   );
 }

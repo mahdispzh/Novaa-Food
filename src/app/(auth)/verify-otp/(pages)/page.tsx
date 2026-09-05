@@ -10,18 +10,16 @@ export default function VerifyPage() {
   const { remainingTime, isExpired, resetTimer } = useCountdown(60);
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-white">
-      <VerifyForm
-        code={code}
-        inputStatus={inputStatus}
-        isExpired={isExpired}
-        isLoading={loading}
-        phoneNumber={phone}
-        remainingTime={remainingTime}
-        resetTimer={resetTimer}
-        verifyOtpAction={verifyOtpAction}
-        onChangeCode={changeCode}
-      />
-    </div>
+    <VerifyForm
+      code={code}
+      inputStatus={inputStatus}
+      isExpired={isExpired}
+      isLoading={loading}
+      phoneNumber={phone}
+      remainingTime={remainingTime}
+      resetTimer={resetTimer}
+      verifyOtpAction={verifyOtpAction}
+      onChangeCode={changeCode}
+    />
   );
 }

@@ -1,10 +1,14 @@
 "use client";
 
+import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import text from "@/src/shared/constants/texts/texts.json";
 import { DefaultButton, Text } from "@/src/shared/ui";
 import { Rules } from "@/src/shared/validations/rules";
 import { useValidation } from "@/src/shared/validations/use-validation";
-import Image from "next/image";
+import { AuthHeroPanel } from "@/src/shared/components/auth/auth-hero-panel";
+import { AuthCard } from "@/src/shared/components/auth/auth-card";
+
+const PHONE_LENGTH = 10;
 
 interface LoginFormProps {
   phone: string;
@@ -20,64 +24,47 @@ export default function LoginForm({
   const phoneValidation = useValidation(Rules.phone);
 
   const handlePhoneChange = (value: string) => {
-    const numbersOnly = value.replace(/\D/g, "");
+    const numbersOnly = value.replace(/\D/g, "").slice(0, PHONE_LENGTH);
 
     phoneValidation.onChange(numbersOnly);
     changePhone(numbersOnly);
   };
 
   const handleSubmit = () => {
-    const isValid = phoneValidation.validate();
-    if (!isValid) return;
+    if (!phoneValidation.validate()) return;
 
     sendOtpAction(phone);
   };
 
   return (
-    <div className="flex w-[30vw] flex-col items-center gap-[10vh] rounded-lg bg-white p-[2.5vw] shadow-danger">
-      <Image
-        alt="logo"
-        className="h-auto w-[18vw]"
-        height={80}
-        src="/images/logo.svg"
-        width={200}
-      />
+    <main className="flex min-h-dvh justify-center bg-beige">
+      <div className="w-full max-w-sm">
+        <AuthHeroPanel
+          description={text.dashboard.login.description}
+          icon={<ICONS.phoneIcon color="text-white" size="md" />}
+          title={text.dashboard.login.title}
+        />
 
-      <div className="flex w-full flex-col gap-[3vh]">
-        <div className="flex w-full flex-col gap-[3vh] px-[2vw]">
-          <div className="flex flex-col gap-[1vh] pb-[1vw]">
-            <Text
-              color="primary"
-              size="lg"
-              text={text.dashboard.login.title}
-              weight="bold"
-            />
-
-            <Text
-              color="primary"
-              size="lg"
-              text={text.dashboard.login.description}
-              weight="bold"
-            />
-          </div>
+        <AuthCard>
           <div className="flex flex-col gap-2">
-            <div className="flex flex-row gap-[0.2vw]">
+            <div
+              dir="ltr"
+              className={`flex items-center gap-3 border-b py-2 transition ${
+                phoneValidation.error
+                  ? "border-danger"
+                  : "border-gray focus-within:border-primary"
+              }`}
+            >
+              <span className="text-lg text-gray">+98</span>
               <input
-                autoFocus
-                className={`text-medium w-full rounded-r-sm border px-4 py-3 text-lg text-[#6b6a6a] transition outline-none placeholder:text-gray ${
-                  phoneValidation.error
-                    ? "border-danger focus:border-danger"
-                    : "border-gray focus:border-primary"
-                }`}
-                placeholder="9176202911"
+                className="flex-1 text-lg text-secondary outline-none placeholder:text-gray"
+                inputMode="numeric"
+                placeholder="Mobile Number"
                 type="tel"
-                value={phoneValidation.value}
+                value={phone}
                 onChange={(e) => handlePhoneChange(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               />
-              <div className="flex w-15 items-center justify-center rounded-l-sm border border-gray bg-white py-3 focus:border-primary">
-                <p className="text-medium text-lg text-[#6b6a6a]">98+</p>
-              </div>
             </div>
 
             {phoneValidation.error && (
@@ -86,24 +73,26 @@ export default function LoginForm({
               </span>
             )}
           </div>
-          <div className="flex justify-center pt-[1.5vh]">
+
+          <div className="mt-8">
             <DefaultButton
               action={handleSubmit}
               label={text.dashboard.login.submit}
               style="fill"
               type="primary"
+              width="full"
             />
           </div>
-        </div>
-        <div className="flex items-center justify-center">
+
           <Text
+            className="mt-4 block text-center leading-relaxed"
             color="secondary"
-            size="md"
+            size="xs"
             text={text.dashboard.login.terms}
             weight="regular"
           />
-        </div>
+        </AuthCard>
       </div>
-    </div>
+    </main>
   );
 }
