@@ -8,6 +8,7 @@ export interface DefaultButtonProps {
   style?: "fill" | "outline";
   width?: ButtonWidth;
   disabled?: boolean;
+  className?: string;
 }
 
 export function DefaultButton({
@@ -17,6 +18,7 @@ export function DefaultButton({
   style = "fill",
   width = "full",
   disabled,
+  className,
 }: DefaultButtonProps) {
   const variant: ButtonVariant = style === "outline" ? "outline" : type;
 
@@ -27,6 +29,7 @@ export function DefaultButton({
       rounded="sm"
       size="lg"
       disabled={disabled}
+      className={className}
       onClick={action}
       type="button"
     >

@@ -73,7 +73,7 @@ export function OtpInput({
             inputsRef.current[index] = el;
           }}
           className={cn(
-            "h-12 w-12 rounded-sm border text-center text-lg outline-none transition",
+            "h-14 w-14 rounded-full border text-center text-2xl font-medium transition outline-none",
             statusClassMap[status],
           )}
           inputMode="numeric"

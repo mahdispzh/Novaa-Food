@@ -1,11 +1,10 @@
 "use client";
 
+import { AuthHeroPanel } from "@/src/shared/components/auth/auth-hero-panel";
+import { AuthWaveShape } from "@/src/shared/components/auth/auth-wave-shape";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import text from "@/src/shared/constants/texts/texts.json";
 import { DefaultButton, OtpInput, Text } from "@/src/shared/ui";
-import { useRouter } from "next/navigation";
-import { AuthHeroPanel } from "@/src/shared/components/auth/auth-hero-panel";
-import { AuthCard } from "@/src/shared/components/auth/auth-card";
 
 const OTP_LENGTH = 4;
 
@@ -32,94 +31,91 @@ export default function VerifyForm({
   inputStatus,
   isLoading,
 }: VerifyFormProps) {
-  const router = useRouter();
   const canSubmit = code.length === OTP_LENGTH && !isLoading;
 
   return (
-    <main className="flex min-h-dvh justify-center bg-beige">
-      <div className="w-full max-w-sm">
-        <AuthHeroPanel
-          icon={<ICONS.checkbox color="text-white" size="md" />}
-          title={text.dashboard.login.verifyCode}
-          description={
-            <>
-              {text.dashboard.login.codeSent}{" "}
-              <bdi dir="ltr">{phoneNumber}</bdi>{" "}
-              {text.dashboard.login.sent}
-            </>
-          }
+    <div className="fixed inset-0 flex h-screen max-h-screen w-full flex-col overflow-hidden bg-primary">
+      <AuthHeroPanel
+        description={
+          <>
+            {text.dashboard.login.codeSent} <bdi dir="ltr">{phoneNumber}</bdi>{" "}
+            {text.dashboard.login.sent}
+          </>
+        }
+        icon={
+          <ICONS.otpIcon
+            color="text-white"
+            size="9xl"
+            style={{
+              height: "80px",
+              transform: "scaleX(3) scaleY(2.5)",
+              width: "100px",
+            }}
+          />
+        }
+        title={text.dashboard.login.verifyCode}
+      />
+
+      <div className="relative w-full flex-1 overflow-hidden">
+        <AuthWaveShape
+          stretch
+          className="absolute right-0 bottom-7 h-[150%] w-4/5 [&_svg]:origin-bottom [&_svg]:scale-y-[1.35]"
         />
 
-        <AuthCard>
-          <div className="flex flex-col items-center gap-6">
+        <div className="relative z-10 flex h-full flex-col items-center justify-between px-8 py-10">
+          <div
+            className="relative z-20 flex flex-col items-center gap-5"
+            style={{ transform: "translateY(clamp(190px, 28vh, 260px))" }}
+          >
+            {/* 4 large boxes per spec — reusing the existing OtpInput component */}
             <OtpInput
               length={OTP_LENGTH}
+              status={inputStatus}
               value={code}
               onChange={onChangeCode}
-              status={inputStatus}
               onEnter={() => canSubmit && verifyOtpAction()}
             />
 
-            <div className="flex flex-col items-center gap-2">
-              {!isExpired && (
+            {isExpired ? (
+              <button
+                className="cursor-pointer"
+                type="button"
+                onClick={resetTimer}
+              >
                 <Text
+                  className="underline"
                   color="secondary"
-                  size="xs"
-                  text={text.dashboard.login.remainingTime}
-                  weight="regular"
+                  size="md"
+                  text={text.dashboard.login.resendCode}
+                  weight="medium"
                 />
-              )}
-
-              {isExpired ? (
-                <button
-                  type="button"
-                  className="cursor-pointer"
-                  onClick={resetTimer}
-                >
-                  <Text
-                    className="underline"
-                    color="secondary"
-                    size="md"
-                    text={text.dashboard.login.resendCode}
-                    weight="medium"
-                  />
-                </button>
-              ) : (
-                <Text
-                  color="secondary"
-                  size="lg"
-                  text={remainingTime}
-                  weight="bold"
-                />
-              )}
-            </div>
-          </div>
-
-          <div className="mt-8 flex flex-col items-center gap-4">
-            <DefaultButton
-              action={verifyOtpAction}
-              disabled={!canSubmit}
-              label={text.dashboard.login.submit}
-              style="fill"
-              type="primary"
-              width="full"
-            />
-
-            <button
-              type="button"
-              className="cursor-pointer"
-              onClick={() => router.push("/send-otp")}
-            >
+              </button>
+            ) : (
               <Text
                 color="secondary"
-                size="sm"
-                text="تغییر شماره و دریافت مجدد کد"
-                weight="regular"
+                size="lg"
+                text={remainingTime}
+                weight="bold"
               />
-            </button>
+            )}
           </div>
-        </AuthCard>
+        </div>
       </div>
-    </main>
+
+      <div
+        className="fixed z-20"
+        style={{ bottom: "64px", left: "15%", width: "70%" }}
+      >
+        <DefaultButton
+          action={verifyOtpAction}
+          className="h-14 text-lg"
+          disabled={!canSubmit}
+          label="ورود"
+          style="fill"
+          type="primary"
+          width="full"
+        />
+      </div>
+    </div>
   );
 }

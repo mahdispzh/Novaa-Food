@@ -1,12 +1,9 @@
 "use client";
 
 import { useAuthStore } from "@/src/shared/store/store";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export function PublicAuthGuard({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-
   const token = useAuthStore((s) => s.accessToken);
   const user = useAuthStore((s) => s.user);
   const hydrated = useAuthStore((s) => s.isHydrated);
@@ -15,9 +12,9 @@ export function PublicAuthGuard({ children }: { children: React.ReactNode }) {
     if (!hydrated) return;
 
     if (token && user) {
-      router.replace(user.role === 2 ? "/dashboard/home" : "/profile/home");
+      window.location.replace(user.role === 2 ? "/dashboard/home" : "/profile/home");
     }
-  }, [hydrated, token, user, router]);
+  }, [hydrated, token, user]);
 
   // منتظر هیدریت شدن
   if (!hydrated) {

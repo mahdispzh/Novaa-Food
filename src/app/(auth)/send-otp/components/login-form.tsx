@@ -1,12 +1,12 @@
 "use client";
 
+import { AuthHeroPanel } from "@/src/shared/components/auth/auth-hero-panel";
+import { AuthWaveShape } from "@/src/shared/components/auth/auth-wave-shape";
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import text from "@/src/shared/constants/texts/texts.json";
-import { DefaultButton, Text } from "@/src/shared/ui";
+import { DefaultButton } from "@/src/shared/ui";
 import { Rules } from "@/src/shared/validations/rules";
 import { useValidation } from "@/src/shared/validations/use-validation";
-import { AuthHeroPanel } from "@/src/shared/components/auth/auth-hero-panel";
-import { AuthCard } from "@/src/shared/components/auth/auth-card";
 
 const PHONE_LENGTH = 10;
 
@@ -37,29 +37,53 @@ export default function LoginForm({
   };
 
   return (
-    <main className="flex min-h-dvh justify-center bg-beige">
-      <div className="w-full max-w-sm">
-        <AuthHeroPanel
-          description={text.dashboard.login.description}
-          icon={<ICONS.phoneIcon color="text-white" size="md" />}
-          title={text.dashboard.login.title}
+    <div className="fixed inset-0 flex h-screen max-h-screen w-full flex-col overflow-hidden bg-primary">
+      <AuthHeroPanel
+        description={text.dashboard.login.description}
+        icon={
+          <ICONS.mobileIcon
+            color="text-white"
+            size="9xl"
+            style={{
+              height: "80px",
+              transform: "scaleX(3) scaleY(2.5)",
+              width: "100px",
+            }}
+          />
+        }
+        title={text.dashboard.login.title}
+      />
+
+      <div className="relative w-full flex-1 overflow-hidden">
+        <AuthWaveShape
+          stretch
+          className="absolute right-0 bottom-7 h-[150%] w-4/5 [&_svg]:origin-bottom [&_svg]:scale-y-[1.35]"
         />
 
-        <AuthCard>
-          <div className="flex flex-col gap-2">
+        <div className="relative z-10 flex h-full flex-col px-8 py-10">
+          <div
+            className="relative z-20 flex w-4/5 flex-col gap-2 self-center"
+            style={{
+              marginInline: "auto",
+              transform: "translateY(clamp(190px, 28vh, 260px))",
+              width: "70%",
+            }}
+          >
+            {/* Fixed +98 prefix, no country selector, per spec */}
             <div
-              dir="ltr"
-              className={`flex items-center gap-3 border-b py-2 transition ${
+              className={`flex items-center gap-3 border-b py-3 text-lg transition ${
                 phoneValidation.error
                   ? "border-danger"
                   : "border-gray focus-within:border-primary"
               }`}
+              dir="ltr"
             >
-              <span className="text-lg text-gray">+98</span>
+              <span className="text-secondary">+98</span>
               <input
-                className="flex-1 text-lg text-secondary outline-none placeholder:text-gray"
+                autoFocus
+                className="flex-1 text-secondary outline-none placeholder:text-gray"
                 inputMode="numeric"
-                placeholder="Mobile Number"
+                placeholder="9123456789"
                 type="tel"
                 value={phone}
                 onChange={(e) => handlePhoneChange(e.target.value)}
@@ -68,31 +92,27 @@ export default function LoginForm({
             </div>
 
             {phoneValidation.error && (
-              <span className="text-sm text-danger">
+              <span className="text-danger text-sm">
                 {phoneValidation.error}
               </span>
             )}
           </div>
-
-          <div className="mt-8">
-            <DefaultButton
-              action={handleSubmit}
-              label={text.dashboard.login.submit}
-              style="fill"
-              type="primary"
-              width="full"
-            />
-          </div>
-
-          <Text
-            className="mt-4 block text-center leading-relaxed"
-            color="secondary"
-            size="xs"
-            text={text.dashboard.login.terms}
-            weight="regular"
-          />
-        </AuthCard>
+        </div>
       </div>
-    </main>
+
+      <div
+        className="fixed z-20"
+        style={{ bottom: "64px", left: "15%", width: "70%" }}
+      >
+        <DefaultButton
+          action={handleSubmit}
+          className="h-14 text-lg"
+          label="ورود"
+          style="fill"
+          type="primary"
+          width="full"
+        />
+      </div>
+    </div>
   );
 }

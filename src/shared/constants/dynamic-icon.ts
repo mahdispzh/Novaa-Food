@@ -54,6 +54,8 @@ import { ChevronLeftIcon as chevronlefticon } from "./icons/chevronleft-icon";
 import { PlayIcon as playIcon } from "@/src/shared/constants/icons/play-icon";
 import { ArrowRightIcon as arrowRightIcon } from "@/src/shared/constants/icons/arrowRight-icon";
 import { SearchIcon as searchIcon } from "@/src/shared/constants/icons/search-icon";
+import { OtpIcon as otpIcon } from "./icons/OtpIcon";
+import { MobileNumberIcon as mobileIcon } from "./icons/MobileNumberIcon";
 
 
 export const ICONS = {
@@ -62,7 +64,8 @@ export const ICONS = {
   checkbox,
   settings,
   chevronlefticon,
-  // calendar,
+  mobileIcon,
+  otpIcon,
   events,
   map,
   searchIcon,
