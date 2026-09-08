@@ -4,9 +4,16 @@ import {
   AccountActions,
   CommentsCard,
   ProfileHeader,
-  ProfileStats,
 } from "@/src/app/user/home/_components/index";
 import Main from "@/src/shared/ui/main/main";
+
+// TODO: replace with real user data (session/auth context or API call)
+const user = {
+  name: "نام کاربر",
+  username: "user_username",
+  id: "09123456789",
+  imageSrc: "/images/users/U1.png",
+};
 
 const profileStats = [
   { label: "مکان ذخیره‌شده", value: "۴۵" },
@@ -16,17 +23,19 @@ const profileStats = [
 
 export default function Page() {
   return (
-    <Main className="min-h-screen bg-[#f7f6f4] px-4 py-4 text-[#3d332f]">
-      <div dir="rtl">
-        <section className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-104 flex-col bg-[#fcfbfa] shadow-sm">
-          <ProfileHeader name="علی محمدی" username="@ali محمدی" />
-          <div className="px-4 pt-1">
-            <ProfileStats stats={profileStats} />
-            <CommentsCard />
-          </div>
-          <AccountActions />
-        </section>
-      </div>
+    <Main hideFooter className="h-screen overflow-hidden bg-light-beige px-4 py-4 pb-4 text-secondary">
+      <section className="mx-auto flex max-w-104 flex-col gap-8 bg-light-beige">
+        <ProfileHeader
+          name={user.name}
+          id={user.id}
+          imageSrc={user.imageSrc}
+          stats={profileStats}
+        />
+        <div className="px-4 pt-1">
+          <CommentsCard />
+        </div>
+        <AccountActions />
+      </section>
     </Main>
   );
 }

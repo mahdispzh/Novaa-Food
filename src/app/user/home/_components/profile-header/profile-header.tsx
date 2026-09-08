@@ -1,11 +1,25 @@
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
+import Image from "next/image";
+import { ProfileStats } from "../profile-stats/profile-stats";
+
+interface ProfileStat {
+  label: string;
+  value: string;
+}
 
 interface ProfileHeaderProps {
   name: string;
-  username: string;
+  id?: string | number;
+  imageSrc?: string;
+  stats: ProfileStat[];
 }
 
-export function ProfileHeader({ name, username }: ProfileHeaderProps) {
+export function ProfileHeader({
+  name,
+  id,
+  imageSrc,
+  stats,
+}: ProfileHeaderProps) {
   return (
     <>
       <header className="flex items-center justify-start px-4 py-2">
@@ -14,21 +28,39 @@ export function ProfileHeader({ name, username }: ProfileHeaderProps) {
           className="flex h-10 w-10 items-center justify-center"
           type="button"
         >
-          <ICONS.arrowRightIcon color="text-[#3d332f]" size="lg" />
+          <ICONS.arrowRightIcon color="text-secondary" size="lg" />
         </button>
       </header>
 
-      <div className="px-4 pt-1">
-        <div className="flex items-center gap-3">
-          <div className="flex flex-1 flex-col gap-2">
-            <h1 className="text-lg font-bold">{name}</h1>
-            <p className="text-xs text-[#9a928d]">{username}</p>
-          </div>
+      <div className="flex items-center gap-3 px-4 pt-1">
+        <div className="relative h-25 w-25 shrink-0">
+            <div className="relative h-full w-full overflow-hidden rounded-full">
+                <Image
+                fill
+                priority
+                alt={`${name} profile image`}
+                className="object-cover"
+                src={imageSrc}
+                />
+            </div>
 
-          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-[#75a8a5]">
-            <div className="absolute inset-x-5 bottom-0 h-12 rounded-t-[50%] bg-white/90" />
-            <div className="absolute left-1/2 top-3 h-10 w-9 -translate-x-1/2 rounded-full bg-[#9e694f]" />
+            <button
+                aria-label="ویرایش تصویر پروفایل"
+                className="absolute bottom-0 right-0 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-secondary text-white"
+                type="button"
+            >
+                <ICONS.editIcon color="text-white" size="sm" />
+            </button>
+            </div>
+
+        <div className="flex flex-1 flex-col gap-4">
+          <div className="flex items-baseline gap-10">
+            <h1 className="text-lg font-bold">{name}</h1>
+            {id !== undefined && (
+              <span className="text-xs text-gray-500">{id}</span>
+            )}
           </div>
+          <ProfileStats stats={stats} />
         </div>
       </div>
     </>

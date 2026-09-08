@@ -3,14 +3,14 @@ import { ICONS } from "@/src/shared/constants/dynamic-icon";
 export function CommentsCard() {
   return (
     <button
-      className="mt-4 flex min-h-16 w-full flex-col items-start justify-center gap-1 rounded-md border border-[#d8d0c2] bg-[#f5f0e7] px-4 text-right"
+      className="mt-4 flex min-h-16 w-full flex-col items-start justify-center gap-0.5 rounded-md border border-primary bg-beige px-4 text-right"
       type="button"
     >
-      <span className="flex w-full items-center justify-between text-sm font-medium">
+      <span className="flex py-2 gap-2 items-center justify-between text-md font-medium">
+        <ICONS.reviewIcon color="text-secondary" size="lg" />
         دیدگاه‌های من
-        <ICONS.messageIcon color="text-[#3d332f]" size="md" />
       </span>
-      <span className="text-[10px] text-[#817873]">
+      <span className="text-xs py-2 text-gray-500">
         اینجا می‌توانید دیدگاه‌های ثبت‌شده خود را مشاهده و مدیریت کنید.
       </span>
     </button>
