@@ -52,6 +52,10 @@ const icons = [
   { name: "PlayIcon", Component: ICONS.playIcon },
   { name: "PlusIcon", Component: ICONS.plusIcon },
   { name: "ExploreIcon", Component: ICONS.exploreIcon },
+  { name: "DeleteIcon", Component: ICONS.deleteIcon },
+  { name: "EditIcon", Component: ICONS.editIcon },
+  { name: "ExitIcon", Component: ICONS.exitIcon },
+  { name: "ReviewIcon", Component: ICONS.reviewIcon },
 ] as const;
 
 export default function Page() {

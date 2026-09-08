@@ -8,10 +8,17 @@ export default function HeaderController() {
   const hideHeaderOnBloggerDetails = /^\/bloggers\/[^^/]+$/.test(pathname);
   const hideOnTestIconPage = pathname === "/test-icon" || pathname.startsWith("/test-icon/");
   const hideOnTestPage = pathname === "/test" || pathname.startsWith("/test/");
+  const hideOnUserPages = pathname === "/user" || pathname.startsWith("/user/");
   const hideOnAuthPages =
     pathname.startsWith("/send-otp") || pathname.startsWith("/verify-otp");
 
-  if (hideHeaderOnBloggerDetails || hideOnTestPage || hideOnTestIconPage || hideOnAuthPages) {
+  if (
+    hideHeaderOnBloggerDetails ||
+    hideOnTestPage ||
+    hideOnTestIconPage ||
+    hideOnUserPages ||
+    hideOnAuthPages
+  ) {
     return null;
   }
 
