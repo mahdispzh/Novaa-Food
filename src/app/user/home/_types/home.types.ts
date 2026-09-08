@@ -15,3 +15,19 @@ export interface FrequentProduct {
   totalQuantity: number;
   orderCount: number;
 }
+
+export interface SavedPlaceCategory {
+  id: string;
+  label: string;
+}
+
+export interface SavedPlace {
+  id: number;
+  title: string;
+  categoryId: string;
+  categoryLabel: string;
+  city: string;
+  district: string;
+  rating: number;
+  imageSrc: string;
+}

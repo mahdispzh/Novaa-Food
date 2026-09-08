@@ -16,7 +16,7 @@ const user = {
 };
 
 const profileStats = [
-  { label: "مکان ذخیره‌شده", value: "۴۵" },
+  { label: "مکان ذخیره‌شده", value: "۴۵", href: "/user/home/saved-places" },
   { label: "رویداد ذخیره‌شده", value: "۳۲" },
   { label: "دنبال‌کننده", value: "۹۶" },
 ];
