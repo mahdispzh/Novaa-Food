@@ -1,9 +1,9 @@
 "use client";
 
 import { CategoryTabs } from "@/src/app/user/home/_components/category-tabs/category-tabs";
-import { SavedPlaceCard } from "@/src/app/user/home/_components/saved-place-card/saved-place-card";
-import { SavedPlacesHeader } from "@/src/app/user/home/_components/saved-places-header/saved-places-header";
 import type { SavedPlace } from "@/src/app/user/home/_types/home.types";
+import { SavedPlaceCard } from "@/src/app/user/saved-places/_components/saved-place-card/saved-place-card";
+import { SavedPlacesHeader } from "@/src/app/user/saved-places/_components/saved-places-header/saved-places-header";
 import Main from "@/src/shared/ui/main/main";
 import { useState } from "react";
 
