@@ -20,7 +20,7 @@ export function SavedPlaceCard({
 }: SavedPlaceCardProps) {
   return (
     <div className="flex items-start gap-3 border-b border-gray-100 py-4">
-      <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-lg">
+      <div className="relative h-20 w-30 shrink-0 overflow-hidden rounded-lg">
         <Image fill alt={title} className="object-cover" src={imageSrc} />
       </div>
 
@@ -37,8 +37,8 @@ export function SavedPlaceCard({
       </div>
 
       <span className="flex items-center gap-1 text-xs text-gray-600">
-        <ICONS.starIcon color="text-yellow-500" size="sm" />
         {rating}
+        <ICONS.starIcon color="text-yellow-500" size="sm" />
       </span>
     </div>
   );

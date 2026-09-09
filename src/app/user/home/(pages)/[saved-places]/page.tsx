@@ -24,7 +24,7 @@ const savedPlaces: SavedPlace[] = Array.from({ length: 5 }, (_, i) => ({
   city: "شیراز",
   district: "نیایش",
   rating: 4.8,
-  imageSrc: "/images/places/cafe-tira.jpg",
+  imageSrc: "/images/bloggers/1.png",
 }));
 
 export default function SavedPlacesPage() {

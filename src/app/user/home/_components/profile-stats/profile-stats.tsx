@@ -12,7 +12,7 @@ interface ProfileStatsProps {
 
 export function ProfileStats({ stats }: ProfileStatsProps) {
   return (
-    <div className="mt-1 flex w-full justify-between text-start">
+    <div className="mt-1 flex w-full justify-between text-center">
       {stats.map((stat) => {
         const content = (
           <div className="flex flex-col gap-0.5">

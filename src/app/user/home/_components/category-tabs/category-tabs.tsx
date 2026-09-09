@@ -23,7 +23,7 @@ export function CategoryTabs({
             key={category.id}
             className={`whitespace-nowrap pb-2 ${
               isActive
-                ? "border-b-2 border-secondary font-bold text-secondary"
+                ? "border-b-2 border-primary font-bold text-secondary"
                 : "text-gray-400"
             }`}
             type="button"
