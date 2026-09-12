@@ -3,9 +3,10 @@ import AppFooter from "@/src/shared/components/footer/AppFooter";
 interface MainProps {
   children: React.ReactNode;
   className?: string;
+  hideFooter?: boolean;
 }
 
-export default function Main({ children, className }: MainProps) {
+export default function Main({ children, className, hideFooter = false }: MainProps) {
   return (
     <main
       className={[
@@ -19,7 +20,7 @@ export default function Main({ children, className }: MainProps) {
         .join(" ")}
     >
       {children}
-      <AppFooter />
+      {!hideFooter && <AppFooter />}
     </main>
   );
 }

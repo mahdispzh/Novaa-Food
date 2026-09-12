@@ -1,3 +1,5 @@
+"use client";
+
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import Link from "next/link";
 
@@ -15,13 +17,13 @@ export function BaseHeader() {
               <ICONS.headsetIcon color="text-secondary" size="2xl" />
             </button>
 
-            <button
+            <Link
               aria-label="پروفایل"
               className="flex h-11 w-11 items-center justify-center text-primary transition hover:border-primary hover:text-primary hover:bg-light-beige"
-              type="button"
+              href="/send-otp"
             >
               <ICONS.userIcon color="text-secondary" size="2xl" />
-            </button>
+            </Link>
           </div>
 
           <Link className="flex items-center gap-3 text-primary" href="/">

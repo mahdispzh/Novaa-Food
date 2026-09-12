@@ -2,10 +2,9 @@
 
 import { ICONS } from "@/src/shared/constants/dynamic-icon";
 import { Button } from "@/src/shared/ui";
-import Container from "@/src/shared/ui/container/container";
 import SectionHeading from "@/src/shared/ui/section-heading/section-heading";
 import EventCard from "./event-card";
-import { eventCards } from "./event-card-constant";
+import Link from "next/link";
 
 type EventSectionProps = {
   data: any[];
@@ -24,12 +23,12 @@ export default function EventCardSection({data}:EventSectionProps) {
             title="رویدادها و لحظه‌ها"
             subtitle="بیشتر از یک وعده, یک تجربه"
           />
-          <div className="flex items-center">
+          <Link href="/events" className="flex items-center">
             <Button variant="link" size="sm">
               <span>مشاهده همه</span>
             </Button>
             <ChevronLeftIcon size="sm" color="text-secondary" />
-          </div>
+          </Link>
         </div>
 
 

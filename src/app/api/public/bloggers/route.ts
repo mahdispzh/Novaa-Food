@@ -1,4 +1,4 @@
-import { getBloggers } from "@/src/app/(landing)/bloggers/_services/bloggers.service";
+import { getBloggers } from "@/src/app/(landing)/bloggers/_services/bloggers.server";
 import { NextResponse } from "next/server";
 
 export async function GET() {

@@ -48,14 +48,14 @@ export default function BaseFooter({
       <div
         aria-hidden="true"
         className={cn(
-          "pointer-events-none h-[5.25rem] w-full sm:h-[6rem] md:h-[6.5rem]",
+          "pointer-events-none h-21 w-full sm:h-96 md:h-26",
           spacerClassName,
         )}
       />
       <footer
         aria-label={label}
         className={cn(
-          "fixed inset-x-0 right-0 bottom-0 left-0 z-[60] mx-0 w-full max-w-none bg-transparent px-0 py-0",
+          "fixed inset-x-0 right-0 bottom-0 left-0 z-[9999] mx-0 w-full max-w-none bg-transparent px-0 py-0",
           className,
         )}
       >
@@ -73,7 +73,7 @@ export default function BaseFooter({
             {activeCenter && (
               <div
                 aria-hidden="true"
-                className="absolute flex aspect-square items-center justify-center rounded-full bg-[#8E977D] transition-[left] duration-500 ease-out"
+                className="absolute flex aspect-square items-center justify-center rounded-full bg-primary transition-[left] duration-500 ease-out"
                 style={{
                   left: activeCenter,
                   top: "30.5%",
@@ -88,9 +88,9 @@ export default function BaseFooter({
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
                 aria-label={item.label}
                 className="absolute top-0 z-10 h-full outline-none"
+                href={item.href}
                 style={item.style}
                 onClick={() => onNavItemPress?.(item.href)}
               >
