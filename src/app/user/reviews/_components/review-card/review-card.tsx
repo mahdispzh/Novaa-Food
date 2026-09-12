@@ -25,7 +25,7 @@ function StarRating({
           <ICONS.starIcon
             key={i}
             className={filled ? "fill-primary text-primary" : "text-gray-300"}
-            size={14}
+            size="3xl"
           />
         );
       })}
