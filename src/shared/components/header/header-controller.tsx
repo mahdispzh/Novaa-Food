@@ -7,6 +7,7 @@ export default function HeaderController() {
   const pathname = usePathname();
   const hideHeaderOnBloggerDetails = /^\/bloggers\/[^^/]+$/.test(pathname);
   const hideOnTestIconPage = pathname === "/test-icon" || pathname.startsWith("/test-icon/");
+  const hideOnMapPage = pathname === "/map" || pathname.startsWith("/map/")
   const hideOnTestPage = pathname === "/test" || pathname.startsWith("/test/");
   const hideOnUserPages = pathname === "/user" || pathname.startsWith("/user/");
   const hideOnAuthPages =
@@ -17,7 +18,8 @@ export default function HeaderController() {
     hideOnTestPage ||
     hideOnTestIconPage ||
     hideOnUserPages ||
-    hideOnAuthPages
+    hideOnAuthPages ||
+    hideOnMapPage
   ) {
     return null;
   }

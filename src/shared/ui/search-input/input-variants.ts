@@ -15,7 +15,7 @@ export const inputVariants = cva(
         outline:
           "border border-primary bg-transparent focus-within:border-primary",
         filled:
-          "bg-gray-100 border border-transparent focus-within:border-primary",
+          "bg-light-beige border border-transparent focus-within:border-primary",
       },
 
       inputSize: {

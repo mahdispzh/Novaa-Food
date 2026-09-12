@@ -8,7 +8,7 @@ const { searchIcon: SearchIcon } = ICONS;
 
 export default function Page() {
   return (
-    <Main className="relative h-screen w-full">
+    <div className="relative h-screen w-full">
       <Map />
       <div className="absolute top-5 right-4 w-[380px] max-w-[625px]">
         <Input
@@ -16,12 +16,12 @@ export default function Page() {
           leftIcon={<SearchIcon color="text-gray" size="md" />}
           placeholder="جستجو"
           rounded="full"
-          variant="outline"
+          variant="filled"
         />
       </div>
       <div className="absolute bottom-4 w-full">
         <MapCardSection />
       </div>
-    </Main>
+    </div>
   );
 }
